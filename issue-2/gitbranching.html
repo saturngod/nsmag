@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Git Branching
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Git Branching</h1>
+      <div class="description">Git အသုံးပြုပြီး branch တွေကို ဘယ်လို ခွဲသင့်လဲ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/gitbranching.png" class="headerImage">
+    <div class="content detailArticle"><p>Git ဆိုတာကိုတော့ မြန်မာနိုင်ငံက developer တွေ သိပ်ပြီးတော့ ရင်းနှီးမှု မရှိပေမယ့် github ကိုတော့ ရင်းနှီးမယ်လို့ ထင်ပါတယ်။ Git အကြောင်းမပြောခင်မှာ version control နဲ့ source code management (SCM) system အကြောင်း သိဖို့လိုပါတယ်။ ကျွန်တော်တို့ team နဲ့ အလုပ်လုပ်တာ မဟုတ်ပဲ တစ်ယောက်တည်း လုပ်နေတဲ့ လူတွေ အတွက် Version Control နဲ့ SCM တွေက သိပ် အရေးမပါသလို ထင်နေရတယ်။ တကယ်တော့ Team work နဲ့ မလုပ်လည်း SCM ကို အသုံးပြုသင့်ပါတယ်။ ကိုယ့် code တွေကို backup လုပ်ထားတာ ဖြစ်သလို တစ်ခုခု မှားသွားရင် ကိုယ်လိုချင်တဲ့ version ကို ပြန်ပြီး သွားလို့ရတာပေါ့။ SCM တွေမှာ နာမည်ကြီးတွေက </p>
+<ul>
+<li>Git</li>
+<li>SVN</li>
+<li>Hg</li>
+</ul>
+<p>ဘယ်ဟာက ပိုကောင်းတယ် ဆိုတာကိုတော့ ငြင်းနေစရာ မရှိပါဘူး။ သို့ပေမယ့် ကျွန်တော်ကတော့ Git ကို ပိုသဘောကျပါတယ်။ Git Vs SVN ဒါမှမဟုတ် Git Vs Hg topic မဟုတ်တာကြောင့် ကွာခြားချက်တွေကို မပြောတော့ပါဘူး။ ကျွန်တော် နေ့စဉ် development လုပ်တဲ့ အခါမှာ git က အရေးပါပါတယ်။ ဥပမာ ဆိုပါဆို့ ကျွန်တော်တို့ team မှာ developer 3 ယောက်ရှိတယ်။ Project တစ်ခုတည်းမှာ အလုပ်လုပ်နေကြတယ်။ XCode Project မှာ အပိုင်း ၃ ပိုင်းခွဲပြီး အလုပ်လုပ်နေတယ်။ iPhone UI တစ်ယောက် iPad UI တစ်ယောက် Core Structure က တစ်ယောက် ။ သူတို့ code တွေကို manually ပြီးမှ ပြန်ပေါင်းမယ်ဆိုရင် မလွယ်ကူလှပါဘူး။ အထူးသဖြင့် file တစ်ခုတည်းမှာ ပြင်ထားတာဖြစ်နေရင် manually လိုက်ပြင်ဖို့ဆိုတာ တော်တော့်ကို အချိန်ကုန်မယ့် အလုပ်ပါ။ ဒါကြောင့် ကျွန်တော်တို့အနေနဲ့ source code management တစ်ခုခု ကို သုံးဖို့လိုအပ်လာပါပြီ။ လက်ရှိ ကျွန်တော်တို့ git ကို အသုံးပြုနေပါတယ်။ git ကို အသုံးပြုခြင်းအားဖြင့် အလိုအလျောက် merge လုပ်ပေးခြင်း ၊ merge လုပ်တဲ့ အခါမှာ conflict ဖြစ်နေတာတွေကို မိမိဘာသာ merge editor တစ်ခုခုကို သုံးပြီး merge လုပ်နိုင်ခြင်း စတဲ့ feature တွေကို သုံးစွဲနိုင်ပါတယ်။ ဒါ့အပြင် ကျွန်တော်တို့ version tag တွေလည်း ခွဲထုတ်ထားလို့ရပါတယ်။</p>
+<h3 id="installation-git">Installation Git</h3>
+<p>Git ကို Windows , Mac , Linux စတာတွေ အကုန်လုံးမှာ သွင်းနိုင်ပါတယ်။ Git ကို <a href="http://bit.ly/1bLkyUr">ဒီမှာ</a> download ချလို့ရပါတယ်။ Download ချ install သွင်းပြီးသွားရင်တော့ Mac နဲ့ Linux မှာဆိုရင် စ သုံးဖို့ အသင့်ဖြစ်နေပါပြီ။ Windows မှာ SSH ကို အလုပ်မလုပ်ပါဘူး။ ဒါကြောင့် <a href="http://bit.ly/1bLkBPU">putty</a> နဲ့ တွဲပြီး အသုံးပြုဖို့လိုပါတယ်။ </p>
+<h3 id="git-repo-hosting">Git Repo Hosting</h3>
+<p>Git repository အတွက် <a href="http://bit.ly/166O1Sl">Github</a> , <a href="http://bit.ly/166O28N">Bitbucket</a> စတဲ့ ၂ ခု က လူသုံးများပါတယ်။ Github ကတော့ opensource တွေ အတွက် free ပါ။ Bitbucket ကတော့ Git ကို support မလုပ်ခင်က Hg တစ်ခုတည်းကိုသာ support လုပ်ခဲ့ပါတယ်။ 3 October 2011 မှာ Bitbucket က git ကို စပြီးတော့ support လုပ်ပါတယ်။ Bitbucket ကို လူသုံးများရခြင်းကတော့ Private Public unlimited Repo ကို Free သုံးလို့ရပါတယ်။ User 5 အထိ free သုံးလို့ရပါတယ်။ တကယ်လို့ ကိုယ့် Team က ၅ ယောက်ထက်များသွားပြီဆိုရင်တော့ လစဉ် ပေးပြီး သုံးဖို့လိုအပ်လာပါပြီ ။ <a href="http://bit.ly/1bLkC6F">Plan and Pricing</a> မှာ အသေးစိတ်ကြည့်လို့ရပါတယ်။ Github ကတော့ public ကို unlimited Free ရပေမယ့် Private ဆိုရင်တော့ လစဉ် ပေးသုံးဖို့လိုပါတယ်။ သူကတော့ Unlimited collaborators နဲ့ limited Repo <a href="http://bit.ly/1bLkCmU">Pricing plan</a>  ပါ။ အခု ဆောင်ပါးက Git ဘယ်လို သုံးရမလဲဆိုတဲ့ ဆောင်းပါး မဟုတ်တာကြောင့် git အသုံးပြုပုံကို အသေးစိတ် မရေးတော့ပါဘူး။ Repo ဆောက်ပုံ ၊ Git အသုံးပြုပုံတွေကို <a href="http://bit.ly/1bLkCmW">Bitbucket 101</a> မှာ အသေးစိတ် ဖတ်လို့ရပါတယ်။</p>
+<h3 id="why-mobile-developer-should-use-git-">Why Mobile Developer Should use Git ?</h3>
+<p>Git မှာ commit လုပ်လိုက်တဲ့ အရာတွေက history တွေပါပဲ။ ဒီ history တွေကနေ ကျွန်တော်တို့တွေ ဘာတွေ ရေးခဲ့သလဲဆိုတာကို လေ့လာလို့ရပါတယ်။ နောက်ပြီးတော့ Git မှာ ပါဝင်တဲ့ branch , tag feature တွေက ကျွန်တော်တို့ Development အတွက် အတော်လေးကို အသုံးဝင်ပါတယ်။ အောက်ကပုံလေးကို ကြည့်ကြည့်ပါ။</p>
+<p><img src="/issue-2/img/mainbranches.png" alt=""></p>
+<p>Git မှာ Branch လုပ်တာ merge လုပ်ရတာတွေက အရမ်းကို လွယ်ပါတယ်။ Branch လုပ်ရတာ Merge လုပ်ရတာတွေက ကြောက်စရာ မရှိပါဘူး။ အပေါ်က ပုံမှာ ဆိုရင် ကျွန်တော်တို့တွေ branch တွေ အများကြီးခွဲထားပြီး merge လုပ်ထားတာ ကိုတွေ့နိုင်ပါတယ်။ လက်ရှိ ကျွန်တော်တို့တွေ Project တစ်ခုလုပ်တဲ့ အခါမှာ လွယ်လင့်တကူ backup တွေ ပြန်ရနိုင်သလို branch တွေခွဲထားတာကြောင့် feature ပြဿနာတွေ အပြင် hotfix ပြဿနာတွေ အတွက် အရမ်းကို အဆင်ပြေသွားပါတယ်။ ဥပမာ ဆိုပါဆို့ ကျွန်တော်တို့ ပုံမှန် version 1.0 ပြီးတော့ version 2.0 ကို စနေပြီ။ version 1.0 က bug report တွေ တက်လာတယ်။ major bugs တွေ ။ version 2.0 က မပြီးသေးဘူး။ version 2.0 မှာ fix လုပ်ပြီး ထုတ်မယ်ဆိုရင်လည်း အရမ်းနောက်ကျနေပြီ။ Git Branch မသုံးပဲ ပုံမှန် သမာရိုးကျ ပုံစံ သုံးတဲ့ အခါမှာ version 1.0 က code တွေ မရှိတော့လို့ version 2.0 တဝက် တပျက်ကို version 1.5 ထုတ်လိုက်မယ်ဆိုလည်း မဟုတ်သေးပါဘူး။ အပေါ်က ပုံလိုမျိုး git branch တွေခွဲထားခဲ့ရင် version 1.0 Tag ကနေ hot fix branch ကို merge လုပ်။ ပြီးတော့ fix လုပ်။ ပြီးတော့ 1.2 ထုတ်။ development branch က hot fixed branch ကို ပြန် merge လုပ်ပြီး version 2.0 သုံး။ ဒါကြောင့် git branch ကို သေချာခွဲပြီး devleopment လုပ်ခြင်းက developer တွေ အတွက် အလွန်ကို အဆင်ပြေလှပါတယ်။</p>
+<h3 id="decentralized-but-centralized">Decentralized but centralized</h3>
+<p>Git ဟာ Distributed revision control ဖြစ်ပြီး central repo မရှိပါဘူး။  central repo ကို ကျွန်တော်တို့ origin လို့ပဲ ဆိုကြပါတယ်။ origin ဆိုတဲ့ နာမည်ကိုတော့ git အသုံးပြုတဲ့လူတွေအတွက်တော့ ရင်းနှီးပြီးသား ဖြစ်ပါလိမ့်မယ်။ </p>
+<p><img src="/issue-2/img/Decentralized.png" alt=""></p>
+<p>Developer တိုင်းဟာ origin ကနေ pull လုပ်လို့ရသလို push လုပ်လို့လည်း ရပါတယ်။ ဒါ့အပြင် developer အခြင်းခြင်းကလည်း တစ်ယောက်နဲ့ တစ်ယောက် repo ကို pull နဲ့ push လုပ်လို့ရပါတယ်။ ကျွန်တော်တို့တွေ Team တွေနဲ့ အလုပ်လုပ်တဲ့ အခါမှာ အဲဒီ feature က တော်တော်လေးကို အသုံးဝင်ပါတယ်။ အဲဒီ feature ကို github မှာလည်း တွေ့နိုင်ပါတယ်။ Github မှာတော့ Pull request လို့ခေါ်တာ တွေ့ပါတယ်။  မူရင်း origin ကနေ fork လုပ်ပြီး feature ထပ်ဖြည့်တာတွေ လုပ်မယ်။ ပြီးမှ origin ကို ပြန်ပြီး push လုပ်မယ်။ အခု ပုံထဲမှာ ဆိုရင် subteams တွေ တွေ့နိုင်ပါတယ်။ တင့်ထူး နဲ့ ထင်လင်း , ထင်လင်း နဲ့ ထူးနိုင် , ထူးနိုင် နဲ့ ထိန်လင်း တို့ပါ။</p>
+<h3 id="the-main-branches">The main branches</h3>
+<p>ကျွန်တော်တို့တွေ Git ကို အသုံးပြုတဲ့ အခါမှာ အဓိက main branch ၂ ခု ကို သုံးပါတယ်။ master နဲ့ develop ပါ။ origin က master branch ကိုတော့ Git သုံးတဲ့ လူတွေ ရင်းနှီးပြီးသား ဖြစ်မှာပါ။ origin/master မှာတော့ production ready ဖြစ်တဲ့ code တွေပဲ ထားမှာ ဖြစ်ပြီးတော့ development ပိုင်းတွေကိုတော့ develop branch မှာ ထားပါမယ်။ တနည်းပြောရင် ကျွန်တော်တို့ ခေါ်နေကြ nightly builds ကို development branch ပါပဲ။ အလုပ်တော့လုပ်တယ်။ သို့ပေမယ့် bug , error တွေ အများကြီး ရှိနိုင်တယ်။ bug , error အားလုံးရှင်းသွားပြီ နောက်ထပ် version အသစ်ကို ထုတ်လို့ရပြီဆိုရင် ကျွန်တော်တို့တွေ master branch မှာ ပြန်ပေါင်းပါတယ်။ ထို့အပြင် version နာမည်နဲ့ tag ပါ ပေးထားခဲ့ပါတယ်။ tag ပေးထားခဲ့တာကြောင့် လိုအပ်တာ version ကို လွယ်လွယ်ကူကူ ပြန်ယူလို့ရပါတယ်။</p>
+<p><img src="/issue-2/img/mainbranch.png" alt=""></p>
+<h3 id="supporting-branches">Supporting branches</h3>
+<p>Master နဲ့ Develop အပြင် အခြား supporting branch တွေကိုလည်း ခွဲပြီးရေးကြပါတယ်။ သို့ပေမယ့် သူက main branch နဲ့မတူတာက life time ရှိပါတယ်။ develop လုပ်နေချိန်မှာ ခဏ ခွဲထုတ်ထားတဲ့ branch တွေပါ။ Supporting branches တွေကတော့</p>
+<ul>
+<li>Feature branches</li>
+<li>Release branches</li>
+<li>Hotfix branches</li>
+</ul>
+<p>Branch တစ်ခုခြင်းဆီကို ဖန်တီးရသည့် အကြောင်း ရှိပါတယ်။ ဒါ့အပြင် branch တစ်ခုဆီမှာ သီးသန့် rule တွေရှိပါတယ်။ အသေးစိတ်ကို အောက်မှာ ဖော်ပြထားပါတယ်။</p>
+<h4 id="feature-branches">Feature branches</h4>
+<p>feature branch (topic branches လို့လည်းခေါ်ကြည်သည်) ဟာ အသစ်ထည့်မယ့် feature ဒါမှမဟုတ် နောင်တချိန်မှာ ထည့်မယ့် feature အသစ်တွေအတွက် သီးသန့်ခွဲထုတ်ထားတာပါ။ ဒီ branch ဟာ develop branch ကနေ ခွဲထုတ်ပါတယ်။ feature အတွက် သီးသန့် ထုတ်ထားတာပါ။ ပြီးတဲ့ အခါ develop branch နဲ့ ပဲ ပြန်ပေါင်းပါတယ်။ ဒီ branch ဟာ master branch နဲ့ အလုပ်မလုပ်ပါဘူး။ develop branch နဲ့ ပဲ ပြန် merge လုပ်မှာပါ။</p>
+<p><img src="/issue-2/img/feature.png" alt=""></p>
+<p><strong>feature branch ဖန်တီးခြင်း</strong></p>
+<p>Feature branch တစ်ခုကို ဖန်တီးမယ်ဆိုရင် </p>
+<pre><code class="lang-bash">$ git checkout -b myfeature develop
+Switched to a new branch <span class="string">"myfeature"</span>
+</code></pre>
+<p><strong>Feature မှ develop သို့</strong></p>
+<p>Feature branch မှာ ကျွန်တော်တို့ code တွေရေး commit တွေ အကုန်ပြီးသွားပြီ။ feature ပိုင်းကို ဆက်မလုပ်တော့ဘူး ။ develop နဲ့ ပေါင်းတော့မယ်ဆိုရင်</p>
+<pre><code class="lang-bash">$ git checkout develop
+Switched to branch <span class="string">'develop'</span>
+$ git merge --no-ff myfeature
+Updating ea1b82a..<span class="number">05</span>e9557
+(Summary of changes)
+$ git branch <span class="operator">-d</span> myfeature
+Deleted branch myfeature (was <span class="number">05</span>e9557).
+$ git push origin develop
+</code></pre>
+<p>—no-ff ကို သုံးရတာက merge လုပ်တဲ့ အခါမှာ commit အသစ်ဖြစ်သွားဖို့ပါ။ merge လုပ်ရတာကို ပိုမို မြန်ဆန်စေပါတယ်။ အောက်က ပုံလေးကို ကြည့်လိုက်ရင် ရှင်းသွားပါမယ်။</p>
+<p><img src="/issue-2/img/gitmerge.png" alt=""></p>
+<h3 id="release-branches">Release branches</h3>
+<p>Release branch ဟာ production မတိုင်ခင်မှာ အကုန် လုံး ready ဖြစ်မဖြစ် ပြန်စစ်တဲ့ အချိန်မှာ အသုံးပြုပါတယ်။ release လုပ်ဖို့ သေချာပြီ။ အကုန်လုံး အဆင်ပြေပြီလား ဆိုတာ ကို branch သီးသန့် ခွဲထုတ်ပြီးတော့ စစ်ပါတယ်။ release branch ကိုတော့ ကျွန်တော်တို့တွေ ပုံမှန်အားဖြင့် release name နဲ့ ပေးတတ်ကြပါတယ်။ ဥပမာ။ ။ release-v1.1 ဒါမှမဟုတ် ကျွန်တော်တို့တွေ နေ့စွဲနဲ့လည်း အသုံးပြုတတ်ကြပါတယ်။ ဥပမာ။ ။ release-13.06.13  ။ ပထမဆုံး ကျွန်တော်တို့ release branch တစ်ခုဖန်တီးမယ်။</p>
+<pre><code class="lang-bash">$ git checkout -b release-<span class="number">1.2</span> develop
+Switched to a new branch <span class="string">"release-1.2"</span>
+</code></pre>
+<p>အကုန်လုံးကို testing လုပ်မယ်။ file စုံပြီလားစစ်မယ်။ release လုပ်ဖို့ သေချာပြီ ပြင်စရာမရှိတော့ဘူး ဆိုရင်တော့ master မှာ merge လုပ်မယ်။ ပြီးရင် tag name ပေးခဲ့မယ်။</p>
+<pre><code class="lang-bash">$ git checkout master
+Switched to branch <span class="string">'master'</span>
+$ git merge --no-ff release-<span class="number">1.2</span>
+Merge made by recursive.
+(Summary of changes)
+$ git tag <span class="operator">-a</span> <span class="number">1.2</span>
+</code></pre>
+<p>Release အဆင့်မှာ master သာမက develop branch ကိုလည်း ပြန်ပေါင်းပေးဖို့လိုပါတယ်။</p>
+<pre><code class="lang-bash">$ git checkout develop
+Switched to branch <span class="string">'develop'</span>
+$ git merge --no-ff release-<span class="number">1.2</span>
+Merge made by recursive.
+(Summary of changes)
+</code></pre>
+<p>အားလုံးပြီးသွားရင်တော့ ကျွန်တော်တို့တွေ release branch ကို ဖျက်လို့ရပါပြီ။</p>
+<pre><code class="lang-bash">$ git branch <span class="operator">-d</span> release-<span class="number">1.2</span>
+</code></pre>
+<h3 id="hotfix-branches">Hotfix branches</h3>
+<p>master branch က release လုပ်ပြီးသွားတာနဲ့ develop branch နဲ့ ပေါင်းပါတယ်။ သို့ပေမယ့် first release လုပ်ထားတဲ့ version မှာ major bugs သို့မဟုတ် တစ်ခုခု အပြောင်းအလဲ ကြောင့် လက်ရှိ ထုတ်ထားတဲ့ verison ကို update လုပ်ဖို့လိုပါပြီ။ ကျွန်တော်တို့တွေ git ကို branch တွေနဲ့ ခွဲပြီးရေးထားတဲ့ အကျိုးကြောင့် ထုတ်ထားတဲ့ version က master branch မှာ ရှိနေပါတယ်။ ဒါကြောင့် master branch ကနေ hotfix branch ကို ခွဲထုတ်ပြီး ပြင်ဆင်နိုင်ပါတယ်။ hotfix branch က ကျွန်တော်တို့ Release branch မှာလိုမျိုး version number နဲ့ branch name ကို ပေးထားသင့်ပါတယ်။</p>
+<pre><code class="lang-bash">$ git checkout -b hotfix-<span class="number">1.2</span>.<span class="number">1</span> develop
+Switched to a new branch <span class="string">"hotfix-1.2.12"</span>
+</code></pre>
+<p>Fixed လုပ်မယ်။ ပြီးရင် commit လုပ်မယ်။ ပြီးသွားရင် master မှာ ပြန်ပေါင်းမယ်။ ပြီးရင် version tag ပေးခဲ့မယ်။</p>
+<pre><code class="lang-bash">$ git checkout master
+Switched to branch <span class="string">'master'</span>
+$ git merge --no-ff hotfix-<span class="number">1.2</span>.<span class="number">1</span>
+Merge made by recursive.
+(Summary of changes)
+$ git tag <span class="operator">-a</span> <span class="number">1.2</span>.<span class="number">1</span>
+</code></pre>
+<p>အကုန်လုံးပြီးသွားရင် develop branch နဲ့လည်း ပြန်ပေါင်းပေးဖို့လိုပါတယ်။</p>
+<pre><code class="lang-bash">$ git checkout develop
+Switched to branch <span class="string">'develop'</span>
+$ git merge --no-ff hotfix-<span class="number">1.2</span>.<span class="number">1</span>
+Merge made by recursive.
+(Summary of changes)
+</code></pre>
+<p>အားလုံးပြီးပြီဆိုရင်တော့ ကျွန်တော်တို့ create လုပ်ထားတဲ့ hotfix branch ကို ပြန်ဖျက်ပါမယ်။</p>
+<pre><code class="lang-bash">$ git branch <span class="operator">-d</span> hotfix-<span class="number">1.2</span>.<span class="number">1</span>
+Deleted branch hotfix-<span class="number">1.2</span>.<span class="number">1</span> (was abbe5d6).
+</code></pre>
+<p><img src="/issue-2/img/hotfix.png" alt=""></p>
+<h3 id="-">အနှစ်ချုပ်</h3>
+<p>အခု ကျွန်တော်ရေးပြသွားတဲ့  branching model ဟာ အပါ်ဆုံးမှာ ပြထားတဲ့ ပုံကို ကြည့်လိုက်တာနဲ့ နားလည်နိုင်ပါတယ်။ ကျွန်တော်တို့ တွေ branch တွေ ခွဲပြီး develop လုပ်တာဟာ risk ကို နည်းစေသလို team work နဲ့ လုပ်ရတာလည်း ပိုအဆင်ပြေလာစေနိုင်ပါတယ်။ ပုံမှန်အားဖြင့်တော့ ကျွန်တော်တို့ အနည်းဆုံး master နဲ့ develop branch ကို ခွဲပြီးတော့ အလုပ်လုပ်သင့်ပါတယ်။ ကျွန်တော် ရေးထားတာကို ဖတ်ပြီးတော့ git branching model အကြောင်း ပိုနားလည်သွားမယ်လို့ မျှော်လင့်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

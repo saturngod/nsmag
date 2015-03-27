@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Happy Myanmar New Year
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Happy Myanmar New Year</h1>
+      <div class="description">မင်္ဂလာနှစ်သစ်ပါ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/newyear.png" class="headerImage">
+    <div class="content detailArticle"><p>ဒီလ အတွက် NSMag ကို ထုတ်တာတော်တော် နောက်ကျသွားတယ်။ နောက်လတောင် ကူးတော့မလို ဖြစ်သွားတယ်။  နှစ်ဟောင်းကုန်ပြီး နှစ်သစ်ရောက်သလို NSMag ဟာ လစဉ် ထုတ်လာတာထုတ်လာတာ ၁၀ ကြိမ်မြောက်ရှိပါတယ်။ကြိမ်မြောက်ရှိပါတယ်။ တဖြည်းဖြည်း interview တွေ နည်းလာတာကို တော့ သတိထားမိတယ်။ နောက်လ မှာ အင်တာဗျူးပါအောင်တော့ ကျွန်တော် ကြိုးစားပါအုံးမယ်။</p>
+<h2 id="wwdc">WWDC</h2>
+<p>ဒီလအတွင်းမှာ ထူးထူးခြားခြား ဆိုလို့ June လ ၂ ရက်နေ့ ကနေ ၆ ရက်နေ့ အထိ <a href="https://developer.apple.com/wwdc/">WWDC</a> ကို Apple က ကြေငြာလိုက်တယ်။ Apple ရဲ့ iPhone 6 ဟာ screen ကြီးသွားမယ်ဆိုတာကတော့ သေချာသလောက် ဖြစ်နေပြီ။ iOS Developer တွေအနေနဲ့ လက်ရှိ App တွေကို အများကြီး ထပ်ပြင် ရ နိုင်တယ်။ iWatch ကတော့ အခုအချိန်အထိ ကောလဟာလ အနေနဲ့ ဆက်လက် ရှိနေတုန်းပဲ။</p>
+<p><img src="/issue-10/images/wwdc.png" alt="wwdc"></p>
+<h2 id="create-native-ios-apps-in-java">Create native iOS apps in Java</h2>
+<p>တကယ်လို့ iOS အတွက် objective-c ကို မလေ့လာလိုပဲ Java နဲ့ ရေးချင်တယ်ဆိုရင်တော့ <a href="http://www.robovm.org/">RoboVM</a> ကို အသုံးပြုပြီး ရေးနိုင်ပါတယ်။ Document ပြည့်ပြည့်စုံစုံ မရှိသေးပေမယ့် Objective-C မှာ ရေးသားပုံ နဲ့ အတော်လေးကို ဆင်ပါတယ်။</p>
+<p><img src="/issue-10/images/robo.png" alt="robovm"></p>
+<pre><code class="lang-java"><span class="keyword">import</span> org.robovm.apple.coregraphics.*;
+<span class="keyword">import</span> org.robovm.apple.foundation.*;
+<span class="keyword">import</span> org.robovm.apple.uikit.*;
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IOSDemo</span> <span class="keyword">extends</span> <span class="title">UIApplicationDelegateAdapter</span> {</span>
+
+    <span class="keyword">private</span> UIWindow window = <span class="keyword">null</span>;
+    <span class="keyword">private</span> <span class="keyword">int</span> clickCount = <span class="number">0</span>;
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">didFinishLaunching</span>(UIApplication application,
+            NSDictionary launchOptions) {
+
+        <span class="keyword">final</span> UIButton button = UIButton.create(UIButtonType.RoundedRect);
+        button.setFrame(<span class="keyword">new</span> CGRect(<span class="number">115.0</span>f, <span class="number">121.0</span>f, <span class="number">91.0</span>f, <span class="number">37.0</span>f));
+        button.setTitle(<span class="string">"Click me!"</span>, UIControlState.Normal);
+
+        button.addOnTouchUpInsideListener(<span class="keyword">new</span> UIControl.OnTouchUpInsideListener() {
+            <span class="annotation">@Override</span>
+            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTouchUpInside</span>(UIControl control, UIEvent event) {
+                button.setTitle(<span class="string">"Click #"</span> + (++clickCount), UIControlState.Normal);
+            }
+        });
+
+        window = <span class="keyword">new</span> UIWindow(UIScreen.getMainScreen().getBounds());
+        window.setBackgroundColor(UIColor.colorLightGray());
+        window.addSubview(button);
+        window.makeKeyAndVisible();
+
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args) {
+        NSAutoreleasePool pool = <span class="keyword">new</span> NSAutoreleasePool();
+        UIApplication.main(args, <span class="keyword">null</span>, IOSDemo.class);
+        pool.close();
+    }
+}
+</code></pre>
+<p>စသုံးမယ့်သူတွေ အတွက်ကို document မပြည့်စုံမှုကြောင့် စမ်းရင်းနဲ့ ရေးရမယ့် ပုံပေါ်တယ်။ Objective-C ကို အနည်းငယ် နားလည်ထားပြီး iOS app တချို့ရေးဖူးရင်တော့ RoboVM နဲ့ ရေးနိုင်ပါလိမ့်မယ်။</p>
+<h2 id="sketch-3">Sketch 3</h2>
+<p>ဒီလမှာ Sketch 3 ထွက်ရှိလာပါပြီ။ Sketch 3 မှာ ထူးထူးခြားခြား အပြောင်းအလဲကတော့ Symbol , Text Layer Style ပါလာတာပါပဲ။ နောက်ပြီး iOS အတွက် အရန်သင့် သုံးဖို့ UI Template တွေ ပါပြီးသား ဖြစ်တာကြောင့် iOS App Design အတွက် ပိုပြီး အဆင်ပြေလာပါတယ်။ Sketch 3 အကြောင်း အသေးစိတ်ကို <a href="http://designcode.io/sketch">designcode</a> မှာ အသေးစိတ် ဖတ်နိုင်ပါတယ်။ iOS Development ပိုင်းမှာ Design တွေကို ဖန်တီးတဲ့ အခါမှာ photoshop ထက် sketch 3 က ပိုပြီးတော့ အဆင်ပြေပါတယ်။</p>
+<p><img src="/issue-10/images/sketch3.png" alt="sketch"></p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Git Basic Guide
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Git Basic Guide</h1>
+      <div class="description">git အခြေခံ အသုံပြုနည်း</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover.png" class="headerImage">
+    <div class="content detailArticle"><p>Git ကို သုံးဖို့အတွက် ပထမဆုံး စက်ထဲမှာ git မရှိရင် download ချဖို့လိုပါတယ်။</p>
+<ul>
+<li><a href="http://code.google.com/p/git-osx-installer/downloads/list?can=3">Git For OSX</a></li>
+<li><a href="http://code.google.com/p/msysgit/downloads/list?can=3">Git For Windows</a></li>
+<li><a href="http://book.git-scm.com/2_installing_git.html">Git For Linux</a></li>
+</ul>
+<p>Download ချပြီးပြီဆိုရင်တော့ command line (terminal) မှာ စပြီးတော့ git ကို အသုံးပြုလို့ရပြီ။</p>
+<p>Git ကို သုံးဖို့အတွက် git repo လိုအပ်တယ်။ Git repo ကို <a href="http://bitbucket.org">bitbucket</a> , <a href="https://github.com">github</a> စတာတွေမှာ ဖန်တီးလို့ရသလို ကိုယ်ပိုင် network , ကိုယ့်စက်ထဲမှာလည်း repo လွယ်လင့် တကူဖန်တီးလို့ရတယ်။</p>
+<h2 id="setup-git-repo-host-in-local">Setup Git repo host in local</h2>
+<p>Git ကို github , bitbucket တို့မှာ host မလုပ်ပဲ ကိုယ့်စက်ထဲမှာပဲ host လုပ်ချင်တယ်ဆိုရင်တော့</p>
+<pre><code>mkdir /opt/git
+mkdir /opt/git/gitProject.git
+cd /opt/git/gitProject.git
+git --bare init
+</code></pre><p>ဒါဆိုရင် ကျွန်တော်တို့တွေရဲ့ <code>/opt/git/gitProject.git</code> က git repo host ဖြစ်နေပါပြီ။</p>
+<h2 id="create-a-new-git-repo">Create a new git repo</h2>
+<p>Git repo တစ်ခု ဖန်တီးရတာ လွယ်ပါတယ်။ </p>
+<pre><code>git init
+</code></pre><p>ဆိုပြီး စတင်ရပါမယ်။</p>
+<p>ဥပမာ။</p>
+<pre><code>cd ~/Projects/myprojectDir/
+git init
+</code></pre><p>ပြီးရင်တော့ ကျွန်တော်တို့တွေ remote ကို ထည့်ပေးရမယ်။</p>
+<pre><code>git remote add origin /opt/git/gitProject.git
+</code></pre><p>ဒါမှမဟုတ် Github က ဆိုရင်တော့</p>
+<pre><code>git remote add origin git@github.com:myusername/myrepo.git
+</code></pre><p>remote add ဆိုတာကတော့ remote url ထည့်မယ်ဆိုတာပါ။ origin ကတော့ နာမည်ပါ။  အခြားနာမည်တွေ ပေးလည်းရပါတယ်။ git တစ်ခုမှာ remote တစ်ခုမက ထည့်သွင်းလို့ရပါတယ်။ Github ကို အသုံးပြုတဲ့အခါ Fork လုပ်ပြီးတော့ မူရင်း repo ကနေ pull ပြန်လုပ်ဖို့အတွက် remote branch တွေ တစ်ခုမက ထည့်သွင်းရပါတယ်။</p>
+<h2 id="add-and-commit">Add And Commit</h2>
+<p>အသစ်ထည့်ထားတဲ့ file တွေ ကို git ပေါ်ကို တင်မယ်ဆိုရင်တော့</p>
+<pre><code>git add &lt;filename&gt;
+</code></pre><p>အကုန်လုံး ကို ထည့်မယ်ဆိုရင်တော့</p>
+<pre><code>git add *
+</code></pre><p>Add နဲ့ remove လုပ်မယ်ဆိုရင်တော</p>
+<pre><code>git add -u
+</code></pre><p>ပြီးရင်တော့</p>
+<pre><code>git commit -m &quot;Commit message&quot;
+</code></pre><p>ဒါဆိုရင်တော့ head (git commit ရဲ့ လက်ရှိနေရာ) ထဲမှာ Commit message နဲ့ ရောက်သွားပြီ။ git repo host ပေါ်ကို push လုပ်ဖို့တာ လိုတော့တယ်။</p>
+<h2 id="pushing-changes">Pushing changes</h2>
+<p>ကျွန်တော်တို့ အပေါ်မှာ remote ကို origin ဆိုပြီးတော့ နာမည်ပေးခဲ့ပါတယ်။ </p>
+<pre><code>git push origin master
+</code></pre><p>Origin က master branch ဆီကို push လုပ်လိုက်တာပါ။ branch တွေက master အပြင် မိမိ စိတ်ကြိုက် branch တွေ ခွဲထုတ်လို့ရပါတယ်။ ပြီး branch အခြင်းခြင်း merge လုပ်လို့ရပါတယ်။</p>
+<p>Git log ကို အသုံးပြုပြီးတော့ ဘာ</p>
+<pre><code>git log
+</code></pre><h2 id="branching">Branching</h2>
+<p>လက်ရှိ branch ကနေ  feature အသစ် တစ်ခု ထပ်ဖြည့်မယ်ဆိုရင်တော့ feature branch တစ်ခု ထပ်ခွဲပြီးတော့ နောက်ပိုင်း အကုန်လုပ်ပြီးမှ master branch ကို ထပ်ပေါင်းပါတယ်။</p>
+<p>feature_x branch ဖန်တီးချင်ရင်</p>
+<pre><code>git checkout -b feature_x
+</code></pre><p>master branch ကို ပြန်ပြောင်းချင်ရင်</p>
+<pre><code>git checkout master
+</code></pre><p>feature_x branch ကို ဖျက်ချင်ရင်</p>
+<pre><code>git branch -d feature_x
+</code></pre><p>သက်ဆိုင်ရာ branch ကို push လုပ်ချင်ရင်</p>
+<pre><code>git push origin &lt;branch&gt;
+</code></pre><h2 id="update-merge">update &amp; merge</h2>
+<p>update လုပ်မယ်ဆိုရင် အခြားလူတွေ တင်ထားတာတွေ ရှိသလား ။ ရှိရင် merge လုပ်ဖို့အတွက် push မလုပ်ခင်မှာ pull လုပ်ရပါတယ်။</p>
+<pre><code>git pull
+</code></pre><p>git server က fetch လုပ်ပြီးတော့ merge လုပ်ပါတယ်။ ဒါမှမဟုတ် branch တွေကို merge လုပ်ချင်တယ်ဆိုရင်</p>
+<pre><code>git merge &lt;branch&gt;
+</code></pre><p>အထက်ပါ ၂ ခုလုံးက အလိုအလျောက် merge လုပ်ပေးပါတယ်။ သို့ပေမယ့် ကံမကောင်းရင်တော့ conflict ဖြစ်တတ်ပါတယ်။ conflict ကို ဖြေရှင်းဖို့ mac မှာ ဆိုရင် file merge နဲ့ တွဲပြီး အသုံးပြုနိုင်ပါတယ်။</p>
+<p>merge မလုပ်ခင်မှာ different ကို ယဉ်ကြည့်လို့ရပါတယ်။</p>
+<pre><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;
+</code></pre><h2 id="tagging">Tagging</h2>
+<p>version ၁ ခု ကို release လုပ်ပြီးသွားတိုင်း ကျွန်တော်တို့တွေ tag လုပ်ခဲ့ပါတယ်။ tag ကို လုပ်ပေးဖို့လည်း ကျွန်တော် အကြံပြုချင်ပါတယ်။ tag လုပ်ခြင်းအားဖြင့် github , bitbucket တို့မှာ လွယ်လင့်တကူ source code ကို tag version နဲ့ ပြန် download ချနိုင်ပါတယ်။</p>
+<pre><code>git tag -a v1.4 -m &#39;my version 1.4&#39;
+</code></pre><p>ထည့်ထားတဲ့ tag တွေကို ပြန်ကြည့်ချင်ရင်တော့</p>
+<pre><code>git tag
+</code></pre><p>ပြီးရင်တော့ remote ကို ပြန်ပြီးတော့ တင်ပေးရပါတယ်။</p>
+<pre><code>git push origin --tags
+</code></pre><h2 id="replace-local-changes">Replace local changes</h2>
+<p>ကျွန်တော်တို့ အရင် commit လုပ်ထားတဲ့ နေရာကို ပြန်သွားချင်တယ် ဆိုရင်တော့ ကျွန်တော်တို့တွေ checkout ပြန်လုပ်ဖို့လိုပါတယ်။ ပြန်သွားဖို့ အတွက် commit နံပတ် ကို သိဖို့လိုပါတယ်။ commit ကို log နဲ့ ပြန်ကြည့်လို့ရပါတယ်။</p>
+<pre><code>git checkout &lt;commit&gt; &lt;file&gt;
+</code></pre><p>တကယ်လို့ file တစ်ခုတည်း မဟုတ်ပဲ အကုန်လုံးကို ပြန်သွားမယ်ဆိုရင်တော့</p>
+<pre><code>git checkout &lt;commit&gt;
+</code></pre><p>ဥပမာ ။။</p>
+<pre><code>$ git log --oneline
+b7119f2 Continue doing crazy things
+872fa7e Try something crazy
+a1e8fb5 Make some important changes to hello.py
+435b61d Create hello.py
+9773e52 Initial import
+</code></pre><p>hello.py ရှိတဲ့ နေရာကို ပြန်သွားမယ်ဖြစ်တဲ့ အတွက်ကြောင့်</p>
+<pre><code>$ git checkout a1e8fb5
+</code></pre><p>အဲဒါဆိုရင် a1e8fb5 stage ကို ရောက်နေပါပြီ။ current stage မှာ မဟုတ်ပါဘူး။ file ကြည့်ပြီးတော့ လက်ရှိ master branch ကိုပဲ ပြန်သွားမယ်ဆိုရင်တော့</p>
+<pre><code>$ git checkout master
+</code></pre><p>ဒါဆိုရင် current branch ကို ပြန်ရောက်ပါပြီ။</p>
+<pre><code>git checkout a1e8fb5 hello.py
+</code></pre><p>ဆိုရင် a1e8fb5 က hello.py ကို ပြန်ခေါ်တာပါ။ ပြီးရင် HEAD က hello.py ကို ပြန်ခေါ်သုံးချင်ရင်တော့</p>
+<pre><code>git checkout HEAD hello.py
+</code></pre><h2 id="ui-app-for-git">UI App for Git</h2>
+<p>ကျွန်တော်ကတော့ git အတွက် <a href="http://www.sourcetreeapp.com/">source tree</a> ကို အသုံးပြုပါတယ်။ Free ဖြစ်ပြီးတော့ သုံးရတာ အဆင်ပြေပါတယ်။ Windows အတွက်ကော mac အတွက်ပါ ရပါတယ်။</p>
+<h2 id="other-guide">Other Guide</h2>
+<p>Atlassian ရဲ့ <a href="https://www.atlassian.com/git/">Git Guide</a> က အတော်လေးကို အသုံးဝင်ပါတယ်။</p>
+<p>နောက်ပြီး Github ရဲ့ <a href="http://try.github.io/">try.github.io</a> က interactive ဖြစ်တဲ့ အတွက် လက်တွေ့ နားလည် သဘောပေါက်စေနိုင်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Experience from Mahabote iOS And Android App Development
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Experience from Mahabote iOS And Android App Development</h1>
+      <div class="description">Mahabote app ရေးသားခြင်း မှ အတွေ့အကြုံ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/bothplatform.png" class="headerImage">
+    <div class="content detailArticle"><p>မဟာဘုတ် App ကို iOS 7 အတွက် ပြန်ရေးပြီး Android အတွက်လည်း ပြန်ရေးမယ်လို့ ဆုံးဖြတ်ပြီးတော့ အစ က နေ ပြန်ရေးဖြစ်တယ်။ ပထမဆုံး iOS 7 အတွက် project စရေးတော့ မဖြစ်မနေ Storyboard ကို စသုံးရတယ်။ Android အတွက်တော့ ပထမဆုံး အကြိမ် fragment ကို စသုံးဖူးတာပဲ။ </p>
+<h2 id="ios-development">iOS Development</h2>
+<p>iOS 7 အတွက် အချိန် ၃ ရက်လောက် ကြာတယ်။ အဓိက Storyboard ကို ဘယ်လို ပြန်ရေးရသလဲ ဆိုတာကို လေ့လာနေရတာကြောင့်ပါ။</p>
+<h3 id="storyboard">Storyboard</h3>
+<p>Storyboard ကို ပထမဆုံး စသုံးဖူးပေမယ့် app တစ်ခုလောက် လုပ်ကြည့်ပြီးနောက် အတော်လေးကို သဘောကျသွားတာ။ သိပ်ခက်ခက်ခဲခဲ လေ့လာစရာမလိုပါဘူး။ ပုံမှန် သမာရိုးကျ xib file တွေ သုံးတာထက် ပိုအဆင်ပြေတယ်။ သို့ပေမယ့် project ကြီးလာရင်တော့ storyboard loading က လေးလာနိုင်တယ်။ team နဲ့ တွဲလုပ်မယ်ဆိုရင် storyboard က conflict ဖြစ်နိုင်တယ်။ တချို့တွေက storyboard က mutlitple story board လုပ်ဖို့ recommand လုပ်ကြတယ်။ team အနေနဲ့ project တစ်ခုထဲမှာ ခွဲလုပ်မယ် နောက်ပြီး git conflict ပြဿနာ မဖြစ်ချင်ရင်တော့ multiple storyboard က အဆင်ပြေဆုံးပါပဲ။</p>
+<p>Storyboard မှာ viewcontroller တစ်ခုနဲ့ တစ်ခု အပြောင်းကို Segue ကို အသုံးပြုပါတယ်။ segue တွေကို identifier ပေးထားပြီးတော့ အောက်ကလို ခေါ်ပြီး ပြောင်းနိုင်ပါတယ်။</p>
+<pre><code class="lang-objc">[self performSegueWithIdentifier:@&quot;showdetail&quot; sender:nil];
+</code></pre>
+<p>Variable တွေ parse လုပ်မယ်ဆိုရင်တော့ <code>prepareForSegue</code> မှာ parse လုပ်ပေးဖို့လိုပါတယ်။</p>
+<pre><code class="lang-objc">- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+    {
+    if([segue.identifier isEqualToString:@&quot;showdetail&quot;])
+        {
+
+            resultViewController *resVC = segue.destinationViewController;
+            resVC.name = self.name;
+        }
+    }
+</code></pre>
+<h3 id="xcassets">XCAssets</h3>
+<p>Xcode 5 မှာ xcassets ဆိုတာ အသစ်ထပ်ပါလာပါတယ်။ အရင်ကလို image တွေဟာ project ထဲမှာ သီးသန့် group အနေနဲ့ထား စရာမလိုတော့ပဲ အကုန်လုံးဟာ Images.xassets ထဲမှာ ထည့်ထားလို့ရပါပြီ။ .png @2x.png ဆိုပြီး file တွေ ရှုပ်မနေတော့ ဘူး။ သီးသန့် သေသေချာချာ group လေးတွေ ခွဲပြီးထည့်ထားပေးတဲ့ အတွက် အတော်လေးကို အဆင်ပြေပါတယ်။</p>
+<h3 id="coding-and-design">Coding And Design</h3>
+<p>Project တစ်ခုလုံးကို အစက ပြန်ရေးပေမယ့် အခက်အခဲ မရှိဘူး။ အရင်ကလို ဘာနဲ့ ဖွားလဲဆိုတာကို loop ပတ်ပြီး မစစ်တော့ပဲနဲ့ algorithm နဲ့ စစ်တဲ့ ပုံစံ ပြောင်းလိုက်တယ်။ Coding ရေးတာ ၁ ရက်လောက်ပဲ အချိန်ကြာတယ်။ Design ပိုင်းကတော့ အရိုးအရှင်းဆုံးပုံစံ အတွက် အတော်လေးကို စဉ်းစားရတယ်။ ဘာ data မှ မပါတာကို ဘယ်လို မျိုးပြရမလဲ ? ဘယ်လို မျိုး ဆိုရင် အဆင်ပြေမလဲ ဆိုတာကို အမျိုးမျိုး စမ်းကြည့်တာကတော့ ၁ ရက်လောက် ကြာသွားတယ်။ iPad အတွက်ကတော့ iPhone အတွက်ကော controller အတူတူပဲ ဖြစ်ပြီး iphone နှင့် ipad အတွက် storyboard ၂ ခု ခွဲပြီး ရေးဖြစ်တယ်။ တစ်ခေါက်ရေးရုံနဲ့ phone အတွက်ကော tablet အတွက်ပါ အဆင်ပြေတယ်။</p>
+<h2 id="android-development">Android Development</h2>
+<p>Android App အတွက် အချိန် ၃ ရက် ပေးလိုက်ရတယ်။ iOS မှာ ရေးထားတဲ့ model class တွေကို ဘာမှ စဉ်းစား စရာမလိုပဲ objective code ကို ကြည့်ရင်းနဲ့ java အတွက် ပြန်ရေး ရတာ အဆင်ပြေတယ်။ </p>
+<h3 id="fragment">Fragment</h3>
+<p>Android Development ပိုင်းကို သေသေချာချာ မလုပ်ဖြစ်တာလည်း ကြာပြီ။ Project ကို template ကနေ ယူလိုက်တော့ fragment နဲ့ စတွေ့တာပဲ။ အဲတုန်းက fragment ဆိုတာ ဘာမှန်း မသိတာ အမှန်ပါ။ ဒါကြောင့် fragment ဆိုတာ ဘာလဲ ဆိုတာ ပြန်လေ့လာရတယ်။ fragment ကို ဘာကြောင့် သုံးရလဲ ဆိုတာ ကို ဖတ်ကြည့်ရင်းနဲ့ မဆိုးလှပေဘူး ဆိုတာကို သိသွားတယ်။ Activity တစ်ခုထဲမှာ fragment တစ်ခု ထက်မက သုံးနိုင်တယ်။ လက်ရှိ fragment ကို အခြား activity မှာ သုံးလို့ရတယ်လို့လည်း ဆိုတာကြောင့် အတော်လေးကို အသုံးဝင်လှတယ်။</p>
+<h3 id="animatin-with-xml">Animatin with XML</h3>
+<p>Fragment တစ်ခုကနေ တစ်ခုပြောင်းဖို့ အတွက် animation ကို xml file ကနေ ခေါ်ရတယ်ဆိုတာကို သိလိုတယ်။ Android မှာ XML ကို အတော်လေး အသုံးများပြီး အသုံးလည်း ဝင်တယ်။ အစကတော့ XML နဲ့ ဘာလို့ animation လုပ်ရတာလဲ ဆိုပြီး မကျေမနပ် ဖြစ်နေပေမယ့် XML မှာ လိုချင်တဲ့ ပုံစံလေး ရေးထားလိုက်ရင် လူ တိုင်း နားလည် လွယ်ပြီး သုံးရတာလည်း လွယ်ပါတယ်။</p>
+<h3 id="coding-and-design">Coding And Design</h3>
+<p>Java နဲ့ ရေးရတာ အတော့်ကို သဘောကျတယ်။ Java က အစပိုင်း မသိရင် OOP နားမလည်ရင် စိတ်ညစ်ဖို့ ကောင်းပေမယ့် ရေးရင်းနဲ့ သဘောကျလာမိတဲ့ language တစ်ခုဆိုလည်း မမှားဘူး။ သို့ပေမယ့် Android နဲ့ မရင်းနှီးတဲ့ သူတစ်ယောက်အနေနဲ့ android app design က ထင်သလောက်မလွယ်ဘူး။ ကျွန်တော့်အတွက်တော့ Android အတွက်ကတော့ Layout design ချရတာ iOS လောက် မလွယ်သေးတာ အမှန်ပဲ။ iOS မှာ UI Design ပိုင်းကို ဖန်တီးရာမှာ အခုထက်ထိတော့ Android ထက် လွယ်နေတုန်းပဲ။ အခုအချိန်ထိ Android အတွက် tablet မှာ ဘယ်လို ဖန်တီးရမလဲ ဆိုတာ သေချာ မကြည့်ရသေးဘူး။ ဖြစ်နိုင်ရင် နောက် version တွေမှာ tablet အတွက်ပါ ထည့်ဖို့ စဉ်းစားရမယ်။ Fragment တွေ ခွဲထားပြီးပြီ ဖြစ်လို့ code တွေ အများကြီး ပြင်စရာ မလိုဘူးလို့ ထင်တယ်။</p>
+<h2 id="why-ios-first-">Why iOS first ?</h2>
+<p>ဘာကြောင့် iOS ကို စရေးရတာလဲ ဆိုတော့ UI Design တည်ဆောက်ရတာ လွယ်ပြီး iOS နဲ့ ပိုပြီး ရင်းနှီး ကျွမ်းဝင်မှု ရှိတယ်။ Android က အခု Playstore ပေါ်တင် နောက် ၁ နာရီ ကြာရင် download ဆွဲလို့ ရပြီ။ သို့ပေမယ့် iOS က တစ်ခါ app store ပေါ် update လုပ်တိုင်း ၁ ပတ်လောက် စောင့်ရတယ်။ ဒါကြောင့် iOS က စလုပ်ပြီး သေချာ စစ်ရတယ်။ ပြီးတော့ app store ပေါ်တင်တယ်။ Android version အတွက်က နောက်မှ လုပ်ပြီး play store မှာ download ဆွဲလို့ရနေပေမယ့် App store ကတော့ Waiting For Review ဖြစ်နေတုန်းပဲ။ ဒါကြောင့် iOS ကို စလုပ်ပြီးတော့ App store ပေါ်မှာ တင်ထားတဲ့ အချိန်မှာ Android အတွက် ပြန်လုပ်လို့ရတယ်။ iOS မှာ ရေးထားခဲ့တဲ့ Modle တွေဟာ android မှာ ပြန်စဉ်းစား စရာမလိုပဲ code တွေ ပြန်ရေးဖို့ အထောက် အကူပြုပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

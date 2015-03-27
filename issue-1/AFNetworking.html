@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>AFNetworking
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>AFNetworking</h1>
+      <div class="description">Restful ကို လွယ်လွယ် ကူကူ အသုံးပြုနိုင် သည့် Network Library Framework</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/afnetworking.png" class="headerImage">
+    <div class="content detailArticle"><p>iOS app တွေရေးတဲ့ အခါမှာ ကျွန်တော်တို့ အနေနဲ့ Restful ကနေ JSON file ကို NSURLConnection နဲ့ Async ရေးကြပါတယ်။ နောက်ပြီးတော့ Delegate နဲ့ ပြန်ပြီးတော့ NSData ကို သိမ်းရတယ်။ ပြီးမှ NSData ကနေ NSString ကို ပြန်ပြီးတော့ ပြောင်းရတယ်။ ရလာတဲ့ NSString က JSON String ဖြစ်နေတဲ့အတွက်ကြောင့် NSDictionary သို့မဟုတ် NSArray ကို ပြန်ပြောင်းပြီးမှ လိုချင်တဲ့ data ကို ရပါတယ်။ ကျွန်တော်တို့တွေ Restful API ကို သုံးတဲ့အခါမှာ လွယ်လွယ်ကူကူနဲ့ code ရှင်းရှင်းလင်းလင်း ဖြစ်သွားအောင် <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<h3 id="afnetworking-">AFNetworking ဆိုတာ ဘာလဲ</h3>
+<p>AFNetworking ဆိုတာ iOS နဲ့ OS X တို့အတွက် networking framework တစ်ခုပါ။ NSURLConnection, NSOperation တို့ကို အသုံးပြုပြီး ရေးထားတဲ့ framework ပါ။ AFNetworking framework ကို အသုံးပြုပြီးတော့ networking code တွေကို လွယ်လွယ်ကူကူ ရေးလို့ရလာပါတယ်။</p>
+<p>ဥပမာ။</p>
+<pre><code class="lang-objc">NSURL *url = [NSURL URLWithString:@&quot;https://alpha-api.app.net/stream/0/posts/stream/global&quot;];
+NSURLRequest *request = [NSURLRequest requestWithURL:url];
+AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+NSLog(@&quot;App.net Global Stream: %@&quot;, JSON);
+} failure:nil];
+[operation start];
+</code></pre>
+<p>Block ကို အသုံးပြုထားတဲ့ အတွက် သုံးရတာ ပုံမှန် NSURLConnection ထက် အများကြီး လွယ်ကူပါတယ်။ ဒါ့အပြင် ရလာတဲ့ JSON string ကို NSDictionary သို့မဟုတ် NSArray အလိုအလျောက် ပြောင်းပေးပါတယ်။</p>
+<p>AFNetworking ဟာ opensource ဖြစ်ပြီး နေ့စဉ်နီးပါး developers တွေ ဝိုင်းပြီးတော့ update လုပ်နေကြတဲ့ framework တစ်ခုဖြစ်ပါတယ်။ လက်ရှိ အချိန်မှာ လူသုံးများတဲ့ framework တစ်ခုဆိုလည်း မမှားပါဘူး။</p>
+<p><img src="/issue-1/img/afnetworking-architecture-diagram.png" alt="AFNetworking"></p>
+<h3 id="requirement">Requirement</h3>
+<p>AFNetworking ကို အသုံပြုဖို့ iOS 5.0 သို့မဟုတ် သူ့အထက် version လိုအပ်ပါတယ်။ Mac OS 10.7 နှင့်အထက် လည်း အသုံးပြုနိုင်ပါတယ်။ iOS 4.3 နဲ့ သုံးချင်တယ်ဆိုရင် version 0.10.x ကို အသုံးပြုမှ ရပါတယ်။ AFNetwork ဟာ ARC ကို အသုံးပြုထားပါတယ်။</p>
+<h3 id="example">Example</h3>
+<p><strong>XML Request</strong></p>
+<pre><code class="lang-objc">NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;http://api.flickr.com/services/rest/?method=flickr.groups.browse&amp;api_key=b6300e17ad3c506e706cb0072175d047&amp;cat_id=34427469792%40N01&amp;format=rest&quot;]];
+
+AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
+XMLParser.delegate = self;
+[XMLParser parse];
+} failure:nil];
+[operation start];
+</code></pre>
+<p><strong>Image Request</strong></p>
+<pre><code class="lang-objc">UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 100.0f)];
+[imageView setImageWithURL:[NSURL URLWithString:@&quot;http://i.imgur.com/r4uwx.jpg&quot;] placeholderImage:[UIImage imageNamed:@&quot;placeholder-avatar&quot;]];
+</code></pre>
+<p><strong>API Client Request</strong></p>
+<pre><code class="lang-objc">// AFAppDotNetAPIClient is a subclass of AFHTTPClient, which defines the base URL and default HTTP headers for NSURLRequests it creates
+[[AFAppDotNetAPIClient sharedClient] getPath:@&quot;stream/0/posts/stream/global&quot; parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
+NSLog(@&quot;App.net Global Stream: %@&quot;, JSON);
+} failure:nil];
+</code></pre>
+<p><strong>File Upload with Progress Callback</strong></p>
+<pre><code class="lang-objc">NSURL *url = [NSURL URLWithString:@&quot;http://api-base-url.com&quot;];
+AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@&quot;avatar.jpg&quot;], 0.5);
+NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@&quot;POST&quot; path:@&quot;/upload&quot; parameters:nil constructingBodyWithBlock: ^(id &lt;AFMultipartFormData&gt;formData) {
+[formData appendPartWithFileData:imageData name:@&quot;avatar&quot; fileName:@&quot;avatar.jpg&quot; mimeType:@&quot;image/jpeg&quot;];
+}];
+
+AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+[operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+NSLog(@&quot;Sent %lld of %lld bytes&quot;, totalBytesWritten, totalBytesExpectedToWrite);
+}];
+[httpClient enqueueHTTPRequestOperation:operation];
+</code></pre>
+<p><strong>Streaming Request</strong></p>
+<pre><code class="lang-objc">NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;http://localhost:8080/encode&quot;]];
+
+AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+operation.inputStream = [NSInputStream inputStreamWithFileAtPath:[[NSBundle mainBundle] pathForResource:@&quot;large-image&quot; ofType:@&quot;tiff&quot;]];
+operation.outputStream = [NSOutputStream outputStreamToMemory];
+[operation start];
+</code></pre>
+<p>လက်တွေ့ အသုံးချထားတဲ့ ဥပမာ ကိုတော့ သူ့ရဲ့ Example Project ကို ကြည့်နိုင်ပါတယ်။ သူက App.net API ကို အသုံးပြုထားပြီးတော့ ပြထားပါတယ်။ AFHTTPClient ကို အသုံးပြုပြီးတော့ Object ဆောက်ထားပါတယ်။ သူ့ရဲ့ Example Project က လေ့လာစရာတွေ အများကြီးပါပါတယ်။ MVC ကို ဘယ်လိုရေးသင့်လဲ။ Network Layer ဘယ်လို ခွဲပြီး ရေးသင့်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

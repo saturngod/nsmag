@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Security Tip for iOS Development
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Security Tip for iOS Development</h1>
+      <div class="description">iOS app ရေးသားရာတွင် သတိပြုသင့်သည့် လုံခြုံရေး</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/security.png" class="headerImage">
+    <div class="content detailArticle"><p>App တွေ ရေးတဲ့ အခါမှာ ပုံမှန် အားဖြင့်တော့ security ပိုင်းကို ထည့်ပြီး စဉ်းစားလေ့ မရှိပါဘူး။ သို့ပေမယ့် အချို့ App တွေကတော့ security ပိုင်း ကို မဖြစ်မနေ စဉ်းစားရပါတယ်။ ဥပမာ ။ auto login ဝင်တဲ့ ကိစ္စမျိုးပေါ့။ Username နဲ့ Password ကို NSUserDefault ထဲမှာ သိမ်းထားလိုက်ရင် phone ရသွားတဲ့ သူအနေနဲ့ လွယ်လင့်တကူ ဝင်လို့ရသွားနိုင်ပါတယ်။ ဒါကြောင့် password ကို hash လုပ်ပြီး သိမ်းကြပါတယ်။</p>
+<h2 id="nsuserdefault-is-not-secure">NSUserDefault is not secure</h2>
+<p>Auto login ဝင်ဖို့ အတွက် ကျွန်တော်တို့တွေဟာ လက်ရှိ password ကို NSUserDefault ထဲမှာ မသိမ်းထားပါနဲ့ ။ NSUserDefault က plist file ဖြစ်ပြီး ဘာ encryption မှ မပါသလို လူတိုင်း ဝင်ဖတ်လို့ရပါတယ်။ NSUserDefault plist file ကို App Directory အောက်က /Library/Preferences/com.yourappname.plist ဆိုပြီး သိမ်းထားတတ်ပါတယ်။ NSUserDefault မှာ အသုံးပြုထားတဲ့ Key name တွေနဲ့ အကုန် ပြန်ကြည့်လို့ရပါတယ်။ တကယ်လို့ Password ကို သာ သိမ်းထားခဲ့မယ်ဆိုရင် phone ကို ရသွားပြီး App ရဲ့ /Library/Preferences/com.yourappname.plist ကို ဖွင့်ကြည့်လိုက်ရင် user ရဲ့ Password ပါသွားပြီပေါ့။</p>
+<p>ဒီလိုပဲ game တွေ လုပ်တဲ့ အခါမှာ ဖြစ်ဖြစ် In App Purchases ရဲ့ stage ကို မှတ်တဲ့ အခါမှာ ဖြစ်ဖြစ် NSUserDefault ကို အသုံးမပြုပါနဲ့။ ဝယ်ပြီးသား App ID တွေကို KeyChain မှာ သိမ်းထားပါ။ KeyChain ဟာ 100% save တော့ မဟုတ်ပေမယ့် NSUserDefault ထက် စာရင် အများကြီး save ဖြစ်ပါတယ်။ နောက်ပြီးတော့ App ကို Delete လုပ်လိုက်ပေမယ့် Keychain value ကို ဖျက်မသွားပါဘူး။ Keychain value က App ရဲ့ ID ပေါ်မှာ မူတည်ပြီးတော့ save လုပ်ထားတာ။ ဒါကြောင့် In App Purchases ဝယ်ပြီးသားတွေကို app ဖျက်ပြီး ပြန်သွင်းလိုက်တဲ့ အခါမှာ user အနေနဲ့ ထပ် ဝယ်စရာမလိုတော့ဘူးပေါ့။</p>
+<p>တကယ်လို့ Keychain value မှာ မသိမ်းချင်ဘူး။ User က app ကို ဖျက်လိုက်တာနဲ့ သိမ်းထားတဲ့ data တွေပါဖျက်ချင်တယ်ဆိုရင် app ဖွင့်တဲ့ အခါမှာ state တစ်ခု ထားပြီးတော့ ပထမဆုံး အကြိမ် ဖွင့်တာဆိုရင် Keychain ကို clean လုပ်ပြီး data သိမ်းတဲ့ ပုံစံ လုပ်လို့ရသလို နောက်တနည်းကတော့ NSUserDefault ထဲမှာ encrypt လုပ်ပြီး data သိမ်းပါ။</p>
+<h2 id="encryption">Encryption</h2>
+<h3 id="don-t-use-your-own-encryption-method-if-you-are-not-expect">Don’t use your own encryption method if you are not expect</h3>
+<p>လက်ရှိ ရှိနေတဲ့ Encryption method တွေလည်း မကြားဖူးဘူး ။ မသိဘူး။ တစ်ခါမှလည်း encryption အကြောင်းမလေ့လာဘူးဖူး။ ဒါဆိုရင်တော့ ကိုယ်တိုင် encryption method ကို ရေးမနေပါနဲ့။ လက်ရှိ ရှိနေတဲ့ encryption method တွေဟာ secure ဖြစ်တဲ့ ဆိုပေမယ့် <a href="http://gizmodo.com/the-nsa-can-crack-almost-any-type-of-encryption-1258954266">NSA</a> အနေနဲ့ တော်တော်များများကို crack လုပ်နိုင်ပါတယ်။</p>
+<p>Encryption method နဲ့ ပတ်သက်ပြီး ကျွမ်းကျင်တဲ့ သူတစ်ယောက် မဟုတ်ရင် လက်ရှိ ဘာ encryption ကို သုံးမယ်ဆိုတာကို လေ့လာကြည့်ပါ။ အသုံးများတာကတော့ <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> နဲ့ <a href="http://en.wikipedia.org/wiki/RSA_(algorithm">RSA</a>) . NSUserDefault ထဲမှာ သိမ်းမယ် အရေးကြီးတာတွေကို သိမ်းမယ်ဆိုရင် AES ကို အသုံးပြုတာ ပိုအဆင်ပြေပါတယ်။</p>
+<p>AES ဟာ data ကို key တစ်ခုနဲ့ encrypt လုပ်လိုက်တယ်။ အဲဒီ key နဲ့ပဲ ပြန်ပြီး decrypt လုပ်ရတယ်။ နားလည်အောင် ပြောရရင်တော့ password ထားလိုက်ပြီး အဲဒီ password နဲ့ ပဲ ပြန်ဖွင့်လို့ရတယ်ပေါ့။</p>
+<p>RSA ကတော့ public key နဲ့ private key ပေါ့။ Public Key က သော့ ခလောက် နဲ့ တူပြီး private key ကတော့ သော့ခလောက် ကို ဖွင့်ဖို့ master key ပေါ့။ ကျွန်တော်က ကျွန်တော့် သူငယ်ချင်းတွေကို သော့ခလောက်လေးတွေ ပေးထားတယ်။ ကျွန်တော့်ဆီ စာပို့တဲ့ အခါမှာ ကျွန်တော်ပေးတဲ့ သော့ခလောက်လေးနဲ့ ဘူး ကို သော့ခတ်ပြီး ပို့လို့မှာထားတယ်။ ကြားမှာ တစ်ယောက်ယောက်က ကြားဖြတ်ယူပြီး သော့ခလောက်ကို ဖွင့်ဖို့ ကြိုးစားကြည့်မယ် ။ မရဘူး။ ကျွန်တော့်မှာ ရှိတဲ့ သော့ နဲ့ပဲ ကျွန်တော် ပေးထားတဲ့ သော့ခလောက်တွေကို ဖွင့်လို့ရမယ်။ ကျွန်တော့် ဆီ ရောက်လာမှ ကျွန်တော်က ကျွန်တော့် ဆီမှာ ရှိတဲ့ သော့နဲ့ သော့ခလောက်ကို ဖွင့်ပြီး စာဖွင့်ဖတ်တယ်။ အဲဒီ သဘောတရားပါပဲ။ https မှာလည်း ဒီသဘောတရားတွေ အသုံးပြုထားတယ်။</p>
+<h3 id="hash-is-not-encryption">Hash is not encryption</h3>
+<p>ကျွန်တော်တို့တွေဟာ password တွေကို <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">hash</a> value နဲ့ သိမ်းကြပါတယ်။ hash လုပ်လိုက်တာဟာ encrypt လုပ်လိုက်တာ မဟုတ်ဘူး။ ဒါကို သိဖို့လိုတယ်။ hash value တူမတူပဲ တိုက်စစ်လို့ရမယ်။ မူရင်း text ကို ပြန်ရဖို့ မလွယ်ပါဘူး။</p>
+<pre><code>HMAC_MD5(&quot;key&quot;, &quot;The quick brown fox jumps over the lazy dog&quot;) = 0x80070713463e7749b90c2dc24911e275
+
+HMAC_SHA1(&quot;key&quot;, &quot;The quick brown fox jumps over the lazy dog&quot;) = 0xde7c9b85b8b78aa6bc8a7a36f70a90701c9db4d9
+
+HMAC_SHA256(&quot;key&quot;, &quot;The quick brown fox jumps over the lazy dog&quot;) = 0xf7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8
+</code></pre><p>အထက်ပါ code ကို ကြည့်လိုက်ပါ။ key ကို အသုံးပြုပြီး string ကို hash လုပ်လိုက်တာပါ။ hash လုပ်တဲ့ အခါမှာ အသုံးများတာက MD5 , SHA1 , SHA256 တို့ပါ။ Server မှာ password သိမ်းတဲ့ အခါမှာ မူရင်း password ကို မသိမ်းထားသင့်ပါဘူး။ hash value ကို သာသိမ်းထားသင့်တယ်။ hash value ကို သိမ်းထားတဲ့ အတွက် မူရင်း user ရဲ့ password ကို ကိုယ်တိုင် မသိနိုင်တော့တဲ့အတွက် privacy ရှိတယ်လို့ ဆိုနိုင်ပါတယ်။ နောက်ပြီး database မတော် တစ hack ခံထိတယ်ဆိုရင်တောင် ကိုယ့်ဆီက data တွေပဲ ရနိုင်ပြီး user တွေရဲ့ password ကို ရဖို့ ခက်ခဲပါလိမ့်မယ်။ user အတော်များများက password ကို အတူတူ ထားတတ်ကြပါတယ်။ ဒါကြောင့် သူ့ မူရင်း password ကို မသိအောင် hash လုပ်ပြီး သိမ်းကြပါတယ်။</p>
+<p>Mobile ကနေ MD5 , SHA1 စတာတွေကို hash လုပ်ပြီး API ကနေ ပို့တဲ့ နည်းကို ကျွန်တော်တို့တွေ အများအဖြစ် အသုံးပြုကြပါတယ်။ လမ်းမှာ တစ်ယောက်ယောက်က ကြားဖြတ်ပြီး ဖတ်ရင် မူရင်း user ရဲ့ password ကို မသိနိုင်အောင်ပါ။ ဒါကြောင့် hash value ကို client ဘက်မှာ လုပ်ပါ။ server ဘက်မှာ mobile က ပို့လိုက်တဲ့ plain text ကို hash လုပ်ပြီး သိမ်းဖို့ မလုပ်သင့်ပါဘူး။ client ဘက်ကသာ hash value ကို ဖန်တီးပါ။</p>
+<h3 id="base64-encoding-is-not-encryption">Base64 Encoding is not encryption</h3>
+<p>Base 64 ဟာ encoding ပါ။ base 64 ဟာ encode decode ဖြစ်ပါတယ်။ ကျွန်တော်တို့တွေ NSData ကို string အနေနဲ့ သိမ်းချင်တဲ့ အခါမှာ base64 string ပြောင်းပြီး သိမ်းတာတွေ သုံးလို့ရပါတယ်။ ဒါမှမဟုတ် hex string ပြောင်းပြီး အသုံးပြုလို့ရတယ်။ ဒါကြောင့် base 64 သုံးမယ်ဆိုရင် ဒါဟာ encryption မဟုတ်ဘူးဆိုတာကိုတော့ သတိထားဖို့လိုပါတယ်။ လူတိုင်း လွယ်လွယ်ကူကူ ပြန်ပြီးတော့ decode လုပ်လို့ရပါတယ်။</p>
+<h2 id="use-https">Use https</h2>
+<p>Mobile နဲ့ server ချိတ်ဆက်ပြီး အသုံးပြုတဲ့ အခါမှာ https ကို အသုံးပြုသင့်တယ်။ ပုံမှန် http ကို အသုံးပြုပြီးတော့ mobile နဲ့ server ကို ချိတ်ပြီး အသုံးပြုတဲ့ အခါမှာ user အနေနဲ့ data တွေကို လွယ်လင့် တကူ ကြည့်ရှုလို့ရပြီး ပြင်ဆင်လို့ရပါတယ်။ https ကို အသုံးပြုတာဟာ ပိုပြီး secure ဖြစ်တဲ့ ဆိုပေမယ့် <a href="http://www.charlesproxy.com/">Charles Proxy</a> လိုမျိုး အသုံးပြုပြီးတော့ https record တွေမှာ ဘာတွေ ပို့လိုက်ပြီး ဘာတွေ ရလာလဲ စစ်လို့ရတယ်။ ဥပမာ။။ in app purchases တွေမှာ download ချလိုက်တာ https ဆိုပေမယ့် proxy ကနေ ကြည့်ပြီးတော့ url တွေ ရသွားနိုင်ပါတယ်။တွေ ရသွားနိုင်ပါတယ်။ ဒါကြောင့် https အသုံးပြုပေမယ့် အရေးကြီးတဲ့ data တွေ ကို public key နဲ့ encrypt လုပ်ပြီးတော့ phone ဘက်က private key နဲ့ ပြန်ပြီး decrypt လုပ်တာ ဖြစ်ဖြစ် အခြား encryption method ကို ဖြစ်ဖြစ် အသုံးပြုသင့်ပါတယ်။</p>
+<h2 id="use-sqlcipher">Use Sqlcipher</h2>
+<p>SQL data တွေဟာ document ထဲမှာ သိမ်းတာ ဖြစ်ဖြစ် App folder ထဲမှာ သိမ်းတာ ဖြစ်ဖြစ် sql file ကို ရရင် အထဲက data တွေ ဖတ်လို့ရနိုင်ပါတယ်။ login ဝင်ပြီးတော့ ရနိုင်တဲ့ data တွေကို cache အနေနဲ့ SQL မှာ သိမ်းထားမယ်ဆိုပါတော့။ ဒီအတိုင်း plain data သာ သိမ်းထားလိုက်ရင် user ရဲ့ login password ကို မသိနိုင်ပေမယ့် sql data ကနေ information တွေ ရနိုင်ပါတယ်။ ဥပမာ။။ Bank mobile app ဆိုပါတော့ ။ transaction information တွေကို cache အနေနဲ့ သိမ်းထားတယ်။ user က login ဝင်ပြီး transaction တွေကို ကြည့်လို့ရမယ်။ သို့ပေမယ့် sql မှာ သိမ်းထားတဲ့ အတွက် phone ရသွားတဲ့ သူဟာ database ကနေ ယူကြည့်ပြီးတော့ user ရဲ့ transaction တွေ အကုန် ရသွားနိုင်ပါတယ်။ ဒါကြောင့် password အသုံးပြုပြီး ကာကွယ်ထားတဲ့ sqlcipher ကို အသုံးပြုပါ။ အရေးကြီးတဲ့ information တွေကို ဘယ်လို သိမ်းမလဲ ။ database မှာ သိမ်းသင့် မသင့်။ စတာတွေကို စဉ်းစားသင့်ပါတယ်။</p>
+<h2 id="check-security-before-you-use-external-library">Check security before you use external library</h2>
+<p>External library မသုံးခင်မှာ သူဘာတွေ သုံးထားလဲ ဆိုတာ နားလည်သင့်ပါတယ်။ ဥပမာ ဆိုရရင် <a href="http://restkit.org/">RestKit</a> ဆိုရင် core data နဲ့ mapping လုပ်ထားတယ်။ Core Data ဟာ encryption မပါဘူး။ sqlite database ကို အသုံးပြုထားပြီးတော့ data တွေကို sqlite ကနေ ပြန်ဖွင့်လို့ရတယ်။ ကျွန်တော် အပေါ်က ပြောထားခဲ့သလို API နဲ့ iOS ချိတ်ဆက်အသုံးပြုတဲ့ အခါမှာ RestKit နဲ့ Core Data ကို အသုံးပြုမယ်ဆိုရင် သတိပြုသင့်တာက data တွေက အရေးကြီးလား။ ဘာတွေ သိမ်းသင့်လဲ စတာတွေကို ဂရုစိုက်သင့်တယ်။ Banking app မှာ RestKit နဲ့ core data ကို အသုံးပြုဖို့ဆိုရင် တော်တော်လေးကို သတိထားသင့်ပါတယ်။</p>
+<h2 id="think-before-using-core-data">Think before using Core Data</h2>
+<p>ကျွန်တော် အပေါ်ရေးထားသလို Core Data ဟာ encryption မပါပါဘူး။ ဒါကြောင့် data storage လုပ်တဲ့ အခါမှာ sqlite ကို ဖွင့်ပြီးတော့ data တွေကို ရနိုင်ပါတယ်။ ပုံမှန် app တွေမှာ core data သုံးထားတာ ပြဿနာ မဟုတ်ပါဘူး။ တကယ်လို့ data တွေကို အခြားသူ access မလုပ်စေချင်ဘူး ဆိုရင်တော့ core data ကို မသုံးသင့်ဘူး။ ပုံမှန် app တွေ data တွေကို store လုပ်ထားမယ်။ data တွေကလည်း အရေးမကြီးရင်တော့ core data က အဆင်ပြေပါတယ်။</p>
+<h2 id="passcode">Passcode</h2>
+<p>Passcode တွေဟာ forget password လုပ်မရတာ တွေ့ရပါတယ်။ ဘာလို့ လုပ်မရတာလဲ ဆိုတော့ ပြန်ဖြည်ရခက်လို့ပါ။ Pass code တွေက ပုံမှန် အားဖြင့် data တွေ အားလုံးကို ထည့်လိုက်တဲ့ pass code ကို အသုံးပြုပြီးတော့ encrypt လုပ်လိုက်တယ်။ Pass code ကို ဖန်တီးတဲ့ အခါမှာ user ထည့်ထားတဲ့ pass code နောက်ပြီး app မှာ သုံးမယ့် code ကို ပေါင်းပြီးတော့ အထဲက data တွေ အကုန် encrypt လုပ်လိုက်တယ်။ PassCode မေ့သွားတဲ့ အခါမှာ အထဲက data တွေကို ပြန်ဖြည် မရတော့ဘူး။ forget password လိုမျိုး သုံးမရတာက data က encrypt လုပ်ထားတဲ့ အတွက် မူရင်း key ကို မသိရင် လုံးဝကို ဖြည်မရတဲ့ သဘောဖြစ်သွားတာပါ။ ပြန်ဖြည်မယ်ဆိုရင်တော့ pass code count ပေါ်မှာ မူတည်ပြီး loop ပတ်ဖြည်ရင်တော့ ရနိုင်ပါတယ်။</p>
+<p>ဒါကြောင့် ပုံမှန် အားဖြင့် pass code အပြင် app အတွက် သီးသန့် key ကိုပါ pending ပေါင်းပြီး data တွေကို encrypt လုပ်လိုက်ပါတယ်။ တစ်ယောက်ယောက်က app ထဲက data တွေကို ရသွားပြီး ပြန်ဖြည်ဖို့အတွက်ရာ pass code လိုလာပါပြီ။ pass code ကို 0000 ကနေ 9999 အထိ loop ပတ်ပြီး ဖြည်ပေမယ့် app အတွက် သီးသန့် code ကို ဘယ်လို pending လုပ်ထားမှန်း မသိတဲ့အတွက် ပြန်ဖြည်လို့ မရတော့ပါဘူး။ ဒါကြောင့် အသုံးပြုသူတွေ အနေနဲ့ pass code သုံးမယ်ဆိုရင် မမေ့အောင် သတိထားဖို့ လိုပါတယ်။</p>
+<p>Developer အနေနဲ့လည်း pass code ဆိုတာက အဝင် အတွက်ပါ မဟုတ်ပဲ အထဲမှာ အသုံးပြုတဲ့ data တွေ အားလုံးကို user passcode + app key ကို ပေါင်းပြီး encrypt လုပ်ထားပေးဖို့ လိုပါတယ်။ app အဝင်အတွက်လေးပဲ pass code ဆိုတာဟာ တကယ်တန်း အဓိပ္ပာယ် မရှိ ဖြစ်နေပါလိမ့်မယ်။ data တွေ iTool နဲ့ ဖွင့် ပြီး ယူလို့ရနေရင်တော့ pass code ထည့်ထားတာ အဓိပ္ပာယ် မရှိဖြစ်နေပါလိမ့်မယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Useful library for iOS Development
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Useful library for iOS Development</h1>
+      <div class="description">iOS Development အတွက် အသုံးဝင်သည့် library များ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/library.png" class="headerImage">
+    <div class="content detailArticle"><p>iOS development လုပ်တဲ့အခါမှာ ကိုယ်ပိုင် ဖန်တီးတဲ့ အခါတွေရှိသလို github မှာ အခြားသူတွေ ဖန်တီးထားပြီးသား library ကောင်းကောင်းလေးတွေလည်း ရှိတတ်ပါတယ်။ တခြားသူတွေ ဖန်တီးထားတဲ့ library တွေကို အသုံးပြုခြင်းအားဖြင့် အချိန်ကုန်သက်သာစေပါတယ်။ မသုံးစွဲခင်မှာတော့ library ရဲ့ license ကို အရင်ဆုံး ဖတ်ဖို့ လိုပါတယ်။ ကျွန်တော် အသုံးများတဲ့ library အချို့နဲ့ အခုတလော ထွက်ရှိလာတဲ့ library အချို့ကို ဝေမျှ လိုက်ပါတယ်။</p>
+<h3 id="svprogresshud">SVProgressHUD</h3>
+<p><a href="https://github.com/samvermette/SVProgressHUD">SVProgressHUD</a> ဟာ <a href="http://samvermette.com/">Sam Vermette</a> ရေးထားတဲ့ library ဖြစ်ပြီး loading တွေ မှာ ပြဖို့ အသုံးဝင်ပါတယ်။  သုံးရတာလွယ်ကူတဲ့ အတွက် MBProgressHUD အစား SVProgressHUD ကို ကျွန်တော် အဓိက ထားသုံးစွဲဖြစ်တယ်။ Cocoapod ready library ဖြစ်တဲ့ အတွက် လက်ရှိ cocoapod မှာ ထည့်ပြီး သုံးလို့ရပါတယ်။</p>
+<pre><code class="lang-objc">- (void)show {
+    [SVProgressHUD showWithStatus:@&quot;Doing Stuff&quot;];
+}
+- (void)dismiss {
+    [SVProgressHUD dismiss];
+}
+</code></pre>
+<p><img src="/issue-9/images/svprogress.gif" alt=""></p>
+<h3 id="afnetworking">AFNetworking</h3>
+<p>RESTFul API ကို iOS မှာ သုံးမယ်ဆိုရင်တော့ မဖြစ်မနေ သုံးသင့်တဲ့ library ကတော့ <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> ပါ။ <a href="https://github.com/AFNetworking/AFNetworking">Mattt Thompson</a> ရေးထားပြီး MIT လိုင်စင် ဖြစ်ပါတယ်။ AFNetworkin အကြောင်း ကျွန်တော် ရေးခဲ့ဖူးပြီးသားပါ။</p>
+<h3 id="ono">Ono</h3>
+<p>website ရဲ့ API တွေက JSON မဟုတ်ပဲ XML ဖြစ်နေတဲ့ အခါမှာ iOS ရဲ့ ob jective-c နဲ့ သိပ်ပြီး အဆင်မပြေလှဘူး။ NSXMLParser ကို အသုံးပြီးတော့ XML ကို prase လုပ်ပြီး ကိုယ်သုံးချင်တဲ့ data ရအောင် ပြန်စစ်ထုတ်တာ ၊ ဒါမှမဟုတ် dictionary ပြောင်းတာ စတာတွေကို လုပ်ရတဲ့ အခါမှာ အချိန်ကုန်ပါတယ်။ JSON data ဖြစ်ခဲ့ရင်တော့ လွယ်လင့်တကူ NSDictionary ရနိုင်ပါတယ်။ XML အတွက် ကျွန်တော်တို့တွေ <a href="https://github.com/mattt/Ono">Ono</a> ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-objc">#import &quot;Ono.h&quot;
+
+NSData *data = ...;
+NSError *error;
+
+ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithData:data error:&amp;error];
+for (ONOXMLElement *element in document.rootElement.children) {
+    NSLog(@&quot;%@: %@&quot;, element.tag, element.attributes);
+}
+
+// Support for Namespaces
+NSString *author = [[document.rootElement firstChildWithTag:@&quot;creator&quot; inNamespace:@&quot;dc&quot;] stringValue];
+
+// Automatic Conversion for Number &amp; Date Values
+NSDate *date = [[document.rootElement firstChildWithTag:@&quot;created_at&quot;] dateValue]; // ISO 8601 Timestamp
+NSInteger numberOfWords = [[document.rootElement firstChildWithTag:@&quot;word_count&quot;] numberValue] integerValue];
+BOOL isPublished = [[document.rootElement firstChildWithTag:@&quot;is_published&quot;] numberValue] boolValue];
+
+// Convenient Accessors for Attributes
+NSString *unit = [document.rootElement firstChildWithTag:@&quot;Length&quot;][@&quot;unit&quot;]
+NSDictionary *authorAttributes = [[document.rootElement firstChildWithTag:@&quot;author&quot;] attributes];
+
+// Support for XPath &amp; CSS Queries
+[document enumerateElementsWithXPath:@&quot;//Content&quot; block:^(ONOXMLElement *element) {
+    NSLog(@&quot;%@&quot;, element);
+}];
+</code></pre>
+<h3 id="urbmediafocusviewcontroller">URBMediaFocusViewController</h3>
+<p>TweetBot 3 မှာ image ကို နှိပ်လိုက်ရင် HUD layer နဲ့ ပုံကို ပြတာကို သတိထားမိမှာပါ။ အဲဒီလိုမျိုး ပုံစံ ဖန်တီးမယ်ဆိုရင်တော့ <a href="https://github.com/u10int/URBMediaFocusViewController">URBMediaFocusViewController</a> ကို အသုံးပြုနိုင်ပါတယ်။ TweeBot 3 လိုမျိုး image ကို Drag လုပ်ပြီး ပြန်ဖျောက်လို့ရပါတယ်။</p>
+<p><img src="/issue-9/images/URBMediaFocusViewController.gif" alt=""></p>
+<h3 id="tttattributedlabel">TTTAttributedLabel</h3>
+<p>Twitter လိုမျိုး client တွေမှာ user ကို mention လုပ်ထားတဲ့ @username ကို နှိပ်လိုက်ရင် သက်ဆိုင်ရာ user ကို ရောက်သွားတာ ကိုတွေ့နိုင်ပါမယ်။ ဒါ့အပြင် HTML link တွေကိုလည်း နှိပ်လို့ရတာကို တွေ့မှာပါ။ ပုံမှန် သမာရိုးကျ webivew ကို အသုံးပြုရင် page load တွေကို အချိန်ကြာစေပါတယ်။ <a href="https://github.com/mattt/TTTAttributedLabel">TTTAttributedLabel</a> ဟာ CoreText နဲ့ Core Graphic ကို အသုံးပြုထားတဲ့ အတွက် twitter လိုမျိုး client တွေ အတွက် အဆင်ပြေပါတယ်။</p>
+<pre><code class="lang-objc">TTTAttributedLabel *tttLabel = [[TTTAttributedLabel alloc]initWithFrame:CGRectMake(10, 10, 200, 200)];
+tttLabel.delegate = self;
+NSString *labelText = @&quot;Lost? Learn more.&quot;;
+tttLabel.text = labelText;
+NSRange r = [labelText rangeOfString:@&quot;Learn more&quot;];
+[tttLabel addLinkToURL:[NSURL URLWithString:@&quot;action://show-help&quot;] withRange:r];
+[self.view addSubview:tttLabel];
+tttLabel.userInteractionEnabled=YES;
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+      NSLog(@&quot;Did click&quot;);
+}
+</code></pre>
+<p><img src="/issue-9/images/TTAttribute.gif" alt=""></p>
+<h3 id="ngaparallaxmotion">NGAParallaxMotion</h3>
+<p>iOS 7 ရဲ့ Wallpaper လိုမျိုး Paralleax ကို ကိုယ့်ရဲ့ project မှာ သုံးချင်တယ်ဆိုရင်တော့ <a href="https://github.com/michaeljbishop/NGAParallaxMotion">NGAParallaxMotion</a> ကို သုံးသင့်ပါတယ်။ Interface Builder ရဲ့ Key Path ကနေ အသုံးပြုနိုင်သလို code ကနေ လည်း အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-objc">theView.parallaxIntensity = 10;
+</code></pre>
+<p><img src="/issue-9/images/NGAParallaxMotion.gif" alt=""></p>
+<h3 id="blurrymodalsegue">BlurryModalSegue</h3>
+<p>iOS 7 မှာ သမာရိုးက Present Model ထက် background blur ဖြစ်နေတဲ့ ပုံစံ design အတွက် <a href="https://github.com/Citrrus/BlurryModalSegue">BlurryModalSegue</a> ကို အသုံးပြုနိုင်ပါတယ်။ CocoaPod ကို support လုပ်ပြီးတော့ Storyboard ကိုလည်း support လုပ်ပါတယ်။</p>
+<p><img src="/issue-9/images/BlurryModalSegue.gif" alt=""></p>
+<h3 id="iaphelper">IAPHelper</h3>
+<p>iOS မှာ In App Purchasesကို လွယ်လင့်တကူ အသုံးပြုဖို့အတွက် IAPHelper ကို အသုံးပြုနိုင်ပါတယ်။ အသုံးပြုရတာလွယ်ကူပြီးတော့ Purchased တွေကို keychain မှာ သိမ်းထားတဲ့အတွက် ပုံမှန် သမာရိုးကျ NSUserDefault မှာ သိမ်းတာထက် လုံခြုံမှုရှိပါတယ်။</p>
+<pre><code class="lang-objc">if(![IAPShare sharedHelper].iap) {
+      NSSet* dataSet = [[NSSet alloc] initWithObjects:@&quot;com.comquas.iap.test&quot;, nil];
+
+      [IAPShare sharedHelper].iap = [[IAPHelper alloc] initWithProductIdentifiers:dataSet];
+  }
+
+[IAPShare sharedHelper].iap.production = NO;
+
+  [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
+   {
+       if(response &gt; 0 ) {
+       SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:0];
+
+       [[IAPShare sharedHelper].iap buyProduct:product
+                                  onCompletion:^(SKPaymentTransaction* trans){
+
+              if(trans.error)
+              {
+                  NSLog(@&quot;Fail %@&quot;,[trans.error localizedDescription]);
+              }
+              else if(trans.transactionState == SKPaymentTransactionStatePurchased) {
+
+                  [[IAPShare sharedHelper].iap checkReceipt:trans.transactionReceipt AndSharedSecret:@&quot;your sharesecret&quot; onCompletion:^(NSString *response, NSError *error) {
+
+                      //Convert JSON String to NSDictionary
+                      NSDictionary* rec = [IAPShare toJSON:response];
+
+                      if([rec[@&quot;status&quot;] integerValue]==0)
+                      {
+                      NSString *productIdentifier = trans.payment.productIdentifier;
+                        [[IAPShare sharedHelper].iap provideContent:productIdentifier];
+                          NSLog(@&quot;SUCCESS %@&quot;,response);
+                          NSLog(@&quot;Pruchases %@&quot;,[IAPShare sharedHelper].iap.purchasedProducts);
+                      }
+                      else {
+                          NSLog(@&quot;Fail&quot;);
+                      }
+                  }];
+              }
+              else if(trans.transactionState == SKPaymentTransactionStateFailed) {
+                   NSLog(@&quot;Fail&quot;);
+              }
+                                  }];//end of buy product
+       }
+}];
+</code></pre>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

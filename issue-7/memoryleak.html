@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Memory Leaking
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Memory Leaking</h1>
+      <div class="description">memory leak နှင့် ပတ်သက်၍ သိကောင်းစရာ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">ဇော်မင်းစိုး</span></div>
+    </div><img src="img/leakcover.png" class="headerImage">
+    <div class="content detailArticle"><p>ဒီတစ်လတော့ ကျွန်တော်ပြောမဲ့ အကြောင်းအရာကတော့ iOS App တွေကို Development လုပ်တဲ့အခါမှာ အရေးကြီးတဲ့ အပိုင်းတစ်ခု ဖြစ်တဲ့ Memory Leaking ပိုင်းကို ပြောသွားမှာဖြစ်ပါတယ်။</p>
+<p>တစ်လချင်းစီမှာ Instrument ရဲ့ Tools တွေကို ဘယ်လို ဘယ်ပုံ အသုံးပြုကြမလဲ ဆိုတာ ဆက်လက်ပြီး ပြောပေးသွားမှာ ဖြစ်ပါတယ်။</p>
+<p>ကိုယ်ရေးထားတဲ့ App ဟာ Memory Leak ဖြစ်နေတယ်ဆိုရင် Device ရဲ့ Memory တွေကိုမလိုအပ်ပဲနဲ့ ဖြုန်းသလိုဖြစ်နေပြီးတော့ App ရဲ့ Performace ကိုလည်းကျဆင်းစေပါတယ်။</p>
+<p>အခန့်မသင့်လို့ Memory Leak ဖြစ်တာများလာပြီဆိုရင်တော့ iOS က ကိုယ့်ရဲ့ App ကို Kill လုပ်ပစ်လိုက်တဲ့အခါမှာ ကိုယ့် App က Crash ဖြစ်ပြီး ထွက်သွား တတ်ပါတယ်။</p>
+<p>ဒါ့ကြောင့်မို့လို့ ကိုယ့်ရဲ့ iOS App လေးကို Development လုပ်နေတုန်းမှာ Memory Leak ရှိမရှိကို စစ်ဆေးလို့ရတဲ့ XCode မှာပါတဲ့ Instrument Tool လေးအသုံးပြုပုံလေးတွေကို ဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။</p>
+<p>အရင်ဆုံး XCode ကိုဖွင့်ပြီး Project တစ်ခုဆောက်လိုက်ပါ။</p>
+<p>Project ဆောက်တဲ့နေရာမှာ Use Automatic Reference Counting ကို UnCheck လုပ်ပေးလိုက်ပါ။ပြီးရင် ကိုယ်ကြိုက်တဲ့နာမည်ပေးပြီးတော့ အောက်က Code လေးတွေကို UIButton နဲ့ Action ချိတ်ပေးလိုက်ပါ။</p>
+<pre><code class="lang-objc">- (IBAction)checkMemory:(id)sender {
+while (true)
+{
+NSNumber *i = [[NSNumber alloc] initWithLong:1000];
+NSLog(@&quot;Count is %d&quot;,[i retainCount]);
+}
+}
+</code></pre>
+<p>ပြီးရင် အပေါ်က Menu Bar မှာ Product &gt; Profile ကိုရွေးပေးလိုက်ပါက Instruments App တက်လာမှာဖြစ်ပါတယ်။</p>
+<p>ပြီးရင် ကိုယ့် App ကို စမ်းဖို့ ဘယ်အရာစမ်းမှာလဲဆိုပြီး အောက်က ပုံလေးအတိုင်းလေး မေးပါလိမ့်မယ်။</p>
+<p>အဲ့ဒီအခါမှာ Leaks ကိုရွေးပေးလိုက်ပါ။</p>
+<p><img src="/issue-7/images/leak.png" alt=""></p>
+<p>ရွေးပေးလိုက်ပါက ကိုယ့် App လေးကို Run ပါလိမ့်မယ်။
+ပြီးရင် စောစောက ကျွန်တော်တို့ ရေးထားတဲ့ Code လေးနဲ့ချိတ်ထားတဲ့ Button လေးကိုနှိပ်လိုက်ရင် Memory Leak ဖြစ်ကြောင်းကို ပြတဲ့ အနီရောင်အတန်းလေးတွေကို တက်လာပါလိမ့်မယ်။</p>
+<p><img src="/issue-7/images/leakerror.png" alt=""></p>
+<p>အဲ့ဒါဆိုရင် ကျွန်တော်တို့ App လေးမှာ Memory Leak ဖြစ်နေပြီလို့တွေ့ရှိရပါတယ်။</p>
+<p>အခုကျွန်တော်တို့စမ်းနေတာက ARC ကို Disable လုပ်ထားပြီး စမ်းသပ်နေတာ ဖြစ်ပါတယ်။</p>
+<p>အခုနောက်ပိုင်း App တွေမှာတော့ ARC နဲ့ရေးကြတာများပါတယ်။ကျွန်တော်ကိုယ်တိုင်လည်း ARC ကိုပဲသုံးပြီးရေးလေ့ရှိပါတယ်။</p>
+<p>ဒါပေမဲ့ Memory Leaking ပိုင်းကိုတော့ သဘောပေါက်ထားသင့်ပါတယ်။</p>
+<p>ဒါဆိုရင် ဘယ်နေရာက Memory Leaking ဖြစ်နေတာလဲဆိုတာသိရအောင် Instrument ထဲက Menu Bar မှာ View &gt; Extended Detail ကိုဖွင့်ကြည့်လိုက်ရင် ညာဘက်မှာ Memory Leak ဖြစ်တဲ့နေရာကို Bold နဲ့ပြထားတာကိုတွေ့ရပါလိမ့်မယ်။</p>
+<p><img src="/issue-7/images/leakcode.png" alt=""></p>
+<figcaption></figcaption>
+
+<p>အဲ့ဒါကို Double Click နှိပ်လိုက်ရင် ဘယ် Code က Memory Leaking ဖြစ်စေလည်းဆိုတာကို ပြပါလိမ့်မယ်။</p>
+<p><img src="/issue-7/images/leakcodeDetail.png" alt=""></p>
+<p>ဒါဆိုရင် ကျွန်တော်တို့ရေးထားတဲ့ Code လေးမှာ Memory Leaking ဖြစ်နေတယ်ဆိုပြီး အနီရောင်လေး နဲ့လာပြနေမှာ ဖြစ်ပါတယ်။</p>
+<p>အဲ့ဒီ Memory Leaking ဖြစ်စေတဲ့ Code လေးကို အောက်ကလို ပြောင်းရေးပေးလိုက်ပါ။</p>
+<pre><code class="lang-objc">- (IBAction)checkMemory:(id)sender {
+while (true)
+{
+NSNumber *i = [[NSNumber alloc] initWithLong:1000];
+NSLog(@&quot;Count is %d&quot;,[i retainCount]);
+[i release];
+}
+}
+</code></pre>
+<p>ပြီးရင် ပြန်စမ်းသပ်ကြည့်လိုက်တဲ့အခါမှာ Memory Leak မဖြစ်တော့တာတွေ့ရပါလိမ့်မယ်။</p>
+<p>ဘာကြောင့်လဲဆိုတော့ <code>[i release];</code>
+ ဆိုတဲ့ Code လေးကိုရေးပေးလိုက်တဲ့အတွက်ကြောင့် allocation လုပ်တဲ့အခါမှာ retain Count တစ်ခါတိုးပြီးတိုင်း တစ်ခါ release လုပ်လိုက်တဲ့ အတွက်ကြောင့် Memory Leaking မဖြစ်တော့တာကို တွေ့ရမှာဖြစ်ပါတယ်။</p>
+<p>ဒီနေရာမှာကျွန်တော် ပြောချင်တာကတော့ ARC မသုံးဘူးဆိုရင် release ကိုသတိထားပြီး လုပ်ပေးနေရမှာဖြစ်ပါတယ်။</p>
+<p>မဟုတ်ရင်တော့ ကိုယ်ဆောက်ထားတဲ့ Object ဟာ Memory ပေါ်မှာ ကျန်ရှိနေတဲ့အခါမှာ Memory Leaking ဖြစ်ပြီး App ကိုထိခိုက်စေနိုင်ပါတယ်။</p>
+<p>အခုဆက်ပြောမှာကတော့ Instrument ထဲက Memory Leaking ထဲမှာပါတဲ့ အကြောင်းအရာတစ်ချို့ ကို အသေးစိတ် ရှင်းလင်း ပေးသွားမှာ ဖြစ်ပါတယ်။</p>
+<p><img src="/issue-7/images/detailleak.png" alt=""></p>
+<p><strong>Graph :</strong> ဒီဟာလေးကတော့ အမှန်ခြစ်ထားတဲ့ Category တွေကိုအပေါ်က Chart မှာပြပေးမှာဖြစ်ပါတယ်။</p>
+<p><strong>Category :</strong> Category ကတော့ လက်ရှိ ကိုယ့် App မှာ Run နေတဲ့ Core Foundation Object List တွေ Objective-C Class တွေကိုဖော်ပြပေးထားတာပါ။</p>
+<p><strong>Live Bytes :</strong> Live Bytes ကတော့ လက်ရှိ ကိုယ့်ရဲ့ App လေးဟာ iOS Device ရဲ့ Memory ကို ဘယ်လောက် ယူသုံးထားသလဲ ဆိုတာ ပြပေးနေတာပါ။</p>
+<p><strong>Living :</strong> Living ကတော့ Memory ရဲ့ Heap ပေါ်မှာတည်ဆောက်ထားတဲ့ Object အရေအတွက်ကို ဖော်ပြပေးထားတာပါ။</p>
+<p><strong>Transitory :</strong> Transitory ကတော့ Memory ပေါ်မှာ တည်ဆောက်ခဲ့တဲ့ ၊ ဖျက်သိမ်းခဲ့တဲ့ Object အရေအတွက်ကို ဖော်ပြပေးထားတာပါ။</p>
+<p><strong>Overall Bytes :</strong> Overall Bytes ကတော့ ကိုယ့် App စ Run ကတည်းက အသုံးပြုထားတဲ့ Object တွေရဲ့ Bytes အရေအတွက် စုစုပေါင်းကိုဖော်ပြပေးထားတာပါ။Release လုပ်ထားတဲ့ Bytes အရေအတွက်တွေပါ ပါပါတယ်.</p>
+<p><strong>Overall :</strong> Overall ကတော့ ကိုယ့် App စ Run ကတည်းက တည်ဆောက်ခဲ့တဲ့ Object အရေအတွက် စုစုပေါင်းကို ဖော်ပြပေးထားတာ ဖြစ်ပါတယ်။ Release လုပ်ခဲ့တဲ့ အရေအတွက် တွေပါ ပါဝင်ပါတယ်။</p>
+<p><strong>Allocations (Net / Overall) :</strong> ဒါကတော့ ကိုယ့် App ရဲ့ Memory ပေါ်မှာ နေရာယူမှု Total ကိုဖော်ပြပေးထားတာဖြစ်ပါတယ်။</p>
+<p>ဒါဆိုရင် ဒီတစ်လအတွက်တော့ ကျွန်တော် Memory Management ပိုင်းကို စစ်ဆေးလို့ရတဲ့ Instrument ရဲ့ Memory Leak ကိုဖော်ပြပေးပြီး သွားတဲ့ အခါမှာတော့ နောက်လထဲမှာလည်း Instrument ရဲ့ ထူးခြားတဲ့ Tool အသုံးပြုပုံလေးတွေကို ဆက်လက်ဖော်ပြ ပေးသွားမှာ ဖြစ်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

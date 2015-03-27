@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Clean Swift Class
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Clean Swift Class</h1>
+      <div class="description">extension is your friend</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover_cleanswift.png" class="headerImage">
+    <div class="content detailArticle"><p>ဒီ<a href="https://medium.com/swift-programming/keep-your-swift-models-clean-ea7eb314d49d">ဆောင်းပါး</a> ကို ရေးတဲ့ မူရင်း စာရေးဆရာ ဟာ Robert C. Martins (Uncle Bob) book Clean Code ရဲ့ ပရိတ်သတ်ပါ။ Programming language အသစ်တစ်ခုကို လေ့လာတဲ့ အခါမှာ လေ့လာခဲ့ဖူးတဲ့ နည်းလမ်းတွေနဲ့ ပြန်လည်ပေါင်းစပ်ရပါတယ်။ ဒီ ဆောင်းပါးမှာ Swift class ကို extension ကို အသုံးပြုပြီး class တစ်ခုကို ရိုးရှင်းအောင်တည်ဆောင် ပုံကို ဖော်ပြထားပါတယ်။</p>
+<blockquote>
+<p>Version 1.0</p>
+</blockquote>
+<pre><code class="lang-swift">class Person {
+  var firstname: String
+  var lastname: String
+
+  init(firstname: String, lastname: String) {
+    self.firstname = firstname
+    self.lastname = lastname
+  }
+}
+</code></pre>
+<p>ပုံမှန် Model တစ်ခုပါပဲ။ Person ပါတယ်။ နောက်ပြီးတော့ init method ပါတယ်။</p>
+<blockquote>
+<p>Version 2.0</p>
+</blockquote>
+<pre><code class="lang-swift">class Person {
+  var firstname: String
+  var lastname: String
+
+  func fullname() -&gt; String {
+    return firstname + &quot; &quot; + lastname
+  }
+
+  init(firstname: String, lastname: String) {
+    self.firstname = firstname
+    self.lastname = lastname
+  }
+}
+</code></pre>
+<p>အခုမှတော့ နည်းနည်းလေး ရှုပ်သွားပါပြီ။ fullname ဆိုတဲ့ function ကို ထပ်ဖြည့်လိုက်ပါတယ်။ code ကတော့ clean မဟုတ်တော့ပါဘူး။ ဒါပေမယ့် ဖတ်ရင်တော့ နားလည်ပါသေးတယ်။ logic တွေကို မူရင်း class မှာဖြစ်ဖြစ် controller မှာ ဖြစ်ဖြစ် ထည့်သွင်းရင် ပို အဆင်ပြေပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ extension မှာ logic ကို ထပ်ဖြည့်တာ ပို ပြီး သင့်လျော်ပါတယ်။</p>
+<blockquote>
+<p>Version 3.0</p>
+</blockquote>
+<pre><code class="lang-swift">class Person {
+  var firstname: String
+  var lastname: String
+
+  init(firstname: String, lastname: String) {
+    self.firstname = firstname
+    self.lastname = lastname
+  }
+}
+
+extension Person {
+  func fullname() -&gt; String {
+    return firstname + &quot; &quot; + lastname
+  }
+}
+</code></pre>
+<p>အခု extension မှာ function ကို ရွှေ့လိုက်ပါပြီ။</p>
+<blockquote>
+<p>Version 4.0</p>
+</blockquote>
+<p>Swift မှာ protocol ကို extension မှာ အသုံးပြုလို့ရပါတယ်။ ဒါကြောင့် extension ကို protocol နဲ့ တွဲသုံးဖို့ AgeClasificationProtocol ထပ်ဖြည့်ကြည့်ပါမယ်။ age နဲ့ agetype ကို return ပြန်ပေးပါမယ်။</p>
+<pre><code class="lang-swift">protocol AgeClasificationProtocol {
+  var age: Int { get }
+  func agetype() -&gt; String
+}
+
+class Person {
+  let firstname: String
+  let lastname: String
+  var age: Int
+
+  init(firstname: String, lastname: String) {
+    self.firstname = firstname
+    self.lastname = lastname
+    self.age = 10
+  }
+}
+
+extension Person : AgeClasificationProtocol {
+
+  func fullname() -&gt; String {
+    return firstname + &quot; &quot; + lastname
+  }
+
+  func agetype() -&gt; String {
+    switch age {
+      case 0...2:
+      return &quot;Baby&quot;
+      case 2...12:
+      return &quot;Child&quot;
+      case 13...19:
+      return &quot;Teenager&quot;
+      case let x where x &gt; 65:
+      return &quot;Elderly&quot;
+      default:
+      return &quot;Normal&quot;
+    }
+  }
+}
+</code></pre>
+<p>အခု ဆိုရင် model က အတော်လေးကို ရှင်းလင်းတာကို တွေ့နိုင်ပါတယ်။ မူရင်း Person class မှာ လိုအပ်တဲ့ function နဲ့ protperty တွေကိုပဲ ထည့်သွင်းထားပြီး ထပ်ဖြည့်ချင်တာတွေကို extension နဲ့ protocol တွဲသုံးထားပါတယ်။ ရိုးရှင်းပြီးတော့ code ကို ပြန်ဖတ်ရတဲ့ အခါမှာလည်း များကြီး လွယ်ကူသွားပါတယ်။</p>
+<p>ref: <a href="https://medium.com/swift-programming/keep-your-swift-models-clean-ea7eb314d49d">How to keep your Swift models and classes clean</a></p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

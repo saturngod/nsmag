@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Convert app to iOS 7
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Convert app to iOS 7</h1>
+      <div class="description">လက်ရှိ App ကို iOS 7 အတွက် ပြောင်းလဲ ရေးဆွဲခြင်း</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/ios7.png" class="headerImage">
+    <div class="content detailArticle"><p>iOS 7 ထွက်လာတော့ လက်ရှိ iOS 6 app တွေကို iOS 7 အတွက် အဆင်ပြေအောင် ကျွန်တော်တို့တွေ ပြင်ရပါတယ်။ iOS 7 နဲ့ iOS 6 ဟာ UI အယူအဆတွေ ကွဲပြားသွားပါတယ်။ iOS 7 ဟာ flat UI ဖြစ်ပြီး လက်ရှိ flat UI နဲ့ ရေးဆွဲထားတဲ့ App တွေ အတွက်ကတော့ တကယ့်ကို လိုက်ဖက်မှု ရှိသွားတယ်။ Flat UI မဟုတ်တဲ့ App တွေအနေနဲ့ကတော့ iOS 7 အတွက် သီးသန့် flat UI ကို ထပ်ပြီး ရေးဆွဲရပါတယ်။</p>
+<h2 id="line-icons">Line Icons</h2>
+<p>နောက်ထပ်ပြောင်းလဲသွားတာကတော့ Line icon ပါ။ iOS 6 က ပုံနဲ့ မတူတော့ပဲ line icon တွေကို ပြောင်းပြီး အသုံးပြုထားပါတယ်။</p>
+<p><img src="/issue-4/images/line_icon.png" alt="bar icon"></p>
+<p>လက်ရှိ App တွေ iOS 7 ပုံစံ line icon တွေကို အောက်ပါ link တွေမှာ download ချနိုင်ပါတယ်။</p>
+<ul>
+<li><a href="http://www.pixeden.com/media-icons/tab-bar-icons-ios-7">Pixden’s Tab Bar Icons iOS 7</a></li>
+<li><a href="http://www.pixeden.com/media-icons/tab-bar-icons-ios-7-vol2">Pixden’s Tab Bar Icons iOS 7 Vol 2</a></li>
+<li><a href="http://www.pixeden.com/media-icons/tab-bar-icons-ios-7-vol3">Pixden’s Tab Bar Icons iOS 7 Vol 3</a></li>
+<li><a href="http://jlane.co/ios7-icons/">jaysonlane’s iOS 7 Inspired Line Icons</a></li>
+</ul>
+<p>စတာတွေမှာ download ချလို့ရပါတယ်။</p>
+<h2 id="status-bar-and-navigation-bar">Status Bar And Navigation Bar</h2>
+<p>iOS 7 မှာ status bar က iOS 6 နဲ့ မတူတော့တဲ့ အတွက် UI Design ကို ပိုပြီး လှပအောင် လုပ်လို့ရပါပြီ။ iOS 6 မှာတုန်းက UI Design က ဘယ်လိုပဲ လုပ်လုပ် အထက်မှာ status bar က ပါနေတော့ မလိုက်ဖက်လှဘူး။ status bar ဖျောက်လိုက်ရင်လည်း အသုံးပြုတဲ့သူတွေ အနေနဲ့ အချိန်တို့ battery တို့ကို ကြည့်လို့ မရတော့မှာ ဖြစ်တဲ့အတွက်ကြောင့် မဖျောက်ချင်ကြဘူး။ iOS 7 မှာ status bar နဲ့ navigation bar တစ်သားတည်း အနေနဲ့ မြင်တွေ့နိုင်ပါတယ်။</p>
+<p>အခု iOS 7 မှာတော့ Navigation Bar ရဲ့ default အနေနဲ့ translucent ဖြစ်နေပါတယ်။ ဒါကြောင့် iOS 6 မှာ ရေးထားတာတွေကို iOS 7 မှာ ဖွင့်လိုက်ရင် တလွဲတွေ ဖြစ်ကုန်တာတွေရှိပါတယ်။ ဒါကြောင့် navigation bar သုံးထားပြီးတော့ iOS 6 အတွက်ကော 7 အတွက်ကော မှန်ချင်တယ်ဆိုရင်</p>
+<pre><code class="lang-objc">self.navigationController.navigationBar.translucent = NO;
+</code></pre>
+<p>ဆိုပြီး အသုံးပြုရပါတယ်။ </p>
+<h2 id="facebook-style-sidebar">Facebook Style Sidebar</h2>
+<p>Facebook က iOS 7 အတွက် sidebar မသုံးတော့ပဲ tab ကို ပြောင်းသုံးထားတာကို တွေ့နိုင်ပါတယ်။ Sidebar ကို သူငယ်ချင်းရှာဖို့အတွက် ညာဘက်မှာပဲ ပြောင်းသုံးထားပါတယ်။ Sidebar က iOS 7 UI နဲ့ဆို သိပ်အဆင်မပြေလှပါဘူး။ iOS 6 အတွက်ကော iOS 7 အတွက်ပါ အဆင်ပြေဖို့ sidebar ရဲ့ view position ကို OS version ပေါ်မှာ မူတည်ပြီး ချိန်ညှိပေးဖို့လိုပါတယ်။</p>
+<h2 id="64-bit-for-iphone-5s">64 bit for iPhone 5s</h2>
+<p>iPhone 5s က 64 bit ဖြစ်တဲ့အတွက်ကြောင့် Xcode 5 ကို အသုံးပြုပြီး 64 bit compile လုပ်လို့ရပါတယ်။ 64 bit ပြောင်းတဲ့ Guide ကို <a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaTouch64BitGuide/Introduction/Introduction.html">ဒီမှာ</a> ဖတ်နိုင်ပါတယ်။</p>
+<p>64 bit ပြောင်းတာ သိပ်ပြီး ခက်ခဲမှု မရှိလှပါဘူး။ သို့ပေမယ့် ကိုယ့် source code က မဟုတ်ပဲ Admob လိုမျိုး .a library တွေ ယူသုံးထားရင်တော့ 64 bit အတွက် အဆင်မပြေသေးပါဘူး။ သုံးထားတဲ့ library တွေက 64 bit ထွက်လာအောင် စောင့်ဖို့ တော့ လိုပါတယ်။</p>
+<h2 id="flat-ui">Flat UI</h2>
+<p>iOS 7 ထွက်ပြီး နောက်ပိုင်း ပြောင်းလဲသွားတဲ့ App Design တွေကို အောက်မှာ ကြည့်နိုင်ပါတယ်။</p>
+<p><img src="/issue-4/images/screenshot/ebay.jpeg" alt="">
+<img src="/issue-4/images/screenshot/ebayios06.jpg" alt=""></p>
+<p>EBay iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/evernote.jpeg" alt="">
+<img src="/issue-4/images/screenshot/evernoteios6.jpg" alt=""></p>
+<p>Evernote iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/facebook.jpeg" alt="">
+<img src="/issue-4/images/screenshot/facebookios6.png" alt=""></p>
+<p>Facebook iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/mailbox.jpeg" alt="">
+<img src="/issue-4/images/screenshot/mailboxios6.jpg" alt=""></p>
+<p>Mailbox iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/mailbox2.jpeg" alt="">
+<img src="/issue-4/images/screenshot/mailbox2iso6.jpg" alt=""></p>
+<p>Mailbox iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/runkeeper.jpeg" alt="">
+<img src="/issue-4/images/screenshot/runkeeperios6.jpeg" alt=""></p>
+<p>Runkeeper iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/TED.jpeg" alt="">
+<img src="/issue-4/images/screenshot/TEDiOS6.jpeg" alt=""></p>
+<p>Ted iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/screenshot/zite.jpeg" alt="">
+<img src="/issue-4/images/screenshot/ziteiOS6.jpeg" alt=""></p>
+<p>Zite iOS 7 vs iOS 6</p>
+<p>အထက်က design တွေ ကြည့်လိုက်တာနဲ့ UI concept တစ်ခုလုံး ကွဲပြားသွားတာကို တွေ့နိုင်ပါတယ်။ </p>
+<h2 id="icons">Icons</h2>
+<p>UI သာမကပါဘူး icon တွေကိုလည်း iOS7 အတွက် အသစ်ပြန် ဖန်တီးကြပါတယ်။</p>
+<p><img src="/issue-4/images/icons/aroundmeios7.jpg" alt="">
+<img src="/issue-4/images/icons/aroundme.jpg" alt=""></p>
+<p>aroundme iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/icons/directrios7.jpg" alt="">
+<img src="/issue-4/images/icons/directr.jpg" alt=""></p>
+<p>Directr iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/icons/mailboxios7.jpg" alt="">
+<img src="/issue-4/images/icons/mailboxios.jpg" alt=""></p>
+<p>Mailbox iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/icons/runkeeperos7.jpg" alt="">
+<img src="/issue-4/images/icons/runkeeper.jpg" alt=""></p>
+<p>Runkeeper iOS 7 vs iOS 6</p>
+<p><img src="/issue-4/images/icons/ziteios7.jpg" alt="">
+<img src="/issue-4/images/icons/zite.jpg" alt=""></p>
+<p>Zite iOS 7 vs iOS 6</p>
+<p>App icons အများစုက flat ပုံစံ ကို ပြောင်းလဲ ရေးဆွဲထားတာကို ဂရုပြုမိပါလိမ့်မယ်။ တကယ်လို့ iOS 7 အတွက် app ကို ပြောင်းတဲ့အခါမှာ icons ကိုလည်း အလေးထားပြီး ပြောင်းသင့်တယ်။ အရင်တုန်းက tweetbot ကို သဘောကျခဲ့ပေမယ့် အခုတော့ twitterrific ကို ကျွန်တော် ပြောင်းသုံးပါတယ်။ twitterrific က iOS 7 အတွက် flat design ဖြစ်ပြီး tweetbot ကတော့ အခု အချိန်ထိ iOS 6 design ပဲ ရှိသေးတာကြောင့်ပါ။ iOS 7 မှာ iOS 6 design app တွေက လိုက်ဖက် မှု မရှိသလို ခံစားရစေတယ်။</p>
+<p>iOS 7 ကို ပြောင်းတာ ခက်ခက်ခဲခဲ တော့ မဟုတ်ပေမယ့် အချိန်တော့ပေးရပါမယ်။ အခုအချိန်မှာ iOS 7 သုံးစွဲသူတွေ 50% ရှိနေပါပြီ။ မကြာခင်မှာ ဒီထက် ပိုပြီးများလာတော့မှာပါ။ ဒါကြောင့် ဖြစ်နိုင်ရင် ကိုယ့်ရဲ့ App တွေကို iOS 7 အတွက် upgrade လုပ်ပြီး App store ပေါ် မှာ submit </p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

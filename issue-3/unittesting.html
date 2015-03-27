@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Unit Testing
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Unit Testing</h1>
+      <div class="description">ဘာကြောင့် Unit Testing ကို ထည့်သင့်သလဲ ?</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/unittesting.png" class="headerImage">
+    <div class="content detailArticle"><p>Unit Testing ကို လွန်ခဲ့တဲ့ ၁ နှစ်က သိခဲ့ပေမယ့် မသုံးတတ်သေးဘူး။ အဲဒီတုန်းက အလုပ် အတူတူ လုပ်တဲ့ လုပ်ဖော်ကိုင်ဖက်က ဘာ Project ပဲလုပ်လုပ် Test ကို ထည့်ထားတာကနေ သတိထားမိတာ။ အဲဒီ အချိန်တုန်းကတော့ ဘာလို့ Test သုံးတာလဲ ။ Test သုံးရင် coding ရေးရတာ ပိုနှေးမှာပေါ့။ Test အတွက် သီးသန့်ရေးရတဲ့ အတွက် အချိန်ကုန်တယ်လို့ စဉ်းစားခဲ့မိတယ်။ အခြားသူတွေ ရှင်းပြထားတာတွေ ဖတ်ကြည့်ပေမယ့် သေသေချာချာ သဘောမပေါက်တာကြောင့် Test ကို ကျွန်တော် ထည့်မရေးဖြစ်ခဲ့ဘူး။</p>
+<p>ပြီးခဲ့တဲ့လ မှာ iOS မှာ Test မဖြစ်မနေ ထည့်ရေးမယ်။ ရွေးချယ်စရာမရှိဘူး။ ထည့်ကို ထည့်မယ်ဆိုပြီး ဆုံးဖြတ်ပြီးတော့ စဖြစ်တယ်။ Xcode မှာ SenTestingKit ပါထားပြီးသားပါ။ တကယ်လို့ Project စကတည်းက Test ပါထည့်ထားခဲ့ရင်တော့ သီးသန့် Test ကို ထည့်စရာမလိုတော့ပါဘူး။ တကယ်လို့ မထည့်ရသေးရင်တော့ ဘယ်လို ထည့်ရမလဲ ဆိုတာကိုတော့ <a href="http://bit.ly/1aF94By">http://twobitlabs.com/2011/06/adding-ocunit-to-an-existing-ios-project-with-xcode-4/</a> မှာ ဖတ်ကြည့်လို့ရပါတယ်။</p>
+<h2 id="what-is-unit-testing">What is Unit Testing</h2>
+<p>Unit Testing ဆိုတာကတော့ မိမိရေးထားတဲ့ code ကို အလိုအလျောက် မြန်မမြန် စစ်ပေးတဲ့ စနစ်တစ်ခုပါ။ OOP တွေမှာ Unit Testing က သီးသန့် class အနေနဲ့ ရေးသားကြပါတယ်။ </p>
+<p>Unit Test code example ကို အောက်မှာ ရေးထားပါတယ်။</p>
+<pre><code class="lang-objc">- (void)testExample
+{
+   User* user = [Session getUser];
+
+   STAssertNil(user, @&quot;user shouldn&#39;t be nil&quot;);
+   STAssertNil(user.name, @&quot;User must have name&quot;);
+   NSString* password = user.password;
+   STAssertTrue(password.length &gt; 3,@&quot;Password must be more than 3 characters&quot;);
+}
+</code></pre>
+<p>အထက်ပါ ဥပမာလေးက User Object ထဲက data တွေ မှန်မမှန် ကို စစ်ဆေးထားတာပါ။ တနည်းပြောရင် Server Side API ပြောင်းလို့ပဲ ဖြစ်ဖြစ် User class က code တွေပြောင်းလို့ ပဲ ဖြစ်ဖြစ် login ဝင်ထားတဲ့ session ထဲက user က ဒီ rule တွေနဲ့ ကိုက်ရဲ့လားဆိုပြီး စစ်ထားတာပါ။ မကိုက်ဘူးဆိုရင် Test run လိုက်တဲ့အခါမှာ Error ပြပါလိမ့်မယ်။</p>
+<h2 id="why-unit-testing">Why Unit Testing</h2>
+<p>ကျွန်တော်တို့ ဘာလို့ Test လုပ်တာလဲ။ Test လုပ်ရခြင်း အဓိကတော့ bug မရှိချင်လို့ပေါ့။ Developer တွေဟာ ကိုယ့် App ကို အကောင်းဆုံး ဖြစ်အောင် ဖန်တီးကြပါတယ်။ သို့ပေမယ့် ရေးနေတဲ့ အချိန်မှာ အဆင်ပြေပေမယ့် API changes သို့မဟုတ် class name ပြောင်းသွားတာကြောင့် error တွေ တက်တာတွေ ဖြစ်တတ်တယ်။ သမာရိုးကျ Testing ကတော့ App ကို ဖွင့် အကုန်လိုက်စမ်းတာပေါ့။</p>
+<p>တကယ်တော့ လူကိုယ်တိုင် အစအဆုံး လိုက်စမ်းတာ ကောင်းပေမယ့် ထပ်ခါတလဲလဲ ဒါတွေပဲ လုပ်နေရတဲ့အခါမှာ ပျင်းဖို့ကောင်းသလို တချို့ test case တွေ ကျော်သွားတာ ဖြစ်နိုင်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့တွေ Program ကနေ Test လုပ်ဖို့အတွက် TDD ကို ပြောင်းပြီး အသုံးပြုကြပါတယ်။ TDD ကို iOS အတွက်ဆိုရင် Xcode မှာ ပါဝင်ပြီးသား  အခြား Test Library တွေ ဖြစ်တဲ့ GHUnit , Kiwi စတာတွေကို လည်း အသုံးပြုနိုင်ပါတယ်။</p>
+<p><img src="/issue-3/img/unittesttime.png" alt="UnitTesting"></p>
+<p>ကျွန်တော်တို့ ပုံမှန် အားဖြင့် Testing ထည့်ရေးရင် ပုံမှန် code ရေးရတာ ထက်ကြာတယ်ထင်ပါတယ်။ သို့ပေမယ့် bug fix လုပ်ရတဲ့ အပိုင်းကတော့ အများကြီး သက်သာသွားပါတယ်။ တနည်းပြောရင် Error ကို စောစောရှာတွေ့တဲ့အတွက် ရေရှည်မှာ အချိန်ကုန် သက်သာပါတယ်။</p>
+<p>Testing နဲ့ Code ကို တွဲရေးသွားတာဟာ Bug fix အတွက် တော်တော်လေးကို အဆင်ပြေပါတယ်။ Bug fix ပိုင်းဆိုတာက လက်ရှိ ရေးထားတဲ့ bug တင်မဟုတ်ဘူး server api ဘက်က တစ်ခုခု ပြောင်းသွားတာကြောင့်လည်း error တွေ တက်လာနိုင်ပါတယ်။ အဲဒီ အခါမှာ Server က ပြောင်းထားတာတွေ အကုန် မှန်မမှန် လက်ရှိ code တွေ နဲ့ အလုပ်မလုပ် ပြန်စစ်ဖို့လိုပါတယ်။</p>
+<p>တစ်ခါတစ်လေ Server ဘက်က Code နည်းနည်းပြောင်းလိုက်တာနဲ့ အခြား API request တွေ အလုပ်ပြန်လုပ်တာ သေချာရဲ့လား ပြန်စစ်ဖို့လိုပါတယ်။ တကယ်လို့ Unit Test သာ မရေးထားခဲ့ရင် API တစ်ခါပြောင်းတိုင်း အစအဆုံး လူကိုယ်တိုင် ပြန်ပြန်စစ်နေရပါလိမ့်မယ်။</p>
+<h2 id="easy-to-use">Easy to use</h2>
+<p>Unit Testing မသုံးတတ်ခင်တုန်းက Unit Test အတွက် သီးသန့် Class တွေ ခွဲရေးရမှာလားဆိုပြီး ဇဝေဇဝါ ဖြစ်ဖူးတယ်။ တကယ်တန်းတော့ Unit Test က လက်ရှိ App မှာ တည်ဆောက်ထားတဲ့ Class တွေ အားလုံးကို ပြန်ခေါ်သုံးလို့ရတာကြောင့် ဘာမှ ထွေထွေထူးထူး အများကြီး ပိုမရေးရပါဘူး။</p>
+<p>Unit Testing အတွက် Model ကို တည်ဆောက်ထားတာကို လက်ရှိ App က Controller ကနေ ပြန်ခေါ်သုံးလို့ရပါတယ်။ တနည်းပြောရင်တော့ တပြိုင်တည်း Develop လုပ်တာ ပိုအဆင်ပြေတာပေါ့။ Code တွေ ရေးပြီးမှ Unit Testing လုပ်တဲ့အခါမှာ မေ့ကျန်ခဲ့တာတွေ ရှိကောင်းရှိနိုင်တဲ့အတွက်ကြောင့် ကျွန်တော်ကတော့ တပြိုင်တည်း အတူတူ ရေးရတာ ပိုသဘောကျပါတယ်။</p>
+<h2 id="unit-testing-limitations">Unit testing limitations</h2>
+<p>Unit Testing ဟာ Error တွေအားလုံးကို ရှာတွေ့နိုင်တာတော့ မဟုတ်ပါဘူး။ Test Case ရေးဖို့ကျန်သွားတာ သို့မဟုတ် logic လိုသွားတဲ့ဟာတွေအတွက်တော့ Error တွေက ရှိကောင်းရှိပါအုံးမယ်။ နောက်ပြီးတော့ Unit Testing နဲ့ functional မဟုတ်တဲ့ အပိုင်းတွေကို Test Case တွေ ရေးလို့ မရပါဘူး။ ဥပမာ Performance , UI Animation စတာတွေပေါ့။ Performance က ဒီလောက် ရှိရမယ်ဆိုပြီးတော့ Test လုပ်လို့မရပါဘူး။ Performance ကောင်းဖို့အတွက် မူရင်း code ကို ပြင်မှ ရပါမယ်။ UI Animation က ဒီလို ဖြစ်သလား ဆိုပြီး Test လုပ်လို့မရပါဘူး။</p>
+<h2 id="can-use-in-most-of-the-language">Can use in most of the language</h2>
+<p>Unit Testing ဟာ popular ဖြစ်တဲ့ Method တစ်ခုဖြစ်ပြီးတော့ programming language တော်တော်များများမှာ ရပါတယ်။ Unit Testing ကို သုံးတာဟာ အကျင့်တစ်ခုလိုပါပဲ။ Unit Testing ကို project တိုင်းမှာ ထည့်ရေးတတ်တဲ့ အကျင့်ရှိသူကတော့ အမြဲလိုလို unit test ကို ထည့်ရေးတတ်ပါတယ်။ ဘယ် language မှာပဲ ဖြစ်ဖြစ်ပေါ့။ ဒါမှသာ အနည်းငယ် code ဟာ safe ဖြစ်တယ်လို့ ခံစားရလို့ပါ။</p>
+<p>သို့ပေမယ့်လည်း အချိန်လုပြီးရေးရတဲ့ code တွေမှာ ဆိုရင်တော့ Unit Test ထည့်မဖြစ်တော့ပဲ ရေးတတ်ကြပါတယ်။ ပုံမှန်အားဖြင့်လည်း အချိန်လုပြီးရေးရတဲ့ code တွေဟာ error တွေ bugs တွေ များတယ်ဆိုတာကို project manager တွေ အနေနဲ့ သတိပြုသင့်ပါတယ်။ Developer တွေအနေနဲ့လည်း Unit Test ကို မသုံးဘူးရင် စမ်းပြီး သုံးဖို့ အကြံပေးပါရစေ။</p>
+<h2 id="other-useful-thgins">Other Useful Thgins</h2>
+<p>iOS Unit Test အကြောင်းကို <a href="http://bit.ly/17cTycV">raywenderlich</a> မှာ ဖတ်ကြည့်နိုင်ပါတယ်။ iTunes U က iPhone Development Course မှာလည်း လေ့လာနိုင်ပါတယ်။ <a href="http://bit.ly/159EKa8">Track 10</a> မှာ Unit Testing အကြောင်းပါပါတယ်။ Stanford ရဲ့ Coding Together က <a href="http://bit.ly/1fbRouU">Track 51</a> မှာလည်း လေ့လာနိုင်ပါတယ်။ တကယ်လို့ စာအုပ်နဲ့ သေသေချာချာ ဖတ်ချင်ရင်တော့ <a href="http://amzn.to/17VMdww">Test-Driven iOS Development (Developer&#39;s Library)</a> စာအုပ်ကို ဖတ်နိုင်ပါတယ်။ တကယ်လို့ Unit Testing ကို တစ်ခါမှ မစမ်းဖူးသေးရင်း နောက် project အသစ်မှာ ထည့်ပြီး စမ်းသပ်ဖို့ အကြုံပြုပါရစေ။ </p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

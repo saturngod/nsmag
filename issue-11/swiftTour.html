@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Swift Tour
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Swift Tour</h1>
+      <div class="description">Swift အကြောင်း တစေ့တဆောင်း</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/swift.png" class="headerImage">
+    <div class="content detailArticle"><p>WWDC 14 မှာ developer တွေ အံအားသင့် သွားခဲ့ရတာကတော့ New Programming Language Swift ကို ကြေငြာခဲ့လို့ပါပဲ။ Objective-C ဟာ stable ဖြစ်နေပြီး ဖြစ်တဲ့ အတွက်ကြောင့် programming language အသစ်ကို ကြေငြာမယ်လို့ မထင်ခဲ့မိကြပါဘူး။ Apple က Modern language အသစ်တစ်ခုကို ဖန်တီး ပြီး မိတ်ဆက်ခဲ့ပါတယ်။</p>
+<p>ပထမဆုံး hello world လေး ရိုက်ထုတ်ပုံလေးက ရှင်းပါတယ်။</p>
+<pre><code class="lang-swift">println(&quot;Hello, world&quot;)
+</code></pre>
+<p>Xcode 6 မှာ Play Ground ဆိုတာ ပါဝင်လာပါတယ်။ Swift အတွက် သီးသန့် project ဖန်တီး စရာမလိုပဲ တိုက်ရိုက် ရေးချပြီး စမ်းကြည့်နိုင်ပါတယ်။</p>
+<h2 id="simple-values">Simple Values</h2>
+<p>variable ကို ကြေငြာသည့် အခါမှာတော့ <code>let</code> နဲ့ <code>var</code>  ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">var myVariable = 42
+myVariable = 50
+let myConstant = 42
+</code></pre>
+<p>constant တွေ အတွက် <code>let</code> ကို အသုံးပြုပြီးတော့ variable တွေ အတွက် <code>var</code> ကို အသုံးပြုပါတယ်။ Swift မှာ Variable type ကို ကြေငြာစရာ မလိုပဲ အလိုအလျောက် သိပါတယ်။ ကျွန်တော်တို့တွေ 42 ဆိုပြီး ထည့်ထားတာကြောင့် myVariable ထဲမှာ integer value ကို မှတ်ထားပါလိမ့်မယ်။</p>
+<pre><code class="lang-swift">let implicitInteger = 70
+let implicitDouble = 70.0
+let explicitDouble: Double = 70
+</code></pre>
+<p>ကျွန်တော်တို့တွေ double value ကို ဒီ အတိုင်း တိုက်ရိုက် ထည့်သွင်းလို့ ရသလို varilable name နောက်မှာ <code>variable: Type</code> ဆိုပြီး ထည့်သွင်းလည်း ရပါတယ်။</p>
+<pre><code class="lang-swift">let label = &quot;The width is &quot;
+let width = 94
+let widthLabel = label + String(width)
+</code></pre>
+<p>Variable တွေ ရဲ့ data type ကို လည်း လွယ်လင့်တကူ ပြောင်းနိုင်ပါတယ်။ variable ကို string ထဲမှာ ထည့်မယ်ဆိုရင် + sign အစား () ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">let apples = 3
+let oranges = 5
+let appleSummary = &quot;I have \(apples) apples.&quot;
+let fruitSummary = &quot;I have \(apples + oranges) pieces of fruit.&quot;
+</code></pre>
+<p>အဲဒါဆိုရင် appleSummary မှာ <strong>I have 3 apples.</strong> ရှိပြီးတော့ fruitSummary မှာတော့ I have <strong>I have 8 pieces of fruit</strong> ရှိပါလိမ့်မယ်။</p>
+<p>Array တွေ dictionary အတွက် Swift မှာ brackets ([ ]) ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">var shoppingList = [&quot;catfish&quot;, &quot;water&quot;, &quot;tulips&quot;, &quot;blue paint&quot;]
+shoppingList[1] = &quot;bottle of water&quot;
+
+var occupations = [
+    &quot;Malcolm&quot;: &quot;Captain&quot;,
+    &quot;Kaylee&quot;: &quot;Mechanic&quot;,
+]
+occupations[&quot;Jayne&quot;] = &quot;Public Relations&quot;
+</code></pre>
+<p>shoppingList က Array ဖြစ်ပြီးတော့ ကျွန်တော်တို့တွေ အခန်း နံပတ်နဲ့ ခေါ်လို့ ရသလို အခန်း နံပတ် နဲ့ value ကို အစားထိုး လို့ရပါတယ်။</p>
+<p>occupations ကတော့ Dictionary လို သိသွားပါတယ်။ Key , Value နဲ့ ခေါ်ရပါတယ်။</p>
+<p>တကယ်လို့ empty array , dictionary စတာ တွေ ကြေငြာချင်ရင်တော့</p>
+<pre><code class="lang-swift">let emptyArray = String[]()
+let emptyDictionary = Dictionary&lt;String, Float&gt;()
+</code></pre>
+<p>တကယ်လို့ variable type မပါပဲ ကြေငြာချင်ရင်</p>
+<pre><code class="lang-swift">shoppingList = [] //Went shopping and bought everything
+</code></pre>
+<h2 id="control-flow">Control Flow</h2>
+<p><code>if</code> နှင့် <code>swifth</code> ကို condition အတွက် အသုံးပြုနိုင်ပြီးတော့ <code>for</code>-<code>in</code> , <code>for</code>, <code>while</code> နှင့် <code>do</code>-<code>while</code> စတာတွေကို တော့ Looping အတွက် အသုံးပြုနိုင်ပါတယ်။</p>
+<p>Loop တွေ condition တွေ အတွက် braces (curly brackets ) ကြားထဲမှာ ထည့်ရေးရပါတယ်။</p>
+<pre><code class="lang-html">let individualScores = [75, 43, 103, 87, 12]
+var teamScore = 0
+for score in individualScores {
+    if score &gt; 50 {
+        teamScore += 3
+    } else {
+        teamScore += 1
+    }
+}
+teamScore
+</code></pre>
+<p>teamScore အဖြေက ၁၁ ရပါလိမ့်မယ်။ code ကို Xcode 6 ရဲ့ Playground မှာ သွားပြီး စမ်းသပ်နိုင်ပါတယ်။</p>
+<p>Code ထဲမှာ for loop ကို သုံးပြီးတော့ array ကို Loop ပတ်ထားပါတယ်။ individualScores က အခန်း တစ်ခု ခြင်းဆီဟာ score ကို ရောက်ပါလိမ့်မယ်။ ပထမဆုံး score က 75 ဖြစ်ပါတယ်။ Condition အနေနဲ့ အမှတ် ၅၀ ထက် ကျော်ခဲ့ရင် teamScore ကို ၃ မှတ် ပေါင်းပါတယ်။ တူနေရင် သို့မဟုတ် ငယ်ခဲ့ရင် ၁ မှတ် ပဲပေါင်းပါတယ်။  ဒါကြောင့် 75 က ၅၀ ထက် ကျော်လို့ ၃ မှတ်ပေါင်းပါတယ် ။ ဒုတိယ အကြိမ် loop မှာတော့ score ဟာ ၄၃ ဖြစ်သွားပါပြီ။ အမှတ် ၄၀ မကျော်သည့်အတွက် ၁ မှတ် ပဲ ပေါင်းတာကို တွေ့နိုင်ပါတယ်။</p>
+<p>objective-c မှာ ကျွန်တော်တို့တွေ <code>nil</code> value ရှိမရှိ စစ်တယ်။ <code>nil</code> မဟုတ်ရင်  value ထည့်တယ်။ အဲဒီလိုမျိုး nil ဟုတ်မဟုတ်စစ်တာကို swift မှာ <code>if</code> <code>let</code> ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<p>Swift မှာ <code>nil</code> value ကို ထည့်သွင်းဖို့အတွက် question mark(?) ကို အသုံးပြုရပါတယ်။ တနည်းအားဖြင့် ဒီ varilable ထဲမှာ optional value ပါမယ်လို့ ဆိုပါတယ်။</p>
+<p>Condition နောက်တစ်ခုကတော့ <code>switch</code> ပါ။</p>
+<pre><code class="lang-swift">let vegetable = &quot;red pepper&quot;
+switch vegetable {
+case &quot;celery&quot;:
+    let vegetableComment = &quot;Add some raisins and make ants on a log.&quot;
+case &quot;cucumber&quot;, &quot;watercress&quot;:
+    let vegetableComment = &quot;That would make a good tea sandwich.&quot;
+case let x where x.hasSuffix(&quot;pepper&quot;):
+    let vegetableComment = &quot;Is it a spicy \(x)?&quot;
+default:
+    let vegetableComment = &quot;Everything tastes good in soup.&quot;
+}
+</code></pre>
+<p>Objective-C မှာလို နံပတ် တစ်ခုပဲ case နဲ့ စစ်လို့ရတာ မဟုတ်ပဲ string တွေကို ပါ စစ်လို့ ရပါတယ်။ နောက်ပြီး case မှာ တစ်ခု ထက် မက စစ်လို့ ရတာကို တွေ့မှာပါ။ စာလုံးရဲ့ အစဟာ pepper ဖြစ်ခဲ့ရင် case အတွက် <code>case let x where x.hasSuffix(&quot;pepper&quot;):</code> ကို သုံးထားတာကို တွေ့နိုင်ပါတယ်။</p>
+<p>Dictionary တွေကို loop ပတ်တဲ့အခါမှာလည်း ကျွန်တော်တို့တွေ <code>for</code>-<code>in</code> ကို အောက်ကလို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">let interestingNumbers = [
+    &quot;Prime&quot;: [2, 3, 5, 7, 11, 13],
+    &quot;Fibonacci&quot;: [1, 1, 2, 3, 5, 8],
+    &quot;Square&quot;: [1, 4, 9, 16, 25],
+]
+var largest = 0
+for (kind, numbers) in interestingNumbers {
+    for number in numbers {
+        if number &gt; largest {
+            largest = number
+        }
+    }
+}
+largest
+</code></pre>
+<p><code>for</code>-<code>in</code> loop ထဲမှာ kind နဲ့ numbers နဲ့ ခွဲထားတာကို တွေ့မှာပါ။ kind ကတော့ key name ဖြစ်ပြီးတော့ numbers ကတော့ values ပါ။ </p>
+<p><code>while</code> loop အတွက်ဆိုရင်တော့ </p>
+<pre><code class="lang-swift">var n = 2
+while n &lt; 100 {
+    n = n * 2
+}
+n
+</code></pre>
+<p><code>do</code>-<code>while</code> loop အတွက်ကတော့</p>
+<pre><code class="lang-swift">var m = 2
+do {
+    m = m * 2
+} while m &lt; 100
+m
+</code></pre>
+<p>while loop က condition ကို စစ်ပြီးမှသာ အလုပ်လုပ်ပါတယ်။ do while loop က အနည်းဆုံး ၁ ခါ အလုပ်လုပ်ပြီးမှသာ condition ကို စစ်ပြီး loop ပတ်ပါတယ်။</p>
+<p>နောက်ပြီး ကျွန်တော်တို့တွေ loop ကို range အတွက် <code>..</code> ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">var firstForLoop = 0
+for i in 0..3 {
+    firstForLoop += i
+}
+firstForLoop
+
+var secondForLoop = 0
+for var i = 0; i &lt; 3; ++i {
+    secondForLoop += 1
+}
+secondForLoop
+</code></pre>
+<p><code>firstForLoop</code> နဲ့ <code>secondForLoop</code> က အတူတူ ရလဒ်ပဲ ထွက်ပါတယ်။  တကယ်လို့ နောက်ဆုံးက value အပါအဝင် လိုချင်ရင် <code>...</code> ကို အသုံးပြုလည်း ရပါတယ်။</p>
+<pre><code class="lang-swift">var firstForLoop = 0
+for i in 0...4 {
+    firstForLoop += i
+}
+firstForLoop
+</code></pre>
+<h2 id="functions-and-closures">Functions and Closures</h2>
+<p>Swift မှာ အသုံးပြုသည့် function ဟာ objective-c မှာ အသုံးပြုတာ နဲ့ ကွဲပြားသွားပါပြီ။ <code>func</code> နဲ့ စပြီးတော့ return အတွက် <code>-&gt;</code> ကို အသုံးပြုပါတယ်။</p>
+<pre><code class="lang-swift">func greet(name: String, day: String) -&gt; String {
+    return &quot;Hello \(name), today is \(day).&quot;
+}
+greet(&quot;Bob&quot;, &quot;Tuesday&quot;)
+</code></pre>
+<p>နောက်ပြီးတော့ Swift မှာ multivalue ကို return ပြန်နိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">func getGasPrices() -&gt; (Double, Double, Double) {
+    return (3.59, 3.69, 3.79)
+}
+let (val1,val2,val3) = getGasPrices()
+val1
+val2
+val3
+</code></pre>
+<p>တကယ်လို့ တစ်ခု ထက် မက parameter ဖြစ်မယ်ဆိုရင် … ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">func sumOf(numbers: Int...) -&gt; Int {
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+    return sum
+}
+sumOf()
+sumOf(42, 597, 12)
+</code></pre>
+<p>ဒါ့အပြင် function တွေဟာ nested ဖြစ်နိုင်ပါသေးတယ်။</p>
+<pre><code class="lang-swift">func returnFifteen() -&gt; Int {
+    var y = 10
+    func add() {
+        y += 5
+    }
+    add()
+    return y
+}
+returnFifteen()
+</code></pre>
+<p>နောက်ပြီးတော့ return value ကို function အနေနဲ့ ကျွန်တော်တို့တွေ ပြန်​ ပေးလို့ရပါတယ်။</p>
+<pre><code class="lang-swift">func makeIncrementer() -&gt; (Int -&gt; Int) {
+    func addOne(number: Int) -&gt; Int {
+        return 1 + number
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+increment(7)
+</code></pre>
+<p>ဒီ code မှာ <code>-&gt; (Int -&gt; Int)</code> က return value ကို In လက်ခံပြီးတော့ Int ပြန်မယ့် function ကို return ပြန်ထားတယ်လို့ ဆိုပါတယ်။</p>
+<p>function ထဲမှာ အခြား function ကိုလည်း parameter အဖြစ် လက်ခံနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+func lessThanTen(number: Int) -&gt; Bool {
+    return number &lt; 10
+}
+var numbers = [20, 19, 7, 12]
+hasAnyMatches(numbers, lessThanTen)
+</code></pre>
+<p>function တွေဟာ တကယ်တန်းတော့ closures တွေပါပဲ။ ဒါကြောင့် ကျွန်တော်တို့အနေနဲ့ closure ကို နာမည်မပါပဲ braces(<code>{}</code>)  ထဲမှာ code ထည့်ပြီး ရေးနိုင်ပါတယ်။ <code>in</code> ကို အသုံးပြုပြီးတော့ arguments နဲ့ return type ကို ခွဲခြားနိုင်ပါတယ်။</p>
+<pre><code class="lang-swift">numbers.map({
+    (number: Int) -&gt; Int in
+    let result = 3 * number
+    return result
+    })
+</code></pre>
+<p>ဒီ code လေးက မရှင်းရင်တော့ ကျွန်တော်တို့ ဒီ ထက် နည်းနည်း ရှည်တဲ့ code လေးကို ကြည့်ရအောင်</p>
+<pre><code class="lang-swift">func mySort(inout numbers:Int[],compare:((Int,Int)-&gt;Bool))
+{
+    //Write your login  to sort numbers using comparator method
+    var tmp:Int
+    var n = numbers.count
+
+    for(var i=0;i&lt;n;i++)
+    {
+        for(var j=0;j&lt;n-i-1;j++)
+        {
+            if(compare(numbers[j],numbers[j+1]))
+            {
+                tmp=numbers[j];
+                numbers[j]=numbers[j+1];
+                numbers[j+1]=tmp;
+            }
+        }
+    }
+}
+
+var numbers = [10,1,20,123,50]
+
+mySort(&amp;numbers,{
+    (num1:Int,num2:Int) -&gt; Bool in
+
+    return num1 &gt; num2
+
+    })
+</code></pre>
+<p>ဒီ  code လေးကို ဖတ်ကြည့်ရင်တော့ closures ကို သဘောပေါက်သွားပါလိမ့်မယ်။</p>
+<p>mysort ကိုပဲ ကျွန်တော်တို့ ပိုတိုအောင် ဒီလို ရေးလို့ရပါတယ်။</p>
+<pre><code class="lang-swift">mySort(&amp;numbers){ n1,n2 in n1 &gt; n2}
+</code></pre>
+<p>ဒီထက် တိုတဲ့ နည်းလမ်းကတော့</p>
+<pre><code class="lang-swift">mySort(&amp;numbers){ $0 &gt; $1}
+</code></pre>
+<p>ဒီလောက်ဆိုရင် closures ကို ဘယ်လို သုံးရလဲဆိုတာကို သိလောက်ပါပြီ။</p>
+<p>နောက် လ မှ object , class , enum စတာတွေကို ဆက်ပြီး ရေးပေးပါအုံးမယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>JavaScriptCore Framework
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>JavaScriptCore Framework</h1>
+      <div class="description">using javascript in iOS 7</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/javascriptframework.png" class="headerImage">
+    <div class="content detailArticle"><p>JavaScriptCore framework ဟာ C base API ဖြစ်ပြီး Mac OSX 10.2 မှာ ကတည်းက စပြီးပါတဲ့ framework တစ်ခုပါ။ iOS 7 နဲ့ Mac OS 10.9 မှာ Apple က JavscriptCore ကို native Objective-C API နဲ့ မိတ်ဆက်ခဲ့ပါတယ်။</p>
+<p>အရင်တုန်းက Javascript function တွေကို ခေါ်ဖို့အတွက် <code>UIWebView</code> ကနေ တဆင့် </p>
+<pre><code class="lang-objc">stringByEvaluatingJavaScriptFromString:
+</code></pre>
+<p>နဲ့ ခေါ်ရပါတယ်။ JavaScriptCore framework ဟာ developer တွေကို တွေကို Objective-C ကနေ full javascript runtime access လုပ်ခွင့်ပေးထားပါတယ်။</p>
+<p>Javascript ဟာ <code>JSVirtualMachine</code> machine မှာ run ထားပါတယ်။ <code>JSVirtualMachine</code> ဟာ light weight ဖြစ်ပြီးတော့ multithreaded javascript တွေကို အလုပ်လုပ်ပေးနိုင်တယ်။ <code>JSVirtualMachine</code> ထဲမှာ <code>JSContext</code> တွေ ရှိပါတယ်။ <code>JSContexts</code> ဟာ Javascript runtime environment နဲ့ ချိတ်ဆက်ဆောင်ရွက်ပေးပြီးတော့ javascript က global object တွေကို access လုပ်နိုင်တယ်သလို script တွေကိုလည်း execute လုပ်ပေးပါတယ်။</p>
+<pre><code class="lang-objc">JSContext *context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
+context[@&quot;a&quot;] = @5;
+</code></pre>
+<p>အထက်ပါ code မှာ ဆိုရင် javascript က global variable a က နံပတ် ၅ ဖြစ်တယ်လို့ ဆိုထားပါတယ်။ Javascript က variable ကို ပြန်လိုချင်ရင်တော့ JSValue နဲ့ လက်ခံရပါတယ်။</p>
+<pre><code class="lang-objc"> JSValue *aValue = context[@&quot;a&quot;];
+double a = [aValue toDouble];
+NSLog(@&quot;%.0f&quot;, a);
+</code></pre>
+<p>javascript ကို <code>evaluateScript</code> နဲ့လည်း တိုက်ရိုက် run လို့ရပါတယ်။</p>
+<pre><code class="lang-objc">[context evaluateScript:@&quot;a = 10&quot;];
+JSValue *newAValue = context[@&quot;a&quot;];
+NSLog(@&quot;%.0f&quot;, [newAValue toDouble]);
+</code></pre>
+<h2 id="functional-execution">Functional Execution</h2>
+<p>ကျွန်တော်တို့တွေ javascript function ကို objective c မှာလည်း ပြန်ပြီး အသုံးချလို့ရတယ်။</p>
+<pre><code class="lang-objc">[context evaluateScript:@&quot;var square = function(x) {return x*x;}&quot;];
+
+JSValue *squareFunction = context[@&quot;square&quot;];
+NSLog(@&quot;%@&quot;, squareFunction);
+
+JSValue *aSquared = [squareFunction callWithArguments:@[context[@&quot;a&quot;]]];
+NSLog(@&quot;a^2: %@&quot;, aSquared);
+
+JSValue *nineSquared = [squareFunction callWithArguments:@[@9]];
+NSLog(@&quot;9^2: %@&quot;, nineSquared);
+</code></pre>
+<p>အဲဒီ အခါ အောက်ကလို မျိုး result ရလာပါလိမ့်မယ်။</p>
+<pre><code>JSThing[53327:a0b] function (x) {return x*x;}
+JSThing[53282:a0b] a^2: 25
+JSThing[53282:a0b] 9^2: 81
+</code></pre><p><code>-callWithArguments</code> method နဲ့ JSValue ကို NSArray နဲ့ argument တွေ ပို့ပေးလို့ရပါတယ်။ အပေါ်က example မှာ argument က ၁ ခုပဲ ဖြစ်တဲ့အတွက် array အခန်းက ၁ ခုပဲ ဖြစ်နေတာပါ။ တကယ်လို့ ၂ ခု သာ ဆိုရင် အခန်း ၂ ခန်းဖြစ်နေပါလိမ့်မယ်။</p>
+<p>ဒါ့အပြင် <code>JSContext</code> ဟာ objective-c function ကို parse လုပ်ပေးနိုင်ပါတယ်။</p>
+<pre><code class="lang-objc">context[@&quot;factorial&quot;] = ^(int x) {
+        int factorial = 1;
+        for (; x &gt; 1; x--) {
+            factorial *= x;
+        }
+        return factorial;
+    };
+[context evaluateScript:@&quot;var fiveFactorial = factorial(5);&quot;];
+JSValue *fiveFactorial = context[@&quot;fiveFactorial&quot;];
+NSLog(@&quot;5! = %@&quot;, fiveFactorial);
+</code></pre>
+<p>NSLog က အောက်ကလို ထွက်လာပါမယ်။</p>
+<pre><code>JSThing[53327:a0b] 5! = 120
+</code></pre><h2 id="object-permanence">Object Permanence</h2>
+<p>Objective-C data type ကို jsvalue အနေနဲ့ parse လုပ်တဲ့ အခါ javacsript မှာ အောက်ကလို data type ပြောင်းသွားပါတယ်။</p>
+<table>
+<thead>
+<tr>
+<th>Objective-C Type</th>
+<th>Javascript Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>NSNull</td>
+<td>null</td>
+</tr>
+<tr>
+<td>NSString</td>
+<td>string</td>
+</tr>
+<tr>
+<td>NSNumber</td>
+<td>number , boolean</td>
+</tr>
+<tr>
+<td>NSDictionary</td>
+<td>Object object</td>
+</tr>
+<tr>
+<td>NSArray</td>
+<td>Array object</td>
+</tr>
+<tr>
+<td>NSDate</td>
+<td>Date object</td>
+</tr>
+<tr>
+<td>NSBlock</td>
+<td>Function object</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Wrapper object</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>Constructor object</td>
+</tr>
+</tbody>
+</table>
+<h2 id="jsexport">JSExport</h2>
+<p>ကိုယ်ပိုင် class တစ်ခုကို javascript မှာ parse လုပ်ဖို့ အတွက် JSExport ကို အသုံးပြုရပါတယ်။ အောက်မှာ ဥပမာလေး ကြည့်ပါ။</p>
+<pre><code>@protocol ThingJSExports &lt;JSExport&gt;
+    @property (nonatomic, copy) NSString *name;
+    @end
+
+    @interface Thing : NSObject &lt;ThingJSExports&gt;
+    @property (nonatomic, copy) NSString *name;
+    @property (nonatomic) NSInteger number;
+@end
+
+@implementation Thing
+    - (NSString *)description {
+        return [NSString stringWithFormat:@&quot;%@: %d&quot;, self.name, self.number];
+    }
+@end
+</code></pre><p><code>ThingJSExports</code> ဟာ <code>JSExport</code> ကနေ inherits လုပ်ထားပါတယ်။</p>
+<pre><code class="lang-objc">Thing *thing = [[Thing alloc] init];
+thing.name = @&quot;Alfred&quot;;
+thing.number = 3;
+context[@&quot;thing&quot;] = thing;
+JSValue *thingValue = context[@&quot;thing&quot;];
+</code></pre>
+<p>Thing object ကို <code>JSContext</code> မှာ ထည့်လိုက်တာ တွေ့ပါလိမ့်မယ်။ <code>JSValue</code> result က ဘာတွေ ထွက်လာမလဲ ဆိုာတကို အောက်ကလို ကြည့်နိုင်ပါတယ်။</p>
+<pre><code class="lang-objc">NSLog(@&quot;Thing: %@&quot;, thing);
+NSLog(@&quot;Thing JSValue: %@&quot;, thingValue);
+</code></pre>
+<p>Result ဟာ</p>
+<pre><code>JSThing[53344:a0b] Thing: Alfred: 3
+JSThing[53344:a0b] Thing JSValue: Alfred: 3
+</code></pre><p>ဖြစ်နေတာကို တွေ့ပါလိမ့်မယ်။ Value ပြောင်းပြီး ကြည့်ရအောင်။</p>
+<pre><code class="lang-objc">thing.name = @&quot;Betty&quot;;
+thing.number = 8;
+
+NSLog(@&quot;Thing: %@&quot;, thing);
+NSLog(@&quot;Thing JSValue: %@&quot;, thingValue);
+</code></pre>
+<pre><code>JSThing[53344:a0b] Thing: Betty: 8
+JSThing[53344:a0b] Thing JSValue: Betty: 8
+</code></pre><p>Javascript ကနေ thing object ကို variable ပြောင်းမယ်ဆိုရင်</p>
+<pre><code class="lang-objc"> [context evaluateScript:@&quot;thing.name = \&quot;Carlos\&quot;; thing.number = 5&quot;];
+
+NSLog(@&quot;Thing: %@&quot;, thing);
+NSLog(@&quot;Thing JSValue: %@&quot;, thingValue);
+</code></pre>
+<p>NSLog မှာ အောက်ကလို ပေါ်ပါလိမ့်မယ်။</p>
+<pre><code>Thing: Carlos: 8
+Thing JSValue: Carlos: 8
+</code></pre><p>JavaScripteCore framework ဟာ WebKit ရဲ့ အစိတ်အပိုင်းတစ်ခုဖြစ်ပြီး open-source project ပါ။ သူရဲ့ source code ကို <a href="http://trac.webkit.org/browser/trunk/Source/JavaScriptCore/API">ဒီမှာ</a> ကြည့်နိုင်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

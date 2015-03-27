@@ -1,0 +1,239 @@
+body {
+    margin:0px;
+    padding:0px;
+    font:15px "MON3 Anonta 1";
+}
+
+a , a:link,a:visited {
+  text-decoration:none;
+  color:#222;
+  border-bottom:1px dashed #111;
+}
+
+img {
+  max-width:100%;
+}
+
+a:hover {
+  border-bottom:1px dashed #CCC;
+  color:#111;
+}
+
+ul , li {
+  list-style:none;
+  padding:0px;
+  margin:0px;
+}
+
+.content {
+    width:70%;
+    margin:0px auto;
+}
+#last {
+  margin-top:40px;
+}
+
+#last img {
+  border:1px solid #CCC;
+}
+
+.inlineBlock {
+  display:inline-block;
+  vertical-align:top;
+}
+
+#last .articleList {
+  width:49%;
+}
+
+#last .latestCover {
+  width:50%;
+  text-align:right;
+}
+
+#last li {
+  
+  padding-top:20px;
+  font-size:1.2em;
+}
+
+#last h2 {
+  font-size:2em;
+  color: #A22;
+}
+.justify {
+  text-align: justify;
+}
+
+
+.allarticle ,.allarticle .list{
+  display:inline-block;
+}
+.allarticle h2 {
+  font-size:1.3em;
+  color: #A22;
+}
+
+.list {
+    display:inline-block;
+    padding:0px;
+    width:250px;
+    vertical-align: top;
+    padding-top:50px;
+}
+
+
+.list li {
+  text-align:left;
+  padding-top: 15px;
+  padding-right:20px;
+}
+
+.headerImage {
+  width:100%;
+}
+
+#detail {
+  margin-top:40px;
+  text-align:center;
+}
+
+#detail h1 {
+  color: #A22;
+  font-size:2em;
+  padding:0px;
+  margin:0px;
+  margin-bottom:5px;
+}
+
+#detail .description {
+  color:#555;
+  font-size:1.5em;
+  margin-bottom:5px;
+}
+
+#detail .author {
+  margin-bottom:10px;
+  font-size:0.9em;
+}
+
+#detail .authorname {
+  font-weight:bold;
+  color:#AA2222;
+}
+
+.site-header-menu-list {
+  display:inline-block;
+}
+
+.siteheader {
+  margin-top:20px;
+}
+
+.detailArticle {
+  line-height:2.6em;
+}
+
+a.logo {
+  font-size:2em;
+  font-weight:bold;
+  border-bottom:0px;
+}
+.site-header-logo , .site-header-menu-list {
+  display:inline-block;
+}
+
+.site-header-menu-list {
+  float:right;
+  padding-top:5px;
+}
+
+.site-header-menu-list  li {
+  display:inline-block;
+  padding-left:5px;
+}
+
+footer.endline {
+  text-align:center;
+  margin-top:20px;
+  font-size:0.8em;
+  color:#CCC;
+}
+
+footer.endline a,footer.endline a:link,footer.endline a:visited {
+  font-size:0.9em;
+  color:#CCC;
+  border:0px;
+}
+
+.subscriveFrom {
+  margin-top:50px;
+  margin-bottom:100px;
+}
+
+#mce-EMAIL {
+  width:90%;
+  height:20px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  padding:10px;
+  display:inline;
+  outline:none;
+}
+
+#mc-embedded-subscribe {
+  padding:10px;
+  text-align:center;
+  background:#EEE;
+  border:1px solid #ddd;
+  width:150px;
+  margin-top:20px;
+  border-radius:4px;
+  cursor:pointer;
+  outline:none;
+}
+
+#mc-embedded-subscribe:hover {
+  background:#DDD;
+  border:1px solid #EEE;
+}
+
+
+@media screen and (max-width: 680px) {
+  #last .latestCover {
+    width:100%;
+    text-align:center;
+    margin-top:20px;
+  }
+  ul.allarticle {
+    text-align:center;
+  }
+}
+
+
+.line {
+    border-top:1px dashed #CCC;
+}
+#comquas-ads {
+  margin-top:20px;
+  margin-bottom:20px;
+  padding-top:10px;
+}
+
+#comquas-ads a{
+  border:0px;
+}
+
+#notification_container {
+  width:100%;
+  font-size:0.8em;
+}
+.alert {
+  width:100%;
+  display:block;
+  color:#A33;
+  margin-bottom:5px;
+}
+.success {
+    color:#3A3;
+}

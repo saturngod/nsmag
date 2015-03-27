@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Checking Code that you should know
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Checking Code that you should know</h1>
+      <div class="description">ios sdk version checking သိကောင်းစရာ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">ဇော်မင်းစိုး</span></div>
+    </div><img src="img/versioncheck.png" class="headerImage">
+    <div class="content detailArticle"><p>ဒီတစ်လတော့ ကျွန်တော့်ရဲ့ဆောင်းပါးကတော့ Beginner iOS Developer တွေအတွက် iOS Version တွေ Update ဖြစ်လာရင် ကိုယ့်ရဲ့ App ကို iOS Version ပေါ်ကိုလိုက်ပြီး Update လုပ်ရတဲ့အခါမှာ လက်ရှိ ကျွန်တော် အသုံးပြုနေတဲ့အသုံးဝင်တဲ့ Code တစ်ချို့ကို ဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။</p>
+<p>ကိုယ့် App တွေကို Update လုပ်ဖို့ လိုလာတဲ့အခါမှာ Beginner တွေအဖို့အတော် ခက်ခဲနိုင်တဲ့အတွက်ကြောင့် လက်ရှိကျွန်တော်သုံးပြီးရေးနေတဲ့ အဆင်ပြေတဲ့ Codes တွေကို Sharing ပြန်လုပ်ပေးလိုက်ပါတယ်။</p>
+<p>Beginner တွေအတွက်ရည်ရွယ်ပြီး ရေးသားထားတဲ့ အတွက်ကြောင့် Advanced Developer တွေအတွက်တော့ လွယ်ကူနေပါလိမ့်မယ်။</p>
+<p>iOS Version အလိုက် ကိုယ့် App ကို Update လုပ်တဲ့အခါမှာ တစ်ချို့သော Code တွေကို iOS Version တစ်ခုချင်းစီ သီးသန့်ရေးဖို့ လိုလာတဲ့အခါမျိုးတွေ iOS System Version Checking လုပ်ဖို့လိုလာတဲ့အခါမျိုးတွေ ၊ iPhone Resolution တွေ Checking လုပ်ဖို့လိုလာတဲ့အခါမျိုးတွေ  (ဥပမာ - iPhone 4 နှင့် iPhone 5 Screen Size မတူတဲ့အခါမျိုးတွေမှာ တစ်ချို့ Layout ချတဲ့အခါမျိုးတွေမှာ လိုအပ်ပါတယ်)</p>
+<ul>
+<li>iPad ရဲ့ Orientation ကို Checking စစ်နည်း  စ​သဖြင့်  အလွယ်ကူဆုံး Code များနှင့်တကွ ဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။</li>
+</ul>
+<h2 id="ios-system-version-checking">iOS System Version Checking</h2>
+<p><img src="/issue-11/images/ios7.png" alt=""></p>
+<p> iOS Version ကို စစ်ဖို့ဆိုတာ တကယ်လိုအပ်ပါတယ်။ဘာကြောင့်လဲဆိုတော့ တစ်ချို့ Code တွေက iOS Version အပေါ်မှာလိုက်ပြီးပြောင်းရသလို ၊ iOS Version အသစ်ရဲ့ Code ကို အဟောင်းမှာအသုံးပြုရင် App Crash ဖြစ်တတ်ပါတယ်။ဒါကြောင့် iOS System Version စစ်နည်း ကိုမဖြစ်မနေ သိထားသင့်ပါတယ်။ iOS Version မှန်သမျှကို ဒီ Code လေးနဲ့ပဲ လွယ်လွယ်ကူကူ စစ်ဆေးနိုင်ပါတယ်။</p>
+<pre><code class="lang-objc">#undef SYSTEM_VERSION_LESS_THAN
+
+
+#define SYSTEM_VERSION_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+
+
+#define SYSTEM_VERSION_GREATER_THAN(v)   ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+
+#define SYSTEM_VERSION_LESS_THAN(v)   ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+</code></pre>
+<p>အရင်ဆုံး အပေါ်က Code လေးတွေနဲ့ Define လုပ်လိုက်ပါ။အောက်က Code လေးကတော့ Checking လုပ်တဲ့ Code လေးပါ။ iOS 5 ကနေ 7 အထိပဲစစ်ပြထားပေမဲ့ ကိုယ်ကြိုက်သ​လိုစစ်ဆေးလို့ရပါတယ်။</p>
+<pre><code class="lang-objc">- (void)CheckiOSVersion
+{
+    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@&quot;7.0&quot;))
+    {
+        systemVersion = @&quot;7&quot;; // SystemVersion is a String Variable
+    }
+
+    else if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@&quot;6.0&quot;))
+    {
+        systemVersion = @&quot;6&quot;;
+    }
+
+    else if(SYSTEM_VERSION_LESS_THAN(@&quot;6.0&quot;))
+    {
+        systemVersion = @&quot;5&quot;;
+    }
+}
+</code></pre>
+<p>If Condition နဲ့စစ်ချင်ရင်တော့ String ဖြစ်တဲ့အတွက်ကြောင့် isEqualToString:@“” နဲ့စစ်လို့ရပါတယ်။</p>
+<pre><code class="lang-objc">if([systemVersion isEqualToString:@&quot;7&quot;])
+{
+   // Code for iOS 7
+}
+
+else if([systemVersion isEqualToString:@“6”])
+{
+   // Code for iOS 6
+}
+</code></pre>
+<p>အထက်ကပြထားတဲ့ အတိုင်း အသုံးပြုနိုင်ပါတယ်။အင်မတန် လွယ်ကူ ရိုးရှင်းပါတယ်။</p>
+<h2 id="iphone-screen-size-checking">iPhone Screen Size Checking</h2>
+<p><img src="/issue-11/images/iphonesize.png" alt=""></p>
+<p>iPhone Version တွေပြောင်းလဲလာတာနဲ့အမျှ Screen Size တွေဟာလည်း အရင်ထက်ပိုမိုကြီးမားလာပါတယ်။ iPhone 4 နဲ့ iPhone 4s မှာတုန်းက Screen Size က 3.5 inches ဖြစ်တဲ့အတွက်ကြောင့် Screen Size တူညီတဲ့အခါမှာ Layout တွေချရတာ အဆင်ပြေလွယ်ကူပါတယ်။သို့ပေမဲ့ iPhone 5 ထွက်ရှိလာပြီးတဲ့နောက်ပိုင်းမှာတော့ Screen Size က 4 inches ဖြစ်သွားတဲ့အခါမှာ iPhone Screen Size နှစ်ခုအတွက် Layout ချတဲ့အခါ အနည်းငယ် ပြသနာရှိလာခဲ့ပါတယ်။ အခုဒီစာရေးနေတုန်းအချိန်မှာတော့ iPhone 6 အတွက် ကောလဟာလ အရ ယခင် 4 inches ထက်ပိုမိုကြီးလာပြီး 4.7 inches ဖြစ်လာမယ်လို့သိရပါတယ်။ ဘယ်လိုပဲ Screen Size ​ပြောင်းလဲပြောင်းလဲ အခု ကျွန်တော်ပေးမဲ့ height နဲ့ Checking လုပ်တဲ့ Code လေးကိုသိထားရင် height ပေါ်မှာလိုက်ပြီး အလွယ်တကူစစ်ဆေးနိုင်ပါတယ်။
+အခုကတော့ Screen size 3.5 နဲ့ Screen Size 4 inches အတွက်ပဲ နမူနာ စစ်ဆေးပြပါ့မယ်။</p>
+<p>အရင်ဆုံး Boolean Variable တစ်ခုကြေညာလိုက်ပါ။</p>
+<pre><code class="lang-objc">static BOOL isIPhone5;
+</code></pre>
+<p>ပြီးရင် အောက်က Code လေးနဲ့ စစ်ဆေးလို့ရပါပြီ။</p>
+<pre><code class="lang-objc">- (void)checkingiPhoneVersion
+{
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        if ([[UIScreen mainScreen] respondsToSelector: @selector(scale)])
+        {
+            CGSize result = [[UIScreen mainScreen] bounds].size;
+            CGFloat scale = [UIScreen mainScreen].scale;
+            result = CGSizeMake(result.width * scale, result.height * scale);
+
+            if(result.height == 960)
+            {
+                isIPhone5 = NO;
+            }
+
+            if(result.height == 1136)
+            {
+                isIPhone5 = YES;
+            }
+        }
+
+        else
+        {
+            isIPhone5 = NO;
+        }
+    }
+}
+</code></pre>
+<h2 id="ipad-orientation-checking">iPad Orientation Checking</h2>
+<p><img src="/issue-11/images/ipad1.png" alt=""></p>
+<p>ဒါလေးကတော့ လွယ်ပါတယ်ဆိုပေမဲ့ iPad Orientation မှာသတိထားရမဲ့အချက်က​ iPad Orientation က iPhone လိုမျိုး လေးခုထဲရှိတာမဟုတ်ပါဘူး။ iPad Orientation က စုစုပေါင်း 6 ခုရှိပါတယ်။</p>
+<pre><code class="lang-objc">UIDeviceOrientationLandscapeLeft
+UIDeviceOrientationLandscapeRight
+UIDeviceOrientationPortrait
+UIDeviceOrientationPortraitUpsideDown
+UIDeviceOrientationFaceUp
+UIDeviceOrientationFaceDown
+</code></pre>
+<p>iPad ကိုလက်ထဲမှာကိုင်ထားပြီး စာဖတ်နေတဲ့ ပုံစံနဲ့ Orientation က iPad က ကြမ်းပြင်ပေါ်မှာ ချ​ထားတဲ့ Orientation နဲ့မတူညီပါဘူး။ဒါကြောင့် iPad အတွက် အလွယ်ကူဆုံးသော စစ်နည်းကတော့ interfaceOrientation ကိုစစ်ဆေးတဲ့နည်းပါပဲ။ဒါကြောင့် အောက်က Code လေးနဲ့ပဲ အလွယ်တကူစစ်ဆေးလို့ရပါတယ်။</p>
+<pre><code class="lang-objc">if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation) ||(UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)))
+{
+    // Code for Landscape
+}
+
+else
+{
+    // Code for Portrait
+}
+</code></pre>
+<p>ထို့အပြင် iPhone , iPad Checking လုပ်တဲ့ Apple ရဲ့ Code လေးကတော့</p>
+<pre><code class="lang-objc">if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+{
+   // iPhone
+}
+
+else
+{
+   // iPad
+}
+</code></pre>
+<p>စသဖြင့် မိမိရဲ့ iOS App တွေကို iOS Version တွေပေါ်မှာမူတည်ပြီး Update လုပ်တဲ့အခါမှာ အလွယ်တကူအသုံးပြုနိုင်အောင် ကျွန်တော် လက်ရှိသုံးနေတဲ့ Code လေးတွေကို Sharing ပြန်လုပ်ပေးလိုက်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

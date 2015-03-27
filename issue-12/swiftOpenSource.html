@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Swift Open Source Library
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Swift Open Source Library</h1>
+      <div class="description">useful library for swift</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover_swiftlibrary.png" class="headerImage">
+    <div class="content detailArticle"><p>Swift ဟာ အခုအချိန်မှာ အတော်လေးကို stable ဖြစ်နေပါပြီ။ Swift ကို သုံးပြီးရေးတဲ့ အခါမှာ အသုံးဝင်မယ့် library အချို့ ကို ဖော်ပြလိုက်ပါတယ်။</p>
+<h2 id="alamofire">Alamofire</h2>
+<p>Objective-C သုံးခဲ့တုန်းက AFNetworking ကို သုံးဖူးမယ်ထင်ပါတယ်။ AFNetworking Developer <a href="https://github.com/mattt">Mattt Thompson</a> က Swift အတွက် <a href="https://github.com/Alamofire/Alamofire">Alamofire</a> ဆိုပြီး ဖန်တီးထားပါတယ်။</p>
+<p>Feature တွေကတော့</p>
+<ul>
+<li>Chainable Request / Response methods</li>
+<li>URL / JSON / plist Parameter Encoding</li>
+<li>Upload File / Data / Stream</li>
+<li>Download using Request or Resume data</li>
+<li>Authentication with NSURLCredential</li>
+<li>HTTP Response Validation</li>
+<li>Progress Closure &amp; NSProgress</li>
+<li>cURL Debug Output</li>
+<li>Comprehensive Unit Test Coverage</li>
+<li>Complete Documentation</li>
+</ul>
+<p>အသုံးပြုပုံတွေကတော့</p>
+<h3 id="request">Request</h3>
+<pre><code class="lang-swift">import Alamofire
+
+Alamofire.request(.GET, &quot;http://httpbin.org/get&quot;)
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-swift">Alamofire.request(.GET, &quot;http://httpbin.org/get&quot;, parameters: [&quot;foo&quot;: &quot;bar&quot;])
+         .response { (request, response, data, error) in
+                     println(request)
+                     println(response)
+                     println(error)
+            }
+</code></pre>
+<p>အသေးစိတ်ကတော့ Alamofire ရဲ့ <a href="https://github.com/Alamofire/Alamofire">Github</a> စာမျက်နှာ ဖတ်နိုင်ပါတယ်။</p>
+<h2 id="swiftyjson">SwiftyJSON</h2>
+<p>Swift မှာ JSON ကို အသုံးပြုတဲံအခါမှာ Objective-C မှာလို လွယ်လွယ်သုံးလို့ မရပါဘူး။ ဥပမာ code လေးကို ကြည့်ကြည့်ပါ။</p>
+<pre><code class="lang-swift">let jsonObject : AnyObject! = NSJSONSerialization.JSONObjectWithData(dataFromTwitter, options: NSJSONReadingOptions.MutableContainers, error: nil)
+if let statusesArray = jsonObject as? NSArray{
+    if let aStatus = statusesArray[0] as? NSDictionary{
+        if let user = aStatus[&quot;user&quot;] as? NSDictionary{
+            if let userName = user[&quot;name&quot;] as? NSDictionary{
+                //Finally We Got The Name
+
+            }
+        }
+    }
+}
+</code></pre>
+<p>ဒါမှမဟုတ် optional ကို အသုံးပြုပြီးတော့ ရေးနိုင်ပါတယ်။</p>
+<pre><code>let jsonObject : AnyObject! = NSJSONSerialization.JSONObjectWithData(dataFromTwitter, options: NSJSONReadingOptions.MutableContainers, error: nil)
+if let userName = (((jsonObject as? NSArray)?[0] as? NSDictionary)?[&quot;user&quot;] as? NSDictionary)?[&quot;name&quot;]{
+  //What A disaster above
+}
+</code></pre><p>တကယ်လို့ <a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJSON</a> ကိုသာ အသုံးပြုမယ်ဆိုရင်</p>
+<pre><code>let json = JSON(data: dataFromNetworking)
+if let userName = json[0][&quot;user&quot;][&quot;name&quot;].string{
+  //Now you got your value
+}
+</code></pre><p>ဆိုပြီး ရှင်းရှင်းလင်းလင်း ရေးနိုင်ပါတယ်။</p>
+<p>တကယ်လို့ optional အတွက် ဆိုရင် အောက်ကလို ရေးနိုင်ပါတယ်။</p>
+<pre><code>let json = JSON(data: dataFromNetworking)
+if let userName = json[999999][&quot;wrong_key&quot;][&quot;wrong_name&quot;].string{
+    //Calm down, take it easy, the &quot;.string&quot; property still produces the correct Optional String type with safety
+} else {
+    //Print the error
+    println(json[999999][&quot;wrong_key&quot;][&quot;wrong_name&quot;])
+}
+</code></pre><p><a href="https://github.com/SwiftyJSON/SwiftyJSON">github</a> မှာ SwiftyJSON ကို download ချနိုင်ပါတယ်။</p>
+<h2 id="hanekeswift">HanekeSwift</h2>
+<p>Swift မှာ cache ကို အသုံးပြုချင်ရင်တော့ <a href="https://github.com/Haneke/HanekeSwift">HanekeSwift</a> ကို အသုံးပြုနိုင်ပါတယ်။ light weight ဖြစ်ပြီးတော့ UIImage , NSData , JSON , String စတာတွေကို သိမ်းထားနိုင်ပါတယ်။</p>
+<p>URL request လုပ်ပြီး cache ပါ သိမ်းထားချင်တယ်ဆိုရင် အောက်ကလို မျိုး အသုံးပြုနိုင်ပါတယ်။</p>
+<pre><code>let cache = Cache&lt;JSON&gt;(name: &quot;github&quot;)
+let URL = NSURL(string: &quot;https://api.github.com/users/haneke&quot;)!
+
+cache.fetch(URL: URL).onSuccess { JSON in
+   println(JSON.dictionary?[&quot;bio&quot;])
+}
+</code></pre><p>Key value storage အနေနဲ့ သိမ်းချင်ရင်တော့</p>
+<pre><code>let cache = Shared.dataCache
+
+cache.set(value: data, key: &quot;funny-games.mp4&quot;)
+
+// Eventually...
+
+cache.fetch(key: &quot;funny-games.mp4&quot;).onSuccess { data in
+    // Do something with data
+}
+</code></pre><p>ဆိုပြီး သိမ်းနိုင်ပါတယ်။</p>
+<p>အသေးစိတ်ကိုတော့ <a href="https://github.com/Haneke/HanekeSwift">github</a> မှာ ဖတ်နိုင်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>iOS Custom Controls that I use
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>iOS Custom Controls that I use</h1>
+      <div class="description">ကျွန်တော်သုံးဖူးသော iOS control API များ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">ဇော်မင်းစိုး</span></div>
+    </div><img src="img/controlAPI.png" class="headerImage">
+    <div class="content detailArticle"><p>ဒီလအတွက် ကျွန်တော့်ရဲ့  Mobile Article ကတော့ ကျွန်တော် သုံးခဲ့ဖူးတဲ့ iOS Custom Control , Framework , API တွေကို ဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။</p>
+<p>iOS Custom Control အတော်ကြိုက်တဲ့ ကျွန်တော့်လိုလူမျိုးအတွက် Custom Control အသစ်တွေထွက်လာရင် အမြဲတမ်းစမ်းဖြစ်ပါတယ်။</p>
+<p>Custom Control တွေအတွက် <a href="https://www.cocoacontrols.com/">CocoaControls</a> မှာသွားရောက်လေ့လာနိုင်ပါတယ်။
+Apple ကပေးထားတဲ့ iOS Control လေးတွေနဲ့ မလုံလောက် ၊ အဆင်မပြေတဲ့အခါတွေမှာ iOS Developer တွေရေးထားတဲ့ Custom Control လေးတွေဟာ အင်မတန်ကိုကောင်းသလို အဆင်လည်းအတော်ပြေပါတယ်။</p>
+<p>ထို့အတူပဲ Third Party Framework တွေ API တွေဟာလည်း အတော်ကိုအသုံးဝင်ပါတယ်။</p>
+<p>ဒါကြောင့် ဒီလအတွက် ကျွန်တော် သုံးခဲ့ဖူးတဲ့ Custom Control , Framework , API တွေကို စာဖတ်သူတို့ တစ်နည်းတစ်ဖုံး အသုံးပြုချင်ရင် အသုံးပြုရလွယ်ကူအောင် ရေးသားဖော်ပြပေးလိုက်ပါတယ်။
+Control လေးတွေများနေလို့ အပိုင်းလေးတွေခွဲရေးပေးသွားမှာဖြစ်ပါတယ်။</p>
+<h2 id="slimerefresh-view">SlimeRefresh View</h2>
+<p>ဒီ <a href="https://github.com/dbsGen/SlimeRefresh">Control</a> လေးကတော့ iOS 6 မှာပါလာတဲ့ UIRefreshControl လိုပုံစံမျိုးပါ။ သူကဘာထူးခြားသလဲဆိုရင် Mail App ထဲကလို အပေါ်က အဝိုင်းလေးက UITableView ကိုအောက်ကိုဆွဲချလိုက်တိုင်း သေးသေးသွားပြီး နောက်ဆုံး Refresh ဖြစ်သွားတာပါ။</p>
+<p>ရေးရတဲ့ Code ကလည်းမခက်ပါဘူး။</p>
+<ol>
+<li><code>#import &quot;SRRefreshView.h&quot;</code></li>
+<li>Set Delegate <code>&lt;SRRefreshDelegate&gt;</code> and <code>&lt;UIScrollViewDelegate&gt;</code></li>
+</ol>
+<p><strong><em>Code in ViewDidLoad</em></strong></p>
+<pre><code class="lang-objc">
+_slimeView = [[SRRefreshView alloc] init];
+_slimeView.delegate = self;
+_slimeView.upInset = 44;
+_slimeView.slimeMissWhenGoingBack = YES;
+_slimeView.slime.bodyColor = [UIColor blackColor];
+_slimeView.slime.skinColor = [UIColor whiteColor];
+_slimeView.slime.lineWith = 1;
+_slimeView.slime.shadowBlur = 4;
+_slimeView.slime.shadowColor = [UIColor blackColor];
+
+[_tableView addSubview:_slimeView];
+
+(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+[_slimeView scrollViewDidEndDraging];
+}
+
+(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+[_slimeView scrollViewDidScroll];
+}
+
+(void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+{
+
+// Your Code to refresh
+
+[self.slimeView performSelector:@selector(endRefresh)
+withObject:nil afterDelay:3
+inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+}
+</code></pre>
+<p><img src="/issue-9/images/pull.png" alt=""></p>
+<h2 id="mbprogresshud">MBProgressHUD</h2>
+<p>ဒီ <a href="https://github.com/jdg/MBProgressHUD">Control</a> လေးဆိုရင်လည်း အတော်ကို အသုံးဝင်ပါတယ်။ ကိုယ့်ရဲ့ App က Networking တစ်ခုခုပါနေပြီဆိုရင် Data Loading လုပ်တုန်းမှာ Data Load လုပ်နေကြောင်း ActivityIndicator နဲ့ လွယ်လွယ်ကူကူပြပေးနိုင်တဲ့ Control လေးပါ။ ဒီမှာကတော့ အလွယ်ဆုံးသုံးနည်းတစ်ခုလောက်ပဲဖော်ပြပေးပါတော့မယ်။ Sample Code ထဲမှာ အများကြီးပါပါတယ်။ကိုယ်ကြိုက်တဲ့ ပုံစံကိုကြိုက်သလို အသုံးပြုနိုင်ပါတယ်။</p>
+<ol>
+<li><code>#import &quot;MBProgressHUD.h&quot;</code></li>
+<li>set Delegate <code>&lt;MBProgressHUDDelegate&gt;</code></li>
+</ol>
+<p>For Show HUD ActivityIndicator Control</p>
+<pre><code class="lang-objc">[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+</code></pre>
+<p>Hide HUD ActivityIndicator Control</p>
+<pre><code class="lang-objc">[MBProgressHUD hideHUDForView:self.view animated:YES];
+</code></pre>
+<p><img src="/issue-9/images/mbprogress.png" alt=""></p>
+<h2 id="dalinedtextview">DALinedTextView</h2>
+<p>ဒီ <a href="https://github.com/danielamitay/DALinedTextView">Control</a> လေးကတော့ UITextView ကိုအခြေခံပြီးတည်ဆောက်ထားတဲ့ Custom Control လေးတစ်ခုပဲဖြစ်ပါတယ်။
+ဘာပိုထူးခြားသွားသလဲဆိုရင် iOS Note App လိုမျိုး UITextView ကို တစ်ကြောင်းမျဉ်းလေးတွေပါလာပါတယ်။သုံးတာကလည်း မခက်ပါဘူး။</p>
+<ol>
+<li>set <code>#import &quot;DALinedTextView.h&quot;</code></li>
+</ol>
+<pre><code class="lang-objc">@property (nonatomic, strong) DALinedTextView *textView;
+
+ self.textView = [[DALinedTextView alloc] init];
+    self.textView.frame = self.view.bounds;
+    self.textView.font = [UIFont systemFontOfSize:18];
+    self.textView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+    [self.view addSubview:self.textView];
+</code></pre>
+<p><img src="/issue-9/images/linetextview.png" alt=""></p>
+<h3 id="jlactionsheet">JLActionSheet</h3>
+<p>ဒီ <a href="https://github.com/JLoewy/JLActionSheet">Control</a> ကဘာလဲဆိုတော့ UIActionSheet ကိုအခြေခံပြီးတည်ဆောက်ထားတဲ့ Flat UI နဲ့ ActionSheet လေးတစ်ခုပဲဖြစ်ပါတယ်။</p>
+<ol>
+<li>set <code>#import &quot;JLActionSheet.h&quot;</code></li>
+<li>set Delegate <code>&lt;JLActionSheetDelegate&gt;</code></li>
+</ol>
+<pre><code class="lang-objc">NSMutableArray* buttonTitles = [self getFacebookTitles];
+            NSString* cancelTitle        = @&quot;Cancel&quot;;
+            NSString* sheetTitle         = @&quot;Choose method to Post!&quot;;
+
+            JLActionSheet *actionSheet                 = [JLActionSheet sheetWithTitle:sheetTitle delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:buttonTitles];
+
+            actionSheet.tag = 2;
+            [actionSheet allowTapToDismiss:YES];
+            [actionSheet setStyle:JLSTYLE_STEEL];
+            [actionSheet showOnViewController:self];
+
+- (void)actionSheet:(JLActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // ClickedButtonAtIndex Code
+}
+</code></pre>
+<p><img src="/issue-9/images/JLActionSheet.png" alt=""></p>
+<h2 id="tonymillion-s-reachability-api">TonyMillion’s Reachability API</h2>
+<p>ဒီ <a href="https://github.com/tonymillion/Reachability‎">API</a> လေးကတော့ ကိုယ့်ရဲ့ iOS App လေးမှာ Networking တွေပါနေပြီဆိုရင် Internet နဲ့ချိတ်ဆက်မှု ရှိနေ ၊ မရှိနေကိုစစ်ဆေးပေးနိုင်တဲ့ API လေးပဲဖြစ်ပါတယ်။ Reachability API တွေထဲမှာ ကျွန်တော်အကြိုက်ဆုံး API တစ်ခုပါ။AFNetworking ရဲ့ Reachability ကလည်းတော်တော်ကောင်းပါတယ်။ဒီမှာတော့ Apple ရဲ့ Reachability ကိုပိုမိုအဆင်ပြေကောင်းမွန်အောင် ပြင်ဆင်ရေးသားပေးထားတဲ့ TonyMillion ရဲ့ Reachability ကိုပြောသွားမှာဖြစ်ပါတယ်။</p>
+<p>အရင်က ARC အတွက်အဆင်မပြေပေမဲ့ အခုတော့သူ ARC အတွက် Update လုပ်ပေးထားပါပြီ။</p>
+<ol>
+<li>set <code>#import &quot;Reachability.h&quot;</code></li>
+<li><code>@property (nonatomic,retain) Reachability *reach;</code></li>
+<li><code>-(void)reachabilityChanged:(NSNotification*)note;</code></li>
+</ol>
+<p>Code for check</p>
+<pre><code class="lang-objc">- (void)checkIsOnline
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+
+    self.reach = [Reachability reachabilityWithHostname:@&quot;www.google.com&quot;];
+
+    self.reach.reachableBlock = ^(Reachability * reachability)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@&quot;Reachable&quot;);
+        });
+    };
+
+    self.reach.unreachableBlock = ^(Reachability * reachability)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{            
+            NSLog(@&quot;UnReachable&quot;);
+        });
+    };
+
+    [self.reach startNotifier];
+}
+
+-(void)reachabilityChanged:(NSNotification*)note
+{
+    self.reach = [note object];
+
+    if([self.reach isReachable])
+    {
+        NSLog(@&quot;Reachable&quot;);
+    }
+    else
+    {
+        NSLog(@&quot;UnReachable&quot;);
+    }
+}
+</code></pre>
+<p>အပေါ်က Code လေးတွေနဲ့ အလွယ်သုံးလို့ရပါတယ်။ If Condition နဲ့ စစ်ချင်ရင်လည်း</p>
+<pre><code class="lang-objc">if([self.reach isReachable])
+    {
+        NSLog(@&quot;Reachable&quot;);
+    }
+</code></pre>
+<p>နဲ့စစ်လို့ရပါတယ်။</p>
+<p>ဒီတစ်လတော့ Custom Control လေးခုနဲ့ API တစ်ခုကိုဖော်ပြပေးလိုက်ပါတယ်။နောက်လတွေမှာလည်း Custom Control ကောင်းကောင်းလေးတွေနဲ့ API , Framework ကောင်းကောင်းလေးတွေကို မိတ်ဆက်ပေးဦးမှာဖြစ်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

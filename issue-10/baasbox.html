@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>BaasBox
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>BaasBox</h1>
+      <div class="description">Opensource Backend Service</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/baassbox.png" class="headerImage">
+    <div class="content detailArticle"><p>Parse ကို iOS developer တွေ သိကြမယ်ထင်ပါတယ်။ iOS App ဖန်တီးတဲ့ အခါမှာ backend data saving အတွက် လွယ်ကူစွာ အသုံးပြုနိုင်တဲ့ backend တစ်ခုပါ။ Parse လိုမျိုး opensource တစ်ခု ဒီလမှာ ထွက်ပေါ်လာပါတယ်။ Bassbox လို့ ခေါ်ပါတယ်။</p>
+<h2 id="download-and-run-at-localhost">Download And Run at localhost</h2>
+<p><a href="http://www.baasbox.com/download-page/">ဒီမှာ</a> မှာ bassbox ကို download ချလိုက်ပါ။ start.bat ကတော့ windows အတွက် ဖြစ်ပြီးတော့ mac နဲ့ linux အတွက်ကတော့ BassBox နဲ့ တင်လုံလောက်ပါတယ်။</p>
+<p>Download ပြီးတာနဲ့ zip ကို ဖြည်ပြီးတော့ terminal ကတော့</p>
+<pre><code>sudo sh ./start
+</code></pre><p>ဆိုပြီး run လိုက်ရုံပါပဲ။</p>
+<p><img src="/issue-10/images/baasbox_home.png" alt="baasbox"></p>
+<p>တကယ်လို့ App ID ပြောင်းချင်ရင်တော့</p>
+<pre><code>sudo sh ./start -Dapplication.code=66141987
+</code></pre><p>ဆိုပြီး ပြောင်းနိုင်ပါတယ်။ Configuration တွေကို <a href="http://www.baasbox.com/documentation/?shell#baasbox-settings">ဒီမှာ</a> ဖတ်နိုင်ပါတယ်။</p>
+<h2 id="build-bassbox-from-source">Build BassBox from source</h2>
+<p>နောက်ဆုံး <a href="https://github.com/baasbox/baasbox">master branch</a> ကနေ build လုပ်ချင်တယ်ဆိုရင်တော့ Basebox ကို Run ဖို့အတွက် JDK (JRE မဟုတ်ပါ) လိုအပ်ပါတယ်။ နောက်ပြီး Play! Framework 2.1.5 လည်း လိုအပ်ပါတယ်။ တကယ်လို့ ကိုယ်ပိုင် server မရှိဘူး ဒါမှမဟုတ် setup မလုပ်တတ်ဘူးဆိုရင်တော့ openshift ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<p>Play framework သွင်းထားပြီးသားဆိုရင်တော့ source code directory ထဲကို terminal နဲ့သွားပြီးတော့</p>
+<pre><code>play dist
+</code></pre><p>Play! ဟာ BassBox ကို build လုပ်ပြီးတော့ ./dist folder ထဲမှာ .zip file ဖန်တီးပါလိမ့်မယ်။ Zip file ထဲမှာ run ဖို့အတွက် အကုန်အသင့်ပါပြီးသားပါ။ Unzip လုပ် နောက်ပြီး shart.sh ကို run လိုက်ရင် ရပါပြီ။</p>
+<pre><code>http://localhost:9000
+</code></pre><p>ကို သွားပြီးတော့ စပြီးသုံးနိုင်ပါပြီ။</p>
+<pre><code>http://localhost:9000/console
+</code></pre><p>ကတော့ admin console ဖြစ်ပါတယ်။</p>
+<p><img src="/issue-10/images/baasbox_admin.png" alt="admin"></p>
+<h2 id="default-value">Default Value</h2>
+<p>Default username , password တွေကတော့</p>
+<pre><code>username: admin
+passwrod: admin
+application code: 1234567890
+</code></pre><p>ပါ။</p>
+<h2 id="deploy-baasbox-on-openshift">Deploy Baasbox on openshift</h2>
+<p>တကယ်လို့ server managment တွေ မသိရင် Openshift မှာ လွယ်လင့်တကူ အသုံးပြုနိုင်ပါတယ်။ အချိန် ၁၀ မိနစ်အတွင်းမှာ Baasbox server တစ်ခု setup လုပ်လို့ရပါတယ်။ Setup လုပ်ပုံ အဆင့်ဆင့်ကို <a href="http://www.baasbox.com/deploy-baasbox-on-openshift/">ဒီမှာ</a> ဖတ်လို့ရပါတယ်။</p>
+<h2 id="sdk">SDK</h2>
+<p>Bassbox ဟာ iOS , Android နဲ့ javascript တို့အတွက် SDK ရှိပါတယ်။ ဒါကြောင့် mobile development ကို native နဲ့ပဲ ရေးရေး javascript နဲ့ပဲ ရေးရေးအဆင်ပြေပါတယ်။</p>
+<p>iOS အတွက် tutorial ကို <a href="http://www.baasbox.com/getting-started-ios/">ဒီမှာ</a> ဖတ်နိုင်ပါတယ်။</p>
+<p>Android အတွက်ကိုတော့ <a href="http://www.baasbox.com/android-sdk-overview/">ဒီမှာ</a> ဖတ်နိုင်ပါတယ်။</p>
+<p>Javascript အတွက် SDK  tutorial တော့ မရှိသေးပါဘူး။</p>
+<p><img src="/issue-10/images/baasbox_tutorial.png" alt="baasbox"></p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Apple Pay
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Apple Pay</h1>
+      <div class="description">payment system from Apple</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover_applepay.png" class="headerImage">
+    <div class="content detailArticle"><p>Apple က payment system အတွက် Apple Pay ဆိုပြီး iPhone 6 , iPhone 6 plus မှာ ပါဝင်လာပါတယ်။ Apple Pay အကောင်း မပြောခင်မှာ အခု Payment တွေ ဘယ်လို လုပ်နေလဲ ဆိုတာကို  တချက် ကြည့် ရအောင် ။</p>
+<h2 id="how-it-works-now">How it works now</h2>
+<p>Payment လုပ်တဲ့ အခါမှာ card data တွေကို encrypted လုပ်ပြီးတော့ Merchant Bank ( Acquirer ) ဆီကို ပို့လိုက်ပါတယ်။ Acquirer ဆီ ရောက်တော့ card network ကနေ တဆင့် customer bank ( issuer ) ကို ထပ်ပြီး request ထပ်လုပ်တယ်။  issuer က ရောက်လာတဲ့ card ကို accept သို့မဟုတ် denise လုပ်ပြီးတော့ status code ကို လာတဲ့ လမ်းအတိုင်း ပြန်ပြီးတော့ ပို့ပေးပါတယ်။ အများအားဖြင့် လုံခြုံစိတ်ချရမှု ရှိပါတယ်။</p>
+<h2 id="how-apple-pay-is-different">How Apple Pay is different</h2>
+<p>Apple Pay ကနေ tokenization ကို အသုံးပြုထားပါတယ် ။  tokenization ဟာ payemnt လုပ်တဲ့ အခါမှာ တကယ့်လက်ရှိ card number ကို speical number တွေ နဲ့ ပြောင်းထားပါတယ်။ Tokenization ဟာ ပိုပြီး လုံခြုံစိတ်ချရမှု ရှိပါတယ်။ သမာရိုးကျ ဆိုရင်တော့ Tokenization ဟာ payment gateway (PGW) မှာ card number တွေ expiry date တွေကို သိမ်းထားပြီးတော့ Tokenization ကို PGW database နဲ့ ချိတ်ဆက်ပြီးတော့ ထုတ်ပေးပါတယ်။</p>
+<p><img src="/issue-12/images/pay1.png" alt="normal token pay"></p>
+<p>Apple Pay ဟာ Visa , American Express စတဲ့ credit card networks တွေနဲ့ ချိတ်ဆက်ထားပြီးတော့ Tokenization ကို card networks တွေက သိမ်းထားပါတယ်။ တကယ်လို့ ဖုန်းပျောက်သွားခဲ့ရင် Find My iPhone ကနေ lost mode ကို on လိုက်တာနဲ့ Apple က ချက်ခြင်း Token ကို ရှင်းလိုက်မှာ ဖြစ်တဲ့ အတွက် ဖုန်းပျောက်ရင် ကဒ်တွေ ပါသွားမှာ မပူရပါဘူး။ Find My iPhone ကိုတော့ on ထားပေးဖို့လိုပါလိမ့်မယ်။</p>
+<p><img src="/issue-12/images/pay2.png" alt="apple pay"></p>
+<p>Network Token ဟာ  ပုံမှန် PAN (card number) လိုမျိုးပါပဲ။ 16 digits ရှိပြီးတော့ လက်ရှိ payment procession infrastructure တွေ နဲ့ အဆင်ပြေပါတယ်။ နောက်ပြီးတော့ Payment Network (Visa,Master) ကသာ သိမ်းထားတဲ့ အတွက် ပိုပြီး လုံခြုံစိတ်ချရမှုရှိပါတယ်။ Token ကို iPhone မှာ Secure Element မှာ သီးသန့် သိမ်းထားပါတယ်။ တခြား storage တွေထက် ပိုပြီး လုံခြုံစိတ်ချရမှု ရှိတယ်။</p>
+<h2 id="apple-pay-for-developer">Apple Pay For Developer</h2>
+<p>Apple ဟာ payment အတွက် <a href="http://www.emvco.com/specifications.aspx?id=263">EMV</a> နဲ့ 3-D Secure ကို အသုံးပြုထားပါတယ်။ ပုံမှန် Developer အနေနဲ့ Apple Pay support လုပ်တဲ့ Payment Gateway ကို အသုံးပြုနိုင်ပါတယ်။ Payment Gateway တွေ အနေနဲ့လည်း Apple Pay ကို အသုံးပြုပြီးတော့ ကိုယ်ပိုင် SDK ထဲမှာ ထည့်သွင်းနိုင်ပါတယ်။ Apple Pay ကို အသုံးပြုတဲ့အတွက် transaction fee တွေ ပေးဖို့ မလိုပါဘူး။ လက်ရှိ Payment Gateway တွေ အနေနဲ့လည်း Apple Pay ကို ပေါင်းထည့်တဲ့ အတွက် ဘာ fee မှ ပေးဖို့ မလိုပါဘူး။ Payment Gateway တွေ အနေနဲ့ Apple Pay Integration လုပ်ဖို့ အတွက် <a href="https://developer.apple.com/apple-pay/">Apple Pay</a> မှာ သွားပြီး ဖတ်ရှုနိုင်ပါတယ်။</p>
+<p>Apple Pay ကို Test လုပ်ဖို့ အတွက် US credit card ရှိဖို့ လိုအပ်ပါတယ်။ ကိုယ့်ရဲ့ ဖုန်းကို Region မှာ United State ပြောင်းထားလိုက်ရင် ရပါပြီ။ Passbook app ကနေ တဆင့် Card ကို ထည့်သွင်းလို့ ရပါတယ်။ ပြီးတာနဲ့ Development အတွက် စပြီး စမ်းလို့ ရပါပြီ။</p>
+<p>ရေးသားဖို့အတွက် <a href="https://developer.apple.com/apple-pay/">Apple Pay</a> မှာ မှာ သွားကြည့်နိုင်သလို <a href="https://stripe.com/docs/mobile/apple-pay">Strip</a> မှာ လည်း သွားပြီး ဖတ်ရှုနိုင်ပါတယ်။ Strip မှာတော့ Strip နဲ့ Integration လုပ်ဖို့အတွက် ရေးသားထားပေမယ့် Flow ကိုတော့ လေ့လာနိုင်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

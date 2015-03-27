@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Swift ?
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Swift ?</h1>
+      <div class="description">Swift သုံးသင့်ပြီလား ?</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/shouldswift.png" class="headerImage">
+    <div class="content detailArticle"><p>Apple က Swift ကို ကြေငြာပြီးတဲ့ နောက်တနေ့မှာပဲ Swift စာအုပ်ကို iBooks store ကနေ ပထမ နေ့မှာ တင် ၃၇၀,၀၀၀ ရှိပါတယ်။ Swift ဟာ modern langauge ဖြစ်ပြီးတော့ ရေးရတဲ့ အခါမှာ Safe ဖြစ်တယ်။ နောက်ပြီး Unicode ကို variable အဖြစ်ပေးလို့ရတယ်။</p>
+<pre><code class="lang-swift">var 🙏: String? = &quot;မြန်မာ font ကို iOS မှာ ရပါစေ&quot;
+
+if let တောင်းဆု = 🙏 {
+    var ရလဒ် = &quot;&quot;
+    for ရက် in 0...6 {
+        //၁ ပတ်ပြည့်လျှင် ပြည့်စေ
+        if( ရက် == 6 )
+        {
+            ရလဒ် = &quot;သင့် တောင်းဆု ဖြစ်သော &#39;\(တောင်းဆု)&#39; သည် iOS 8 ထွက်လာလျှင် ပြည့်စေ&quot;
+        }
+    }
+    ရလဒ်
+}
+</code></pre>
+<p>Swift ကို Production App အတွက် အသုံးပြုမယ်ဆိုရင် အသုံးပြုလို့ရ ပြီလား ဆိုရင်တော့ ရပါပြီ။ သို့ပေမယ့် Risk များပါတယ်။ Swift က beta အဆင့်ပဲ ရှိသေးပြီးတော့ Yosemite နဲ့ Xcode 6 beta 2 မှာ SourceKitService က CPU usage များပြီး Xcode ကို နှေးစေပါတယ်။ ဒါကြောင့် တခါတလေ auto complete နဲ့ syntax highlighting တွေက ပျောက်သွားတတ်ပါတယ်။</p>
+<h2 id="swift-vs-objective-c">Swift VS Objective-C</h2>
+<p>နောက်ပြီးတော့ လက်ရှိ အချိန်မှာ Swift က Objective-C လောက် မမြန်သေးပါဘူး။</p>
+<p>အောက် က Code ၂ ခုဟာ တစ်ခုက swift နဲ့ ရေးထားပြီးတော့ တစ်ခုက Objective-c နဲ့ပါ။ စမ်းထားတဲ့ စက်ကတော့</p>
+<p>MacBook Pro 15-inch Late 2011</p>
+<p>OSX 10.9.3</p>
+<p>Processor 2.2 GHz Intel Core i7</p>
+<p>Memory 8GB 1333 MHz DDR3</p>
+<p>ပါ။</p>
+<pre><code class="lang-swift">let start = NSDate()
+for var i = 0; i &lt;= 1000000; ++i {
+
+}
+
+var end = NSDate()        
+var timeTaken = end.timeIntervalSinceDate(start) * 1000        
+println(timeTaken)
+</code></pre>
+<pre><code class="lang-objc">NSDate * start = [NSDate date];    
+for (int i=0; i&lt;=100000; i++) {
+
+}
+NSDate * end = [NSDate date];
+double timeTaken = [end timeIntervalSinceDate:start] * 1000;
+NSLog(@&quot;%f&quot;,timeTaken);
+</code></pre>
+<p>Swift အတွက် Compiler flag ၃ ခု နဲ့ စမ်းထားပါတယ်။ Release လုပ်တဲ့ အခါမှာ -O (Fastest) ကို Swift က အသုံးပြုပါတယ်။ Debug မှာတော့ None ပါ။ အချိန်တွေ အားလုံးက Millisecond  value တန်ဖိုးတွေပါ။</p>
+<pre><code>Swift [None -Onone] 18.4089541435242
+(Release)Swift [Fastest -O] 0.723004341125488
+Swift [Fastest , Unchecked -Ofast] 0.00602006912231445
+</code></pre><p>Objective-C အတွက်ကတော့ Compile Flag ၆ မျိုးရှိပါတယ် ။ Release လုပ်တဲ့ အခါမှာ Fastest Smallest ကို အသုံးပြုပါတယ်။ အကုန်လုံးနဲ့ စမ်းထားတဲ့ ရလဒ်ကတော့</p>
+<pre><code>Objective-C [None] 0.312984
+[Fast -O, O1]  0.007987
+[Faster -O2] 0.011981
+[Faster -O3] 0.008047
+(Release)[Fastest Smallest] 0.007033
+Fastest,Aggressive Optimizations [-Ofast] 0.008047
+</code></pre><p>Swift နဲ့ Objective-C ဟာ Debug လုပ်တဲ့ အချိန်မှာ အတော်ကို ကွာပါတယ်။ Swift ကို Unchecked -Ofast နဲ့ compile လုပ်ဖို့ recommend မလုပ်ကြပါဘူး။ Compile အဆင်ပြေပေမယ့် Safe မဖြစ်လို့ပါ။ </p>
+<p>Release version နဲ့ Swift နဲ့ Objective-C မှာ အစ ၁၀၀ နီးပါး ကွာခြား နေတာကို တွေ့နိုင်ပါတယ်။ Looping နဲ့ မဟုတ်ပဲ အခြား code တွေနဲ့ စမ်းသပ်ထားတာတွေကိုလည်း online မှာ ရှာကြည့်နိုင်ပါတယ်။ လက်ရှိ မှာတော့ Swift ဟာ Objective-C ထက် နှေးပါတယ်။ Apple ပြောသလို Swift က လက်ရှိ မှာတော့ Objective-C လောက် မမြန်သေးပါဘူး။</p>
+<h2 id="only-swift-is-it-enought-">only Swift ? Is it enought ?</h2>
+<p>Swift တစ်ခုပဲ လေ့လာရင် လုံလောက် မလား မလုံလောက်ဘူးလား ဆိုတာကတော့ ကိုယ်လုပ်တဲ့ အလုပ်နဲ့ ဆိုင်ပါတယ်။ တကယ်လို့ Company မှာ လုပ်နေရင်တော့ Company က လက်ရှိ Objective-C နဲ့ library တွေ ရေးထားခဲ့ရင် Objective-C ကော Swift ပါ လေ့လာသင့်ပါတယ် ။ အခုမှ Swift ကို စမယ် တကိုယ်တော် ရေးတယ်ဆိုရင် Swift တစ်ခု တည်း လေ့လာရုံနဲ့ ရပါတယ်။</p>
+<p>Swift ကို Objective-C နဲ့လည်း တွဲသုံးနိုင်ပါတယ်။ iOS Development ကို လုပ်တော့မယ်ဆိုရင် language ထက် framework က အရေးပါပါတယ်။ Swift language စာကို ဖတ်ပြီး swift ကို သိသွားပေမယ့် iOS SDK နဲ့ သူ့မှာပါတဲ့ framework တွေကို မသိရင် iOS app ရေးလို့ မရပါဘူး။ </p>
+<p>လက်ရှိ လူသုံးများတဲ့ library တွေက Objective-C နဲ့ ရေးသားထားတာပါ။ Objective-C ကို အရင် လေ့လာထားရင် iOS Development အတွက် အထောက် အကူပြုပါလိမ့်မယ်။ Objective-C ရဲ့ Syntax , Control Flow တွေကတော့ Swift လောက် ရိုးရှင်း လွယ်ကူမူတော့ မရှိဘူး။</p>
+<p>Apple အနေနဲ့ လက်ရှိ Framework တစ်ခုလုံးဟာ Swift ကိုမပြောင်းသေးပါဘူး။ နောက်ပြီး WWDC 2014 ရဲ့ App ကို Swift နဲ့ ရေးထားတယ် ဆိုပေမယ့် တစ်ခုလုံးကို ရေးထားတာ မဟုတ်ပါဘူး။ တစိတ်တပိုင်းကို သာ Swift အသုံးပြုပြီး ရေးသားထားပါတယ်။</p>
+<p>တကိုယ်တော် သမားတွေ အတွက် Swift သီးသန့် က လုံလောက်ပါတယ်။ တကယ်လို့ အများနဲ့ အလုပ်လုပ်မယ် iOS framework တွေ ကို ကောင်းမွန်စွာ သုံးတတ်ချင်တယ်ဆိုရင်တော့ Objective-C ကို secondary အနေနဲ့ လေ့လာထားသင့်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

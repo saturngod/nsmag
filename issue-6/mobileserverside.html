@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Server side/ Backend service for mobile apps
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Server side/ Backend service for mobile apps</h1>
+      <div class="description">ဘာကြောင့် backend သုံးသင့်သလဲ ? ဘယ်သူတွေ Parse ကို သုံးသင့့်သလဲ ?</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/parsedata.png" class="headerImage">
+    <div class="content detailArticle"><p>Mobile App ကို definition ဖွင့်ကြည့်လျှင် သူ့ရဲ့ နာမည်အတိုင်း mobile ဖြစ်ဖို့ဦးတည်ရေးကြရပါတယ်။ အတတ်နိုင်ဆုံး System resource သုံးတာကိုနည်းအောင် ရေးကြပါတယ်။ App တွေရဲ့ category ကိုအကြမ်းဖျင်းခွဲကြည့်ရင် ၅ မျိုးလောက်တွေ့နိုင်ပါတယ်။ယင်းတို့မှာ</p>
+<ul>
+<li>Game</li>
+<li>Standalone app ( ဥပမာ Myanmar calendar)</li>
+<li>Newstand app ( ဥပမာ NSMag )</li>
+<li>Client side app ( ဥပမာ gtalk ။ )</li>
+<li>ဝန်ဆောင်မှုပေးတဲ့ app ( ဥပမာ document sharing app) တို့ဖြစ်ပါတယ်။</li>
+</ul>
+<h2 id="game">Game</h2>
+<p>Game တွေအတွက်ကတော့ online game စစ်စစ်တွေထက် mixture ( offline + online ) တွေပိုများပါတယ်။ Offline မှာဆော့ပြီး online ရတဲ့အခါ icloud မှာ data save တာတို့ ၊ Game Center မှာ score အတွက်ပြင်ဆင်တာတို့ရှိပါတယ်။ အဲဒါတွေအတွက် apple မှာ အသင့်ခေါ်သုံးလို့ရတဲ့ framework တွေရှိပါတယ်။ အဲ့တော့ backend service အတွက် စိတ်ပူစရာ မလိုပါဘူး။ ( apple အတွက်ပဲ သီးသန့်ရေးတဲ့ app များအတွက်သာဖြစ်ပါတယ်။ Cross platform ဆိုရင်တော့ တခြားဟာ သုံးရတော့မှာပါ။)</p>
+<h2 id="standlone-app">Standlone App</h2>
+<p>နောက်တစ်ခုကတော့ standalone app လို့ပြောလို့ရတဲ့ app များဖြစ်ပါတယ်။ သူတို့ကို internet ဘယ်တော့မှ မရလည်း သုံးလို့ရအောင် ရေးထားပါတယ်။ ဥပမာ Myanmar calendar app နဲ့ Myanmar First Aid HD app တို့ဖြစ်ပါတယ်။ Standalone App တွေကို ခြုံကြည့်မယ်ဆိုရင် light သိပ်မဖြစ်ပါဘူး။ ဒါပေမယ့် powerful ဖြစ်တယ်လို့ပြောလို့ရပါတယ်။ ရှိတဲ့ Resource, content အကုန်လုံးကို app နဲ့အတူ ထည့်ပေးလိုက်ရပါတယ်။ တစ်ခါတစ်လေကျတော့ အဲလို အကုန်ထည့်ပေးလိုက်တဲ့အခါ Paid App တွေအတွက် ဒုက္ခ ရောက်ပါတယ်။ Content အကုန်ပါနေတော့ crack ခံလိုက်ရရင် ရှိသမျှအကုန် သူများယူသုံးလို့ရနိုင်ပါတယ်။ အဲလိုမျိုးအစား Content ကိုအကုန်မထည့်ဘဲ နောက်မှ user လိုတဲ့အခါ၊ ၀ယ်လိုတဲ့အခါ Content တွေ download နိုင်အောင် server side ရေးသင့်ပါတယ်။ Authenticated user တွေမှ download နိုင်အောင် ရေးထားလို့ရပါတယ်။ Crack ကို ကာကွယ်နိုင်တာတော့ မဟုတ်ပါဘူး။ ဒါပေမယ့် crack လုပ်မယ့်သူတွေ အလုပ်တစ်ဆင့် ရှုပ်သွားစေမှာပါ။ App developer တွေဘက်က ပြန်ကြည့်မယ် ဆိုရင်လည်း content update လုပ်တာ လွယ်ကူသွားမှာပါ။</p>
+<h2 id="newstand-app">Newstand app</h2>
+<p>တတိယအမျိုးအစားကတော့ newsstand app တွေဖြစ်ပါတယ်။ ယခုဖတ်နေတဲ့ NSMag ဆိုရင် Newsstand app အမျိုးအစားပါ။ အဲလို app တွေက light ဖြစ်ပါတယ်။ နောက်မှလိုသလို content တွေ download နိုင်၊ delete နို်င်ပါတယ်။ Offline မှာလည်း ဖတ်လို့ရအောင် ပြင်ဆင်ထားပါတယ်။ ယင်းတို့အတွက် server side ကျိန်းသေလိုပါတယ်။ App ပေါ်မှုတည်ပြီး server side မှာပြင်ဆင်ထားရမယ့် feature တွေကွာသွားပါမယ်။ ဥပမာ magazine အသစ်ထွက်တဲ့အခါ user တွေကို အသိပေးလိုတာ, emergency news တွေ ( မုန်တိုင်း၀င်ခါနီး သတင်းကြိုပို့တာ) ကို အသိပေးလိုတဲ့အခါ notification ပို့လို့ရအောင် APNS ( Apple Push Notification Service) ကို server side မှာရေးထားရပါမယ်။</p>
+<h2 id="client-side-app">Client side app</h2>
+<p>လေးခုမြောက်အမျိုးအစားကတော့ Client Side App လို့ပြောလို့ရတဲ့ App တွေပါ။ ဒီ type ကတော့ နည်းနည်း ရူပ်ထွေးပါတယ်။ ဥပမာ gtalk app လိုမျိူးရေးချင်ရင် google ကနေ API တွေခေါ်သုံးလို့ရပါတယ်။ Server side အတွက်ရေးစရာမလိုတဲ့အခါရှိသလို လိုတဲ့အခါလည်းရှိပါတယ်။ စောစောက gtalk app အတွက် ဆိုရင် app ထဲမှာ ရှိနေမှသာ chat နေနိုင်မှာဖြစ်ပါတယ်။ အပြင်ထွက်လိုက်ရင် ဟိုဘက်ကဘာပို့လိုက်လည်းဆိုတာ ရတော့မှာမဟုတ်ပါဘူး။ ထိုအခါ APNS ကိုသုံးဖို့ လိုလာပြန်ပါတယ်။</p>
+<h2 id="-app">ဝန်ဆောင်မှုပေးတဲ့ app</h2>
+<p>နောက်ဆုံးတစ်ခုကတော့ ၀န်ဆောင်မှုပေးမယ့် App တွေပါ။ User တွေတစ်ယောက်ဆီက document /content ကိုနောက်တစ်ယောက်ကို share နိုင်တဲ့ app, ဒါမှမဟုတ် Myanmar currency ကြည့်လို့ရတဲ့ app kcurrency တို့လိုရေးလိုတဲ့အခါ server side ကိုကိုင်ရပါတော့မယ်။ ၀န်ဆောင်မှုပေးတယ်ဆိုတဲ့အတိုင်း ရှိတဲ့ resource တွေကို ကိုယ်ကိုယ်တိုင် ကိုင်တွယ်ရပါတော့မယ်။ အချိန်နဲ့အမျှ content တွေပြောင်းလဲနိုင်တဲ့အတွက် server side လိုလာပါတယ်။</p>
+<h2 id="server-side-backend">Server Side/Backend</h2>
+<p><img src="/issue-6/images/backend.jpg" alt=""></p>
+<p>အထက်ပါ ကိစ္စတွေကြောင့် server side ကိုသုံးသင့်တဲ့ အခြေအနေမျိုးတွေ ကြုံလာရနိုင်ပါတယ်။ Standalone app မျိုးတွေအတွက်ဆိုရင်တောင် Notification system လေးပါရင် ပိုစိတ်၀င်စားနိုင်တဲ့ feature တွေပြုလုပ်နိုင်ပါတယ်။ ဘယ်ကနေ စကြမလဲဆိုတာ စဉ်းစားရပါတော့မယ်။ ထိုအခါ သင်က ဘယ်လိုင်းကနေ mobile developer ဖြစ်လာလဲဆိုတာ အရင်စဉ်းစားကြည့်ပါ။ Web ဘက်တွေရေးဖို့ အားသန်လား။ ဒီapp content က secure ဖြစ်ဖို့လိုလား ။ ဒီapp အတွက် အချိန် ဘယ်လောက် ပေးနိုင်မလဲ။ အချိန်ဘယ်လောက်ရနိုင်မလဲ သိဖို့လိုပါတယ်။ ကိုယ်ကိုယ်တိုင် Business ကြီးကြီး ၊ service ကောင်းကောင်းနဲ့ ရေရှည်လုပ်ဖို့ စဉ်းစားထားရင်တော့ server side ကို ကိုယ်ကိုယ်တိုင် (သို့မဟုတ်) ရေးနိုင်တဲ့သူကို ရှာဖို့လိုပါတယ်။ ကိုယ်ကိုယ်တိုင် server ရေးတဲ့အတွက် ကောင်းကွက် တစ်ချို့နဲ့ ဆိုးကွက်တစ်ချို့ ရှိပါတယ်။</p>
+<p>ယင်းတို့မှာ</p>
+<p>ကိုယ်ပိုင် backend server ရဲ့ ကောင်းကွက်များ</p>
+<ul>
+<li>ကိုယ်ပိုင်ဖြစ်တဲ့အတွက် ကိုယ့် content ကို ကိုယ်တိုင် ချယ်လှယ်ခွင့် ရပါတယ်။ confidentiality ပိုရှိပါတယ်။</li>
+<li>ရေရှည်လုပ်မယ်ဆိုရင် ကိုယ်ပိုင်ဖြစ်တဲ့အတွက် ပိုတွက်ခြေကိုက်ပါတယ်။</li>
+<li>Server side ပြင်ဆင်လိုရင် ကိုယ့်စိတ်ကြိုက် ပြင်လို့ရပါတယ်။ ဥပမာ file upload size ကို define တဲ့အခါမျိုး ၊ user ကို auto block/ban တဲ့ အခါ ၊ သူတို့ရဲ့ access level ကို ပြင်နိုင်တာမျိုးပါ။</li>
+</ul>
+<p>ကိုယ်ပိုင် backend server ရဲ့ဆိုးကွက်များ</p>
+<ul>
+<li>Server side quality က ကိုယ့်ရဲ့ သို့မဟုတ် ကိုယ်ငှားမယ့် သူရဲ့ skill အပေါ်မူတည်ပါတယ် ။ Quality control တို့ testing တို့ကို လုပ်ပေးရပါမယ်။</li>
+<li>Server side တစ်ခုရဖို့အတွက် အချိန်ပိုကြာပါတယ်။ Long term မှာလည်း ကိုယ့် weakness, feature တွေအပေါ် မူတည်ပြီး တောက်လျှောက် ပြင်သွားဖို့လိုပါတယ် ။</li>
+</ul>
+<p>အထက်မှာဖော်ပြထားတဲ့အတိုင်း ကိုယ်ပိုင် backend ဆောက်သင့်မသင့်စဉ်းစားရပါမယ်။ အကယ် ၍ သင်က server ဘက်အတွက် သေချာမရေးနိုင်ဘူး ၊ အချိန်မပေးနိုင်ဘူး ၊ သူများငှားဖို့အတွက်လည်း မလုပ်နိုင်ဘူး ၊ မလုပ်ချင်ဘူး ၊ mobile developer စစ်စစ်တစ်ယောက် သင့် data တွေက သင့် control အောက်မှာမရှိလည်း အဆင်ပြေတယ်။ သင့် content size တွေကလည်း အရမ်းမကြီးဘူးဆိုရင် သူများဆောက်ပြီးသား backend တွေခေါ်သုံးသင့်ပါတယ်။ အဲလိုခေါ်သုံးရင် server side အတွက် ရေးဖို့မလိုသလို mobile app ဘက်မှာလည်း သူတို့ server ကို ချိတ်ဖို့အတွက် framework တွေကို အသင့်ခေါ်သုံးနိုင်တဲ့အတွက် developing time ကို သိသိသာသာ လျှော့ချနိုင်ပါတယ်။ ကောင်းကွက် ဆိုးကွက်တွေကိုတော့အောက်တွင် ဖော်ပြထားပါတယ် ။</p>
+<p>Ready-made backend server ကောင်းကွက်များ</p>
+<ul>
+<li>Developing time သိသိသာသာ လျှော့ချ နိုင်ပါတယ် ။ server side ရေးဖို့မလိုသလို mobile app တွင်လည်း သူတို့ framework ကိုအသင့် ခေါ်သုံးနိုင်ပါတယ်။</li>
+<li>အကယ် ၍သင်က advanced feature တွေ လိုချင်ရင် အသင့်/ချက်ချင်း ၀ယ်နိုင်ပါတယ်။ (ဥပမာ သင့်မှာ Paid ver ရယ် Free ver ရယ် ရှိတယ် နှစ်ခုလုံးကို notification send ချင်ရင် send နိုင်အောင်လုပ်နိုင်ပါတယ် )</li>
+<li>နောက်တစ်ခုကတော့ quality ပါ။ အဲလို ready-made server တွေ ရေးဖို့သူတို့ အချိန်တွေ ယူခဲ့ပါတယ်။ Skill ရှိတဲ့သူတွေစုခဲ့ရပါတယ်။ testing တွေတောက်လျှောက် လုပ်ခဲ့ရပါတယ်</li>
+</ul>
+<p>Ready-made backend server ရဲ့ဆိုးကွက်များ</p>
+<ul>
+<li>သူတို့ရဲ့ advance feature ရဖို့ ပိုက်ဆံပိုပေးရနိုင်လောက်ပါတယ်။ ကိုယ်ကိုယ်တိုင်လည်း အဲလို advance feature ရဖို့အတွက်လုပ်ရင် အဲလောက်ကုန်ချင်မှ ကုန်ပါမယ်။ ဘယ်သူ့ quality ပိုကောင်းလဲဆိုတာကတော့ ဆုံးဖြတ်ဖို့ခက်ပါတယ်။</li>
+<li>Flexibility ကို limit ထားပါတယ်။ ကိုယ်လိုချင်တဲ့ feature အတိုင်း ထပ်တူထပ်မျှ ကျချင်မှကျပါမယ်။</li>
+</ul>
+<p>ဒါဆို ဘယ်အချိန်မှာ ready-made server သုံးသင့်လဲ ? သင်လိုချင်တဲ့ feature တွေချရေးကြည့်ပါ။ ပြီးတော့ သူတို့ဘာပေးနိုင်လဲကြည့်ပါ။ ထပ်တူကြဖို့တော့ မဖြစ်နိုင်ပါ။ သို့သော် ကိုယ့် program structure ကိုနဲနဲပြောင်းကြည့်ရင် feature ကိုအနီးစပ်ဆုံး ဖြစ်အောင်လုပ်နိုင်ပါမယ်။ ထို့နောက် သင့် feature တွေက သူတို့ free ပေးနိုင်တဲ့ feature တွေဖြစ်မဖြစ်ကြည့်ပါ။ ဟုတ်ခဲ့ရင်တော့ good to go ပါပဲ။ မဟုတ်ခဲ့လျှင်တော့ သင်တတ်နိုင် မတတ်နိုင် ကြည့်ရပါတော့မယ်။ သင် server အတွက် စိတ်ရှုပ်လည်း မခံနိုင်ဘူး။ သင် ဒါ အတွက် ရင်းနှီးလိုက်တာထက် သင်ပိုရနိုင်မယ်ဆိုရင် သုံးသင့်ပါတယ်။ များသောအားဖြင့် advance feature တွေကို သတ်မှတ်ထားတဲ့ ကာလတစ်ခုအထိ free သုံးလို့ရပါတယ်။ ယင်းအချိန်ကာလ အတွင်းမှာ သင်တစ်ကယ်လိုမလို စဉ်းစားနိုင်မှာပါ။</p>
+<h2 id="parse">Parse</h2>
+<p>ဒီ article အတွက်တော့ ready-made server အတွက် <strong>Parse Data</strong>အကြောင်းကိုပဲ ဖော်ပြသွားပါမယ်။</p>
+<p><img src="/issue-6/images/parse.jpg" alt=""></p>
+<p>Parse Data က server side အတွက် ခေါင်းရှုပ်မခံချင်တဲ့ mobile developer တွေအတွက်ဆိုရင် သင့်တော်ပါတယ်။ သုံးရတာ လွယ်တယ်။ ရိုးရှင်းတယ်။ အချိန်မကုန်ဘူး။ tutorial ကောင်းကောင်းရှိတယ်။ မသိတာမေးဖို့အတွက် active ဖြစ်နေတဲ့ community ရှိတယ်။ IOS တင်မကဘဲ Android, Window စသဖြင့် အစုံအစုံကို support ပေးပါတယ်။ သူတို့ရဲ့ basic feature က သာမန် mobile developer တစ်ယောက်လိုနိုင်တာထက် ပိုပေးထားပါတယ်(ဥပမာ API request က တစ်လကိုတစ်သန်းရပါမယ်။ ။ )။ ချွင်းချက်လေးတွေတော့ ရှိပါတယ်။ ဥပမာ upload file size ကို 20MB မှာ limit ထားတာ။ File storage က 1GB ပဲရတာ စသဖြင့်ပါ။ Pro feature ကို ၀ယ်မယ်ဆိုရင် တစ်လကို 199$ ကျပါမယ်။</p>
+<p><img src="/issue-6/images/ruleall.png" alt=""></p>
+<p>Parse ကို သုံးဖို့ဘယ်က စရမလဲ။ ပထမဆုံး <a href="http://www.parse.com">www.parse.com</a> ကိုသွားပြီး register လုပ်ပါ။ ထို့နောက် new app ကို create ပါ။ <a href="https://parse.com/apps/new">https://parse.com/apps/new</a> . ထိုအခါ သင့်ရဲ့ App ထဲတွင် သုံးရမယ့် key တွေရလာပါလိမ့်မယ်။ အသေးစိတ်ကို <a href="https://parse.com/apps/quickstart">https://parse.com/apps/quickstart</a> တွင် ဖတ်နိုင်ပါတယ်။ သေချာ ရှင်းလင်းထားပါတယ်။ သင် tutorial တွေ ကြည့်ချင်ရင် <a href="https://parse.com/tutorials">https://parse.com/tutorials</a> တွင်ကြည့်နိုင်ပါတယ်။ source code တွေလည်းပေးထားပါတယ်။ အဲဒီ source code ထဲက app key ကို သင့်ရဲ့ app key နဲ့ပြောင်းလိုက်ရုံနဲ့ သင် run လို့ရပါပြီ။</p>
+<p>Parse ကို သုံးဖို့ဘယ်က စရမလဲ။ သင့် App အပေါ်မူတည်ပြီး database ဆောက်နိုင်ပါတယ်။ program တစ်ကြောင်းရေးစရာမလိုဘဲ သူ့ UI ကနေ လုပ်နိုင်ပါတယ်။ Notification ပို့ချင်ရင်လည်း သူ့ textbox မှာ စာရေးပြီး send နှိပ်လိုက်တာနဲ့ ပို့လို့ရပါပြီ။ ( mobile app ဘက်မှာတော့ သူ့ tutorial ထဲကအတိုင်း notification ရဖို့ပြင်ဆင်ပေးထားရပါမယ်။)</p>
+<p><img src="/issue-6/images/parseui.png" alt=""></p>
+<p>အကျဉ်းချုပ်အားဖြင့် ပြောရလျှင် Parse သုံးရတာလွယ်ကူပါတယ်။ stand-alone app တွေကိုလည်း Parse နဲ့တွဲလိုက်ရင် ပိုစိတ်၀င်စားနိုင်စရာ feature တွေလုပ်နိုင်ပါလိမ့်မယ်။ stand-alone app တွေအတွက်လည်း content များများကို server side မှာမလိုလောက်တဲ့အတွက် အဆင်ပြေပါလိမ့်မယ်။ notification system လုပ်ရတာလည်း လွယ်ကူပါတယ်။ စမ်းသုံးကြည့်ပါ။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

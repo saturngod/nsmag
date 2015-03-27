@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Objective-C Style Guide (Part 2)
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Objective-C Style Guide (Part 2)</h1>
+      <div class="description">New York Time ရဲ့ Objective-C Style Gudie</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/objc.png" class="headerImage">
+    <div class="content detailArticle"><p>Programming Language ကို ရေးတဲ့အခါမှာ တစ်ယောက်နဲ့ တစ်ယောက် ရေးသားတဲ့ style တွေ က မတူညီကြပါဘူး။ ဒါကြောင့် ရေးသားပုံ တူညီအောင် style guide တွေ ထုတ်ကြပါတယ်။ Company တော်တော်များများကလည်း style guide တွေ ထုတ်ပြီး ရုံးအတွင်း project ရဲ့ code တွေရဲ့ style တွေ တူညီအောင် ဖန်တီးကြပါတယ်။ Objective-C မှာလည်း style guide တွေ ရှိပါတယ်။ ကျွန်တော်ကတော့ The New York Time ရဲ့ iOS team က ထုတ်ထားတဲ့ style guide ကို လိုက်နာပါတယ်။ အရင်လမှာတော့ Part 1 ကို ဖော်ပြပြီးပါပြီ။ ဒီလမှာတော့ ကျန်တဲ့ အပိုင်း ၂ ကို ဆက်လက် ဖော်ပြလိုက်ပါတယ်။</p>
+<h2 id="comments">Comments</h2>
+<p>comments တွေ ရေးဖို့လိုတဲ့ အခါမှာ <strong>why</strong> ကို ရှင်းပြပေးဖို့လိုပါတယ်။ comments အားလုံးတွေဟာ up-to-date ဒါမှမဟုတ် မရှိတော့တာတွေကို ဖျက်ထားပေးဖို့လိုပါတယ်။</p>
+<p>Block comments ကို တတ်နိုင်လျှင် ရှောင်ရှားသင့်ပါတယ်။ code တွေဟာ self-documenting ဖြစ်ဖို့လိုပါတယ်။ စာကြောင်း အနည်းငယ်နဲ့ ရှင်းပြထားဖို့သာ လိုအပ်သည်။ ထိုရှင်းပြထားသည်များကို documentation generate လုပ်တဲ့ အခါတွင် အသုံးပြုမှာ မဟုတ်ပါဘူး။</p>
+<h2 id="init-and-dealloc">init and dealloc</h2>
+<p><code>dealloc</code> methods တွေဟာ ထိပ်မှာ implementation လုပ်ထားဖို့လိုပါသည်။ <code>@synthesize</code> နှင့် <code>@dynamic</code> အပြီးတွင် ရေးဖို့လိုသည်။ <code>init</code> ဟာ class ရဲ့ <code>dealloc</code> method အောက်တွင် ရေးဖို့လိုသည်။</p>
+<p><code>init</code> method သည် အောက်ပါ ပုံစံ ဖြစ်ရမည်။</p>
+<pre><code class="lang-objc">- (instancetype)init {
+self = [super init]; // or call the designated initalizer
+if (self) {
+// Custom initialization
+} 
+return self;
+}
+</code></pre>
+<h2 id="literals">Literals</h2>
+<p><code>NSString</code>, <code>NSDictionary</code>, <code>NSArray</code>, နှင့် <code>NSNumber</code> တို့ကို imutable instance objects တွေ ဖန်တီးတဲ့ အခါမှာ အသုံးပြုပါ။ <code>nil</code> value ကို <code>NSArray</code> နှင့် <code>NSDictionary</code> တို့၏ literals တွင် ထည့်သွင်းလို့ မရပါ။ crash ဖြစ်နိုင်သည်။</p>
+<p><strong>ဥပမာ :</strong></p>
+<pre><code class="lang-objc">NSArray *names = @[@&quot;Brian&quot;, @&quot;Matt&quot;, @&quot;Chris&quot;, @&quot;Alex&quot;, @&quot;Steve&quot;, @&quot;Paul&quot;];
+NSDictionary *productManagers = @{@&quot;iPhone&quot; : @&quot;Kate&quot;, @&quot;iPad&quot; : @&quot;Kamal&quot;, @&quot;Mobile Web&quot; : @&quot;Bill&quot;};
+NSNumber *shouldUseLiterals = @YES;
+NSNumber *buildingZIPCode = @10018;
+</code></pre>
+<p><strong>ဒီလို မသုံးပါနှင့်:</strong></p>
+<pre><code class="lang-objc">NSArray *names = [NSArray arrayWithObjects:@&quot;Brian&quot;, @&quot;Matt&quot;, @&quot;Chris&quot;, @&quot;Alex&quot;, @&quot;Steve&quot;, @&quot;Paul&quot;, nil];
+NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @&quot;Kate&quot;, @&quot;iPhone&quot;, @&quot;Kamal&quot;, @&quot;iPad&quot;, @&quot;Bill&quot;, @&quot;Mobile Web&quot;, nil];
+NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
+NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
+</code></pre>
+<h2 id="cgrect-functions">CGRect Functions</h2>
+<p><code>CGRect</code> ရဲ့ <code>x</code>, <code>y</code>, <code>width</code>, သို့မဟုတ် <code>height</code> တို့ကို access လုပ်တဲ့ အခါမှာ direct struct ခေါ်မည့်အစား <a href="http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html"><code>CGGeometry</code> functions</a> ကို အသုံးပြုပါ။</p>
+<p>Apple’s <code>CGGeometry</code> reference တွင် ဖော်ပြထားသည်မှာ :</p>
+<blockquote>
+<p>All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.</p>
+</blockquote>
+<p><strong>ဥပမာ:</strong></p>
+<pre><code class="lang-objc">CGRect frame = self.view.frame;
+
+CGFloat x = CGRectGetMinX(frame);
+CGFloat y = CGRectGetMinY(frame);
+CGFloat width = CGRectGetWidth(frame);
+CGFloat height = CGRectGetHeight(frame);
+</code></pre>
+<p><strong>ဒီလို မသုံးပါနှင့်:</strong></p>
+<pre><code class="lang-objc">CGRect frame = self.view.frame;
+
+CGFloat x = frame.origin.x;
+CGFloat y = frame.origin.y;
+CGFloat width = frame.size.width;
+CGFloat height = frame.size.height;
+</code></pre>
+<h2 id="constants">Constants</h2>
+<p>Constans တွေကို in-line string literals သို့မဟုတ် numbers အနေဖြင့် အသုံးပြုသင့်သည်။ search and replace လုပ်စရာမလိုပဲ value ကို လွယ်လင့်တကူ ပြောင်းလဲနိုင်ရန် အတွက် ဖြစ်သည်။ Constanst တွေကို <code>static</code> ကြေငြာပါ။ macro မှ လွဲ၍ <code>define</code> ကို ဖြစ်နိုင်လျှင် အသုံးမပြုပါနှင့်။ </p>
+<p><strong>ဥပမာ :</strong></p>
+<pre><code class="lang-objc">static NSString * const NYTAboutViewControllerCompanyName = @&quot;The New York Times Company&quot;;
+
+static const CGFloat NYTImageThumbnailHeight = 50.0;
+</code></pre>
+<p><strong>ဒီလို မသုံးပါနှင့် :</strong></p>
+<pre><code class="lang-objc">#define CompanyName @&quot;The New York Times Company&quot;
+
+#define thumbnailHeight 2
+</code></pre>
+<h2 id="enumerated-types">Enumerated Types</h2>
+<p><code>enum</code> ကို အသုံးပြုတဲ့ အခါမှာ underlying type ကို သေသေချာချာကြေငြာခဲ့ဖို့ လိုပါတယ်။ code completion ကို အထောက်အကူပြုရန် အတွက်ဖြစ်ပါသည်။ SDK တွင် underlying ကို <code>NS_ENUM()</code> macro ကို အသုံးပြုပြီး ရေးနိုင်ပါသည်။</p>
+<p><strong>ဥပမာ:</strong></p>
+<pre><code class="lang-objc">typedef NS_ENUM(NSInteger, NYTAdRequestState) {
+NYTAdRequestStateInactive,
+NYTAdRequestStateLoading
+};
+</code></pre>
+<h2 id="private-properties">Private Properties</h2>
+<p>Priavte properties တွေဟာ class ရဲ့ implementation file မှာ class extension (anonymous categories) အနေနဲ့ ကြေငြာသင့်ပါတယ်။ </p>
+<p><strong>ဥပမာ:</strong></p>
+<pre><code class="lang-objc">@interface NYTAdvertisement ()
+
+@property (nonatomic, strong) GADBannerView *googleAdView;
+@property (nonatomic, strong) ADBannerView *iAdView;
+@property (nonatomic, strong) UIWebView *adXWebView;
+
+@end
+</code></pre>
+<h2 id="image-naming">Image Naming</h2>
+<p>ပုံနာမည်ပေးတဲ့ အခါမှာ အသုံးပြုရမည့်ပေါ်မှာမူတည်ပြီးတော့ camel case ပုံ နာမည်ပေးသင့်ပါသည်။ အကယ်၍ တစ်ခုတည်းတွင် အသုံးပြုမည် ဆိုပါက နာမည်ရဲ့ ရှေ့မှာ အသုံးပြုမည့် class ဒါမှမဟုတ် protoerty ရဲ့ အမည်ကို ရှေ့တွင် ထည့်သွင်းရေးသားသင့်သည်။ </p>
+<p><strong>ဥပမာ:</strong></p>
+<pre><code>RefreshBarButtonItem / RefreshBarButtonItem@2x 
+ နှင့် 
+RefreshBarButtonItemSelected / RefreshBarButtonItemSelected@2x
+
+
+ArticleNavigationBarWhite / ArticleNavigationBarWhite@2x 
+ နှင့် 
+ ArticleNavigationBarBlackSelected / ArticleNavigationBarBlackSelected@2x
+</code></pre><p>ပုံတွေကို အသုံးပြုမည့် ပုံစံ တူညီပါက group ဖွဲ့ပြီး images folder တွင် သိမ်းထားသင့််သည်။</p>
+<h2 id="booleans">Booleans</h2>
+<p><code>nil</code> သည် <code>NO</code> ဖြင့် အတူတူဖြစ်သည်။ ထို့ကြောင့် <code>nil</code> ကို ထည့်သွင်း စစ်ဆေးနေရန် မလိုပါ။ <code>YES</code> ကို တိုက်ရိုက် compare မလုပ်သင့်ပေ။ <code>YES</code> သည် 1 ဖြင့် အတူတူဖြစ်ပြီး <code>BOOL</code> ဟာ 8 bits ကို အသုံးပြုထားသည်။</p>
+<p><strong>ဥပမာ:</strong></p>
+<pre><code class="lang-objc">if (!someObject) {
+}
+</code></pre>
+<p><strong>ဒီလို မသုံးပါ:</strong></p>
+<pre><code class="lang-objc">if (someObject == nil) {
+}
+</code></pre>
+<p><strong><code>BOOL</code>, အတွက် နောက်ထပ် ဥပမာ:</strong></p>
+<pre><code class="lang-objc">if (isAwesome)
+if (![someObject boolValue])
+</code></pre>
+<p><strong>’ဒီလို မသုံးပါ:</strong></p>
+<pre><code class="lang-objc">if ([someObject boolValue] == NO)
+if (isAwesome == YES) // Never do this.
+</code></pre>
+<p>အကယ်၍ <code>BOOL</code> protpery name ဟာ adjective ဖြစ်ခဲ့လျှင် is prefix ကို မသုံးလျှင်ရသည်။ သို့ပေမယ့် get accessor တွင် ထည့်သွင်းရေးပါ။</p>
+<p><strong>ဥပမာ :</strong></p>
+<pre><code class="lang-objc">@property (assign, getter=isEditable) BOOL editable;
+</code></pre>
+<p>စာ နှင့် ဥပမာ ကို <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE">Cocoa Naming Guidelines</a> မှ ကူးယူးဖော်ပြထားသည်။</p>
+<h2 id="singletons">Singletons</h2>
+<p>Singleton objects ဟာ shared instance တွေ ဖန်တီးရာမှာ thread-safe pattern ဖြစ်အောင် အသုံးပြုသင့်သည်။</p>
+<p>```objc</p>
+<ul>
+<li><p>(instancetype)sharedInstance {
+ static id sharedInstance = nil;</p>
+<p> static dispatch_once_t onceToken;
+ dispatch_once(&amp;onceToken, ^{
+sharedInstance = [[self alloc] init];
+ });</p>
+<p> return sharedInstance;
+}</p>
+</li>
+</ul>
+<p>တစ်ခါတစ်လေ <a href="http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html">prolific crashes</a> ဖြစ်ခြင်းကို ကာကွယ်နိုင်သည်။</p>
+<h2 id="xcode-project">Xcode project</h2>
+<p>physical files များသည် Xcode projects files ဖြင့် sync ဖြစ်နေရမည်။ file များ ပြန့်ကျဲ နေမှု မရှိအောင် ထားရမည်။ Xcode groups ဖန်တီးမှုသည် file system ထဲရှိ folder တွင် လည်း သက်ရောက်မှု ရှိရမည်။ Code တွေကို type ဖြင့် group လုပ်ရုံသာ မက အသုံးပြုမည့် fetuare ပေါ်မူတည်ပြီးတော့လည်း group လုပ်သင့်သည်။</p>
+<p>ဖြစ်နိုင်လျှင် target&#8217;s Build Settings ထဲတွင် &#8220;Treat Warnings as Errors&#8221; ကို အမြဲတန်း turn on လုပ်ထားရမည်။ <a href="http://boredzo.org/blog/archives/2009-11-07/warnings">additional warnings</a> တွေကို ဖြစ်နိုင်သလောက် enable လုပ်ထားရမည်။ အချို့ warning တွေကို ignore လုပ်လိုလျှင် <a href="http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas">Clang&#8217;s pragma feature</a> ကို အသုံးပြုပါ။</p>
+<h1 id="other-objective-c-style-guides">Other Objective-C Style Guides</h1>
+<p>အကယ်၍ ယခု style guide ကို သင် မနှစ်သက်ပါက အခြား style guides များကိုလည်း လေ့လာဖတ်ရှု နိုင်ပါသည်။</p>
+<ul>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml">Google</a></li>
+<li><a href="https://github.com/github/objective-c-conventions">GitHub</a></li>
+<li><a href="https://trac.adium.im/wiki/CodingStyle">Adium</a></li>
+<li><a href="https://gist.github.com/soffes/812796">Sam Soffes</a></li>
+<li><a href="http://cocoadevcentral.com/articles/000082.php">CocoaDevCentral</a></li>
+<li><a href="http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html">Luke Redpath</a></li>
+<li><a href="http://www.cimgf.com/zds-code-style-guide/">Marcus Zarra</a></li>
+</ul>
+<p>Guide အစ အဆုံးကို <a href="https://github.com/saturngod/objective-c-style-guide">github</a> မှာ ဖတ်လို့ရပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

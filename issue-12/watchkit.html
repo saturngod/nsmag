@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>WatchKit
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>WatchKit</h1>
+      <div class="description">SDK for apple watch</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover_watchkit.png" class="headerImage">
+    <div class="content detailArticle"><p>Apple က  Apple Watch အတွက် WatchKit ကို ထုတ်ပေးထားပါတယ်။ WatchKit ကို <a href="https://developer.apple.com/watchkit/">Apple Developer</a> website မှာ သွားရောက်လေ့လာနိုင်ပါတယ်။ အခု ဒီစာရေးတဲ့ အချိန်မှာတော့ Xcode 6.2 Beta နဲ့ iOS 8.2 SDK လိုအပ်ပါတယ်။ သို့မှသာ Apple WatchKit ကို ရေးသားနိုင်မှာပါ။</p>
+<p>Apple WatchKit ကို အသုံးပြုဖို့အတွက် Extension တွေ ရေးသလိုမျိုး New Target ကို ထည့်ရပါတယ်။ Apple WatchKit ကို ရွေးပေးပြီးတော့ စတင်ရေးသားနိုင်ပါတယ်။</p>
+<p>Apple WatchKit မှာ screen ၃ မျိုးရှိပါတယ်။</p>
+<ul>
+<li>WatchKit Apps</li>
+<li>Glances</li>
+<li>Actionable Notifications</li>
+</ul>
+<h2 id="watchkit-apps">WatchKit Apps</h2>
+<p><img src="/issue-12/images/wapps.png" alt="watchkit app"></p>
+<p>WatchKit Apps ကတော့ Apple Watch အတွက် fully App ပါပဲ။ Action တွေ ထည့်သွင်းလို့ ရပါတယ်။ ပုံမှန် iOS App နဲ့ ရေးသားရမှာ သိပ်ကွာခြားမှု မရှိပေမယ့် Screen သေးနေတဲ့ အတွက် design ပိုင်းက iOS ထက် အနည်းငယ်ကွဲပြားပါလိမ့်မယ်။ Control တော်တော်များများက အတူတူပဲဖြစ်တဲ့ အတွက် iOS Developer တွေ အနေနဲ့ WatchKit App ကိုလွယ်လွယ်ကူကူရေးနိင်ပါမယ်။</p>
+<p>WatchKit apps ကနေ iOS app ကို လှမ်းပြီး command ပေးလိုရင်တော့</p>
+<pre><code class="lang-swift">[WKInterfaceController openParentApplication:dictionary reply:^(NSDictionary *replyInfo, NSError *error){
+
+  }];
+</code></pre>
+<p>openParentApplication နဲ့ dictionary data ကို ပို့ပြီးတော့ Applicatino ဘက်ကနေ dictionary response ပြန်လုပ်ပေးနိုင်ပါတယ်။</p>
+<p>iOS app ရဲ့ App Delegate မှာ handleWatchKitExtensionRequest နဲ့ လက်ခံဖို့ လိုပါတယ်။</p>
+<pre><code class="lang-swift">- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply {
+}
+</code></pre>
+<h2 id="galances">Galances</h2>
+<p><img src="/issue-12/images/wglances.png" alt="galances"></p>
+<p>Galances က read only ဖြစ်ပြီးတော့ Today View Widget လိုမျိုးပါပဲ။ နောက်ဆုံး အရေးကြီးတဲ့ information တွေကို ဖော်ပြထားဖို့အတွက်ပါပဲ။</p>
+<p>Data update တွေကို willActivate မှာ ရေးသားထားဖို့ လိုပါတယ်။ iPhone ပိုင်းနေ NSUserDefault မှာ data သိမ်းထားပြီး Galances willActivate ဖြစ်တဲ့ အခါမှာ data ကို ဆွဲထုတ်ပြီး ပြပေးနိုင်ပါတယ်။</p>
+<h2 id="actionable-notifications">Actionable Notifications</h2>
+<p><img src="/issue-12/images/wnotifications.png" alt="notification"></p>
+<p>Notification မှာ Custom Notification နဲ့ ပုံမှန် Notification ၂ ခု ရှိပါတယ်။ မိမိစိတ်ကြိုက်ကို အသုံးပြုနိုင်ပါတယ်။</p>
+<p>အခု အချိန်မှာတော့ WatchKit ကို simulator နဲ့ပဲ စမ်းသပ်နိုင်ပါသေးတယ်။  လက်တွေ့ စမ်းသပ်ဖို့ Apple Watch ကတော့ March လအတွင်း ထွက်မယ်လို့ သတင်းထွက်နေပါတယ်။ Apple Watch အမှီ app ကို ဖန်တီးချင်တယ်ဆိုရင်တော့ အခု အချိန်မှာ ဖန်တီးနိုင်ပါပြီ။</p>
+<p>Code Sample တွေကို <a href="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/BasicSupport.html">Apple Watch Programming Guide</a> မှာ လေ့လာနိုင်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

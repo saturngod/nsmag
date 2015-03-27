@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>Mahabote Algorithm
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Mahabote Algorithm</h1>
+      <div class="description">programming ဖြင့် သုံးရန် formula အဆင့်ဆင့် စဉ်းစားပုံ</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/mahabote.png" class="headerImage">
+    <div class="content detailArticle"><p>ကျွန်တော်တို့ မဟာဘုတ် တွက်တဲ့ အခါမှာ <strong>အောင်လံထူစစ်သူကြီးပွဲ</strong> ဆိုပြီး မှတ်သားထားတာ ရှိပါတယ်။ ကျွန်တော်ကတော့ ၁ ၄ ၀ ၃ ၆ ၂ ၅ ဆိုပြီးပဲ မှတ်ထားတယ်။</p>
+<p>အကြွင်း ၁ အတွက် ဆိုရင် ဒီလို ရလိမ့်မယ်။</p>
+<pre><code>     5
+0   3    6
+4   1    2
+</code></pre><p>အကြွင်း ၂ ဆိုရင် </p>
+<pre><code>     6
+1   4   0
+5   2   3
+</code></pre><p>အကြွင်း နဲ့ နေ့နံ တွေကို ဇယား ချကြည့်လိုက်ရင် အခုလိုမျိုး ရလာတယ်။</p>
+<p><img src="/issue-8/images/daymonth.png" alt=""></p>
+<p>အဲဒီ ဇယားကို ကြည့်လိုက်ရင် အကြွင်းနဲ့ နေ့နံကို ကြည့်တာ နဲ့ ဘာရာသီဖွားလဲဆိုတာကို သိနိုင်ပြီ။</p>
+<p>ဥပမာ။။ အကြွင်း ၃ ဗုဒ္ဓဟူးဆိုရင် ၆ ဖြစ်နေတာကို တွေ့မှာပါ။ အဲဒီ နံပတ်တွေက နေရာတွေ ကို ပြောထားတာပါ။ </p>
+<ul>
+<li>၁ က ဘင်္ဂ</li>
+<li>၂ က မရဏ</li>
+<li>၃ က အထွန်း</li>
+<li>၄ က သိုက်</li>
+<li>၅ က ရာဇ</li>
+<li>၆ က ပုတိ</li>
+<li>၀ က အဓိပတိ</li>
+</ul>
+<p>၆ ဆိုတဲ့ အတွက် ပုတိ ။ </p>
+<p>အဲဒီ ဇယားကို ကြည့်လိုက်ရင် sequence ဖြစ်နေတာကို သတိထားမိလိမ့်မယ်။ ကျွန်တော်တို့ programming မှာ ထည့်သုံးဖို့ အတွက် လွယ်အောင် algorithm ဖန်တီး ဖို့လိုပါတယ်။</p>
+<p>ပထမ row တွေ အတိုင်း ရေးချလိုက်ရင်</p>
+<pre><code>a0 = 1,3,5,0,2,4,6
+a1 = 6,1,3,5,0,2,4
+a2 = 4,6,1,3,5,0,2
+a3 = 2,4,6,1,3,5,0
+a4 = 0,2,4,6,1,3,5
+a5 = 5,0,2,4,6,1,3
+a6 = 3,5,0,2,4,6,1
+</code></pre><p>ပထမဆုံး row ကို ကျွန်တော် တို့ ကြည့်လိုက်ရင် </p>
+<p>1,3,5,7,9 ဆိုတဲ့ sequence နဲ့ ဆင်တာကို ဂရုပြုမိမှာပါ။</p>
+<p>1,3,5,7,9……,n sequence ကို algorithm ထုတ်မယ်ဆိုရင်</p>
+<pre><code>an = a1 + (n-1)d
+</code></pre><p>ဆိုတဲ့ forumla ကို သုံးရပါမယ်။ အဲဒါကို ကျွန်တော်တို့ UCSY third year first term လောက်က သင်ခဲ့ဖူးပါတယ်။ <strong>d</strong> ဆိုတာကတော့ ခြားနားခြင်းပေါ့။ 1,3,5,7,9 မှာ ခြားနားခြင်းက ၂ ပါ။ <strong>a1</strong> ကတော့ ပထမဆုံး ကိန်း နံပတ် ၁ ပါ။</p>
+<p>ဒါကြောင့်</p>
+<pre><code>an = 1 + (n-1)2
+an = 1 + 2n – 2
+an = 2n – 1
+</code></pre><p>ဆိုပြီး ထွက်လာပါတယ်။</p>
+<p>ဒါကြောင့် ၃ နေရာကို ကြည့်မယ်ဆိုရင်</p>
+<pre><code>a3 = 2*3 -1 = 6 -1 = 5
+</code></pre><p>ဆိုပြီး ထွက်ပါတယ်။</p>
+<p>1,3,5,7,9,11,13,15 နဲ့ 1,3,5,0,2,4,6 နှိုင်းယှဉ်ကြည့်ရင် 7 နေရာမှာ 0 ကနေ ပြန်စပါတယ်။ ပြီးတော့ အရင်တိုင်း ဆက်ပြီး ပြန်လုပ်ပါတယ်။</p>
+<p>ဒါကြောင့် ၇ နဲ့စားပြီး ရတဲ့ အကြွင်းကို ယူပါမယ်။</p>
+<p>ဒါကြောင့် ဒီလို ဖြစ်သွားမယ်။</p>
+<pre><code>1 Mod 7 , 3 Mod 7 , 5 Mod 7, 7 Mod 7 , 9 Mod 7 , 11 Mod 7
+</code></pre><p>ဆိုရင် ကျွန်တော်တို့လိုချင်တဲ့ 1,3,5,0,2,4,6 ဆိုတာကို ရသွားပါပြီ။</p>
+<p>ဆက်ပြီးတော့ ကျွန်တော်တို့မှာ ရှိတဲ့ algorithm ကို apply လုပ်ပါမယ်။</p>
+<pre><code>an = (2n – 1) Mod 7
+</code></pre><p>ဆိုရင် မှန်သွားပြီ။ သို့ပေမယ့် ကျွန်တော်တို့က 0 ကနေ စပါတယ်။ ၁ က စတာ မဟုတ်ဘူး။</p>
+<pre><code>an = 2*0 – 1 Mod 7
+</code></pre><p>ဆိုရင် မမှန်တောပါဘူး။ ဒါကြောင့် equation က ပြန်ညှိရပါမယ်။ အဖြေ ၁ ထွက်အောင် အတွက် -1 အစား 1 ဖြစ်နေဖို့လိုပါတယ်။ ဒါကြောင့်</p>
+<pre><code>an = (2n+1) Mod 7
+</code></pre><p>လို့ ကျွန်တော် ပြင်လိုက်တယ်။</p>
+<pre><code>a0 = 1 Mod 7 = 1
+a1 = 2+1 Mod 7 = 3
+a2 = 4+1 Mod 7 = 5
+a3 = 6+1 Mod 7 = 0
+a4 = 8+1 Mod 7 = 2
+a5 = 10+1 Mod 7 = 4
+a6 = 12+1 Mod 7 = 6
+</code></pre><p>ဒါဆိုရင်တော့</p>
+<p>an = (2n+1) Mod 7 ဆိုတာ မှန်သွားပြီ။</p>
+<p>အဲလိုမျိုးပဲ နေ့နံ ၇ ခုလုံးကို တွက်လိုက်ပါတယ်။ ဒီတော့ </p>
+<pre><code>a0n = (2n+1) Mod 7
+a1n = (2n+6) Mod 7
+a2n = (2n+4) Mod 7
+a3n = (2n+2) Mod 7
+a4n = (2n+0) Mod 7
+a5n = (2n+5) Mod 7
+a6n = (2n+3) Mod 7
+</code></pre><p>ဆိုပြီး ရလာတယ်။</p>
+<p>အဲဒီတော့ series က</p>
+<pre><code>(2n+1) Mod 7 , (2n+6) Mod 7 , (2n+4) Mod 7 , (2n+2) Mod 7 , (2n+0) Mod 7 , (2n+5) Mod 7, (2n+3) Mod 7
+</code></pre><p>ဆိုပြီး သတ်မှတ်လို့ရတယ်။ ပထမဆုံးကတော့ စနေ , တနင်္ဂနွေ , တနင်္လာ စသည်ဖြစ် ၇ ခု ရှိပါတယ်။</p>
+<p>အဲဒီ မှာ </p>
+<p>1,6,4,2,0,5,3 ဆိုတဲ့ sequence ကို တွေ့မှာပါ။</p>
+<p>ပုံမှန် ကြည့်လို့ရအောင်</p>
+<p>6,4,2,….,n ဆိုပြီး ကြည့်ရအောင်။ တနည်းပြောရင် -2 နှုတ်နှုတ် သွားတာကို တွေ့နိုင်ပါတယ်။</p>
+<p>ဒါကြောင့်</p>
+<pre><code>an = a1 + (n-1)d
+an = 6 + (n-1)-2
+an = 6 – 2n + 2
+an = 8 – 2n
+</code></pre><p>ဆိုပြီး ရလာတယ်။</p>
+<p>1,6,4,2,0,5,3 sequence မှာ တဆင့် ကြည့်ရအောင်။ အရင်လိုပဲ ဂဏန်း ၇ ခု ပတ်နေတဲ့အတွက်ကြောင့် ၇ နဲ့ စားလို့ရတဲ့ အကြွင်းယူပါမယ်။ ဒီတော့</p>
+<pre><code>an = (8 – 2n) Mod 7
+</code></pre><p>အဲဒီမှာ ပထမ အခန်းကို ၀ ကနေ စမယ်။</p>
+<pre><code>a0 = (8 – 0 ) Mod 7 = 1
+a1 = (8 – 2 ) Mod 7 = 6
+…
+a4 = (8 – 8) Mod 7 = 0
+</code></pre><p>ကဲ ဒါဆိုရင်တော့ အဲဒီ equation မှန်ပြီလို့ ဆိုရမယ်။</p>
+<p>အဲဒီတော့ </p>
+<pre><code>(2n+1) Mod 7 , (2n+6) Mod 7 , (2n+4) Mod 7 , (2n+2) Mod 7 , (2n+0) Mod 7 , (2n+5) Mod 7, (2n+3) Mod 7
+</code></pre><p>ဆိုတဲ့ series မှာ ပေါင်းလိုက်ရင်</p>
+<pre><code>[2n+{(8-2k) Mod 7}] Mod 7
+</code></pre><p>ဆိုပြီး ရသွားပါတယ်။ ဒီလို series တွေနဲ့ ပတ်သက်ပြီး စဉ်းစားတာနဲ့ တွက်နည်းတွေကို UCSY third year သင်္ချာမှာ သင်ခဲ့ရတဲ့အတွက် ခက်ခက်ခဲခဲ မဟုတ်ပါဘူး။ အဲဒါက မဟာဘုတ် တွက်ဖို့ အတွက် algorithm ပါပဲ။</p>
+<p>n ကတာ့ အကြွင်းပေါ့။ k ကတော့ နေ့နံပေါ့။</p>
+<p>ဥပမာ။ ၃ ကြွင်း ၂ (တနင်္လာ) သားသမီးကို ထည့်ပြီး တွက်ကြည့်ရအောင်။</p>
+<pre><code>n = 3
+k = 2
+</code></pre><pre><code>[2*3 + { (8-2*2) Mod 7 }] Mod 7
+[6 + (4 Mod 7)]Mod 7
+(6 + 4) Mod 7 = 3
+</code></pre><p>၃ ဖြစ်တဲ့ အတွက် အထွန်းဖွားပါ။</p>
+<p>ဒါကြောင့် program ထဲမှာ အဲဒီ equation လေးကို ထည့်လိုက်ရင်ရပါပြီ။</p>
+<p>မြန်မာ ခုနှစ် သိရအောင် ဧပြီ ၁၈ မတိုင် ခင်မွေးတဲ့ သူတွေကို ၆၃၉ နှုတ်ပြီး ဧပြီ ၁၈ နောက်ပိုင်း မွေးသူတွေကိုတော့ ၆၃၈ နှုတ်လိုက်ပါ။ ပြီးတော့ ၇ နဲ့ စား ။ ရတဲ့ အကြွင်းကို n နေရာမှာထည့်။ စနေ ဆိုရင် ၀ , တနင်္ဂနွေ ဆိုရင် ၁ ကနေ ပြီးတော့ သောကြာဆိုရင် ၆ ပေါ့။ ဒါကြောင့် မွေးနေ့က k နေရာမှာထည့်လိုက်ရင် ဘာရာသီဖွားလဲဆိုတာကို တွက်နိုင်ပါပြီ။</p>
+<p>program ရေးရင် မွေးနေ့ အတိအကျ ထည့်လိုက်တာနဲ့ program ကနေ မွေးတဲ့ နေ့ ပါ ယူလို့ရပါတယ်။ စနေသားလား တနင်္ဂနွေသားလားဆိုတာကို သိနိုင်ပါတယ်။ ပြီးရင် မြန်မာသက္ကရာဇ် ပြန်တွက်။ ၇ နဲ့စား။ ရတာကို</p>
+<pre><code>[2n+{(8-2k) Mod 7}] Mod 7
+</code></pre><p>ထဲထည့်ပြီး တွက်လိုက်ရင် ဘာမှ ထွေထွေထူးထူး တွက် စရာမလိုပဲ မဟာဘုတ် ကို သိနိုင်ပါပြီ။</p>
+<p>ပိုပြီး လွယ်သွားအောင် နာမည်တွေကို array အခန်းထဲထည့်ထားလိုက်ရင် case စစ်စရာမလိုပဲ ထုတ်လို့ရပါပြီ။</p>
+<p>ဒီထက်ပိုပြီး alogrithm ကို ရှင်းသွားအောင် ကျွန်တော်တို့တွေ <strong>[2n+{(8-2k) Mod 7}] Mod 7</strong> ကို အရင်ဆုံး ဖြန့်ချမယ်။</p>
+<pre><code>(2n + 8 Mod 7 – 2k Mod 7) Mod 7
+(2n + 1 – 2k Mod 7) Mod 7
+2n Mod 7 + 1 Mod 7 – 2k Mod 7
+</code></pre><p>Mod 7 ကို Mod 7 လုပ်ရင် Mod 7 ပဲ ရတယ်။ ဒါကြောင့် (2k Mod 7 ) Mod7 ကနေ 2k Mod 7 ဖြစ်သွားတယ်။</p>
+<p>ပြန်ပြီး Mod 7 ကို ဘုံ ထုတ်လိုက်တော့</p>
+<pre><code>( 2n + 1 – 2k ) Mod 7
+</code></pre><p>ဖြစ်သွားပြီ။ ဒါဆိုရင် ကျွန်တော်တို့ program နဲ့ မဟာဘုတ်ကို လွယ်လွယ်ကူကူ တွက်လို့ရသွားပါပြီ။</p>
+<p>အောက်မှာ Objective-C နဲ့ တွက်ပြထားပါတယ်။ -1 Mod 7 က -1 ပဲ Objective-C မှာ ရပါတယ်။ ပုံမှန် သင်္ချာ သဘောအရ ဆိုရင်တော့ 6 ရပါတယ်။ ဒါကြောင့် 0 ထက် ငယ်သွားရင် 7 နဲ့ ပြန်ပေါင်းထားပေးပါတယ်။</p>
+<pre><code class="lang-objc">NSArray *houses = @[@&quot;အဓိပတိ&quot;, @&quot;ဘင်္ဂ&quot;, @&quot;မရဏ&quot;, @&quot;အထွန်း&quot;, @&quot;သိုက်&quot;, @&quot;ရာဇ&quot;, @&quot;ပုတိ&quot;];
+
+if(days==7) days = 0;
+
+int room = ( (2* modulo) + 1 - (2 * days) ) % 7;
+
+if(room &lt; 0) room = 7 + room;
+
+NSLog(@&quot;%@&quot;,houses[room]);
+</code></pre>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

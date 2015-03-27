@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://localhost:8080/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://localhost:8080/js/highlight.pack.js"></script>
+    <title>CocoaPods
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://localhost:8080" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="https://itunes.apple.com/sg/app/nsmag/id641409847?mt=8">iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.comquas.nsmag&amp;hl=en">Android</a></li>
+          <li><a href="http://localhost:8080/subscribe.html">Subscribe</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>CocoaPods</h1>
+      <div class="description">Objective-C အတွက် Dependency Manager</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cocoapods.png" class="headerImage">
+    <div class="content detailArticle"><p>CocoaPods က Objective-C အတွက် Dependency Manager တစ်ခုပါ။ ruby မှာဆိုရင် gem , node.js မှာဆိုရင် npm , python မှာဆိုရင် Pip , php မှာဆိုရင် composer စတာတွေ ရှိပါတယ်။ Objective C အတွက် ကျွန်တော်တို့တွေ CocoaPods ကို အခြား language က package manager တွေမျိုး လွယ်လင့် တကူ အသုံးပြုနိုင်ပါတယ်။</p>
+<h2 id="install">Install</h2>
+<p>CocoaPods ကို သွင်းပြီး ruby gem ကနေ သွင်းရပါမယ်။ Mac OSX မှာ ruby ကော gem ပါရှိပြီးသားအတွက် ဘာမှ ထပ်သွင်းစရာမလိုပါဘူး။ Terminal ဖွင့်ပြီး အောက်က command တွေ ရေးလိုက်ရင် အဆင်ပြေပါတယ်။</p>
+<pre><code>$ [sudo] gem install cocoapods
+$ pod setup
+</code></pre><h2 id="get-start">Get Start</h2>
+<p>ကျွန်တော်တို့ Xcode project ရှိတဲ့ အောက်မှာ <a href="http://bit.ly/1fbQzSK">Podfile</a> တစ်ခု ဆောက်ပါမယ်။ Terminal ဖွင့်ပြီး အောက်ကလို ရိုက်တာ ဖြစ်ဖြစ် နှစ်သက်ရာ editor ဖွင့်ပြီး Podfile တစ်ခု သိမ်းဖို့လိုပါတယ်။</p>
+<pre><code>$ edit Podfile
+platform :ios, &#39;6.0&#39;
+pod &#39;JSONKit&#39;,   &#39;~&gt; 1.4&#39;
+pod &#39;Reachability&#39;,  &#39;~&gt; 3.0.0&#39;
+</code></pre><p>အထက်ပါ Example Podfile မှာ JSONKit 1.4 နဲ့ Reachability 3.0 ကို သုံးမယ်ဆိုပြီး ရေးထားတာပါ။ လွယ်ပါတယ်။ pod file တွေကို <a href="http://bit.ly/159DRys">CocoaPods</a> site မှာ သွားရှာနိုင်ပါတယ်။ အများအားဖြင့် လူသုံးများပြီး နာမည်ကြီးတဲ့ library တွေဟာ podfile တွေ ရှိကြပါတယ်။</p>
+<p>ပြီးသွားပြီဆိုရင် pod တွေကို install သွင်းဖို့</p>
+<pre><code>$ pod install
+</code></pre><p>အစအဆုံး pod file တွေ ဖွင့်ပြီးသွားရင်တော့ မူရင်း project အစား App.xcworkspace ကို ဖွင့်ဖို့လိုပါတယ်။ App.xcworkspace မှာ လက်ရှိ project နဲ့ pod တွေ ထည့်ထားတဲ့ project ၂ ခု ပါပါလိမ့်မယ်။ လက်ရှိ project ကို ဒီအတိုင်း ဆက်ရေးလို့ရပါတယ်။ JSONKit  pod ထည့်ထား လက်ရှိရေးနေတဲ့ project ရဲ့ <code>.h</code> သို့မဟုတ် <code>.m</code> မှာ <code>#import “JSONKit.h”</code> ဆိုပြီး ထည့်လို့ရပါတယ်။</p>
+<h2 id="how-to-create-a-pod">How to create a pod</h2>
+<p>ကိုယ့် Library ကို pod ပြောင်းချင်တယ်ဆိုရင်တော့ <a href="http://bit.ly/17VLivV">podspec</a> လိုပါတယ်။ ကျွန်တော်တို့ရဲ့ လက်ရှိ project name က penut ဆိုပါစို့။</p>
+<pre><code>$ pod spec create Peanut
+$ edit Peanut.podspec
+$ pod spec lint Peanut.podspec
+</code></pre><p>အခြား ဥပမာ အနေနဲ့ AFNetworking ရဲ့ AFNetworking.podspec ကတော့</p>
+<pre><code>Pod::Spec.new do |s|
+  s.name = &#39;AFNetworking&#39;
+  s.version  = &#39;1.3.2&#39;
+  s.license  = &#39;MIT&#39;
+  s.summary  = &#39;A delightful iOS and OS X networking framework.&#39;
+  s.homepage = &#39;https://github.com/AFNetworking/AFNetworking&#39;
+  s.authors  = { &#39;Mattt Thompson&#39; =&gt; &#39;m@mattt.me&#39;, &#39;Scott Raymond&#39; =&gt; &#39;sco@gowalla.com&#39; }
+  s.source   = { :git =&gt; &#39;https://github.com/AFNetworking/AFNetworking.git&#39;, :tag =&gt; &#39;1.3.2&#39; }
+  s.source_files = &#39;AFNetworking&#39;
+  s.requires_arc = true
+
+  s.ios.deployment_target = &#39;5.0&#39;
+  s.ios.frameworks = &#39;MobileCoreServices&#39;, &#39;SystemConfiguration&#39;, &#39;Security&#39;, &#39;CoreGraphics&#39;
+
+  s.osx.deployment_target = &#39;10.7&#39;
+  s.osx.frameworks = &#39;CoreServices&#39;, &#39;SystemConfiguration&#39;, &#39;Security&#39;
+
+  s.prefix_header_contents = &lt;&lt;-EOS
+#import &lt;Availability.h&gt;
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+  #import &lt;SystemConfiguration/SystemConfiguration.h&gt;
+  #import &lt;MobileCoreServices/MobileCoreServices.h&gt;
+  #import &lt;Security/Security.h&gt;
+#else
+  #import &lt;SystemConfiguration/SystemConfiguration.h&gt;
+  #import &lt;CoreServices/CoreServices.h&gt;
+  #import &lt;Security/Security.h&gt;
+#endif
+EOS
+end
+</code></pre><p>SVProgressView ရဲ့ SVProgressHUD.podspec ကတော့</p>
+<p>```
+Pod::Spec.new do |s|
+  s.name = ‘SVProgressHUD’
+  s.version  = ‘0.9’
+  s.platform = :ios
+  s.license  = ‘MIT’
+  s.summary  = ‘A clean and lightweight progress HUD for your iOS app.’
+  s.homepage = ‘<a href="http://samvermette.com/199">http://samvermette.com/199</a>‘
+  s.author   = { ‘Sam Vermette’ =&gt; ‘hello@samvermette.com’ }
+  s.source   = { :git =&gt; ‘<a href="https://github.com/samvermette/SVProgressHUD.git">https://github.com/samvermette/SVProgressHUD.git</a>‘, :tag =&gt; s.version.to_s }</p>
+<p>  s.description = ‘SVProgressHUD is an easy-to-use, clean and lightweight progress HUD for iOS. It’s a simplified and prettified alternative to the popular MBProgressHUD. The success and error icons are from Glyphish.’</p>
+<p>  s.source_files = ‘SVProgressHUD/*.{h,m}’
+  s.framework= ‘QuartzCore’
+  s.resources= ‘SVProgressHUD/SVProgressHUD.bundle’
+  s.requires_arc = true
+end</p>
+<p>ပြီးသွားတဲ့ အခါ ကိုယ့်ရဲ့ podspec ကို <a href="http://bit.ly/1c6yo1c">Ticket</a> လုပ်ပေးဖို့ လိုပါတယ်။ သူတို့ စစ်ဆေးပြီးသွားရင် cocopods library list တွေထဲမှာ ထည့်သွင်းပေးပါလိမ့်မယ်။</p>
+<p>တကယ်လို့ cocopods ကို မသုံးဘူးစေးရင်း စမ်းသုံးကြည့်ပါ။ သုံးရတာ အဆင်ပြေတာကို တွေ့ရပါလိမ့်မယ်။ ကျွန်တော်ကတော့ အရင်တုန်းက CocoaPods ကို မသုံးပေမယ့် အခုနောက်ပိုင်း project တွေမှာ ထည့်သုံးလာပါတယ်။ CocoaPods သုံးတဲ့အတွက် External Dependency library နဲ့ လက်ရှိ code ဟာ မရောထွေးတော့ပဲ သီးသန့်ဆီဖြစ်သွားပါတယ်။ နောက်ပြီးတော့ git အသုံးပြုရင်လည်း pod တွေရှိတဲ့ folder ကို ignore လုပ်ပြီး code ကို submit လုပ်ပါတယ်။ အခြားလူက clone လုပ်ရင် CocoaPods ကို သွင်းပြီး projects မှာ သုံးထားတဲ့ Dependency library တွေအကုန် download ဆွဲလို့ရပါတယ်။ Project ကို git ပေါ် တင်ရာမှာ Dependency Library တွေ မပါတော့တဲ့ အတွက်ကြောင့် တင်ရတာမြန် သလို download ပြန်ဆွဲရတာလည်း မြန်ပါတယ်။ Pull ဆွဲပြီးရင် pod install လို့လုပ်လိုက်တာနဲ့ လိုအပ်တဲ့ Dependency Library အကုန် သွင်းသွားတဲ့အတွက် ခက်ခက်ခဲ ခဲ မရှိလှပါဘူး။ နောက်ပြီးတော့ library တွေကိုလည်း လွယ်လင့် တကူ update လုပ်လို့ရလာတဲ့အတွက် Project ကို update to update library တွေဖြစ်အောင် လွယ်လင့်တကူ ပြုလုပ်လို့ ရတဲ့အတွက်ကြောင့် developer တွေ အနေနဲ့လည်း သက်သာလှပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>
