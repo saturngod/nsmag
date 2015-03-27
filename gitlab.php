@@ -28,7 +28,7 @@ $branch = $data["ref"];
 if ($branch === 'refs/heads/master') {
 	/* if master branch*/
 	/* then pull master */
-	exec("/var/www/git_hook/saturngod_website.sh");
+	exec("/var/www/git_hook/nsmag_website.sh");
 }
 else {
     echo "WRONG. NO JSON";
