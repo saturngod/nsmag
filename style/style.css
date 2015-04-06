@@ -199,16 +199,7 @@ footer.endline a,footer.endline a:link,footer.endline a:visited {
 }
 
 
-@media screen and (max-width: 680px) {
-  #last .latestCover {
-    width:100%;
-    text-align:center;
-    margin-top:20px;
-  }
-  ul.allarticle {
-    text-align:center;
-  }
-}
+
 
 
 .line {
@@ -237,4 +228,24 @@ footer.endline a,footer.endline a:link,footer.endline a:visited {
 }
 .success {
     color:#3A3;
+}
+
+
+@media screen and (max-width: 680px) {
+  #last .latestCover {
+    width:100%;
+    text-align:center;
+    margin-top:20px;
+  }
+  ul.allarticle {
+    text-align:center;
+  }
+  
+  .site-header-menu-list {
+    display:block;
+    float:none;
+  }
+  .site-header-menu-list li{
+    padding-top: 10px;
+  }
 }
