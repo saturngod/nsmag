@@ -204,13 +204,9 @@ footer.endline a,footer.endline a:link,footer.endline a:visited {
 
 .line {
     border-top:1px dashed #CCC;
-    margin-top:5px;
+    margin-top:8px;
 }
-#comquas-ads {
-  margin-top:20px;
-  margin-bottom:20px;
-  padding-top:10px;
-}
+
 
 #comquas-ads a{
   border:0px;
@@ -230,8 +226,27 @@ footer.endline a,footer.endline a:link,footer.endline a:visited {
     color:#3A3;
 }
 
+.content h2,.content h3,.content h4,.content h5,.content h6 {
+  color: #A22;
+}
+
+@media screen and (max-width: 1024px) {
+  
+  #comquas-ads {
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+  
+}
 
 @media screen and (max-width: 680px) {
+  
+  #comquas-ads {
+    margin-top:20px;
+    margin-bottom:20px;
+    padding-top:10px;
+  }
+  
   #last .latestCover {
     width:100%;
     text-align:center;

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <meta name="Description" content="CRUD for keychain">
+    <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+        _st('install','kayVVh9MsqUzrz-J_3Hv');
+        
+        
+    </script>
+    <title>Keychain in iOS
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
+          <li><a href="http://j.mp/18fooGH">Android</a></li>
+          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li>
+            <form>
+              <input id="search-input" type="text" class="st-search-input">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>Keychain in iOS</h1>
+      <div class="description">CRUD for keychain</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover_keychain.png" class="headerImage">
+    <div class="content detailArticle"><p>iOS မှာ data တွေကို သိမ်းတော့မယ်ဆိုရင် ကျွန်တော်တို့တွေ အနေနဲ့ ပုံမှန်အားဖြင့် </p>
+<ul>
+<li>NSUserDefault</li>
+<li>Device Storage</li>
+<li>Database / CoreData</li>
+<li><p>iCloud Stroage </p>
+<p>စတာတွေ မှာ ကို သိမ်းပါတယ်။ ပုံမှန်အားဖြင့် Setting တွေကို NSUserDefault အနေနဲ့ သိမ်းပါတယ်။</p>
+</li>
+</ul>
+<p>TouchID ကို အသုံးပြုတဲ့ အခါမှာတော့ auto login ဝင်ဖို့အတွက် အသုံးပြုသူရဲ့ သက်ဆိုင်ရာ information အချို့ကို သိမ်းဖို့လိုအပ်လာပါပြီ။ NSUserDefault က စိတ်ချရတဲ့ နေရာ မဟုတ်ပါဘူး။ plist အနေနဲ့ သိမ်းဆည်းထားတာကြောင့် လွယ်လင့် တကူ ရယူပြင်ဆင်နိုင်ပါတယ်။ အြခား storage နည်းလမ်း တွေလည်း အခက်အခဲလေးတွေ ရှိပြီးတော့ လွယ်လင့် တကူ သိမ်းဆည်းမရသာတွေ ရှိသလို security ကြောင့် မသိမ်းသင့်တာ တွေ ရှိပါတယ်။ ဥပမာ ။။ password ကို document storage မှာ သွားသိမ်းမယ်ဆိုရင် လွယ်လင့်တကူ ဖတ်လို့ရသွားနိုင်ပါတယ်။ Encrypt လုပ်ပြီး သိမ်းမယ်ဆိုရင် အဆင်ပြေပေမယ့် သိမ်းထားတဲ့ file ကို ပြင်ဆင်လို့ရသွားနိုင်ပါတယ်။ ဒါကြောင့် အကောင်းဆုံးကတော့ KeyChain မှာ သိမ်းဆည်းဖို့ပါပဲ။</p>
+<h2 id="keychain">Keychain</h2>
+<p>KeyChain ဆိုတာကတော့ OS မှာ အထူးပြုလုပ်ထားတဲ့ database တစ်မျိုးပါပဲ။ data တွေ ကို လုံခြုံစိတ်ချစွာ သိမ်းထားနိုင်ပြီးတော့ သိမ်းထားတဲ့ attributes ပေါ်မှာ မူတည်ပြီးတော့ ပြန်ရှာနိုင်ပါတယ်။ user secrets တွေ အတွက် သိမ်းဖို့ သင့်လျော်ပါတယ်။</p>
+<h2 id="why-the-keychain">Why the Keychain</h2>
+<p>ဘာလို့ keychain ကို အသုံးပြုရတာလဲ ဆိုရင်တော့</p>
+<h3 id="protected-with-user-passcode">Protected with user passcode</h3>
+<p>Keychain မှာ data တွေကို user passcode နဲ့ ကာကွယ်ထားပေးပါတယ်။ </p>
+<h3 id="protected-with-the-device-secret">Protected with the device secret</h3>
+<p>iOS device ရဲ့ secret key နဲ့ data တွေကို ကာကွယ်ထားပေးပါတယ်။</p>
+<h3 id="protrect-secrets-at-rest">Protrect secrets at rest</h3>
+<p>တကယ်လို့ ဖုန်းပျောက်သွားပြီဆိုရင် find my iphone မှာ device lost လို့ ဆိုလိုက်တာ keychain ကို access လုပ်လို့ မရအောင် ကာကွယ်ထားပေးပါတယ်။</p>
+<h3 id="encrypted-backup">Encrypted backup</h3>
+<p>iCloud Backup လုပ်ထားတာ ဒါမှမဟုတ် iCloud Keychain Sync တွေ အတွက် encrypted လုပ်ထားပေးပါတယ်။ ဒါကြောင့် ဖုန်းအသစ်လဲပြီး restore ပြန်လုပ်တာနဲ့ Keychain data တွေ ပြန်ရနိုင်ပါတယ်။</p>
+<h3 id="access-control">Access control</h3>
+<p>Keychain မှာ ဘယ်လို အချိန်မှသာ ဖတ်နိုင်မယ်ဆိုတဲ့ Access Control တွေ ထည့်သွင်းလို့ ရပါတယ်။</p>
+<h3 id="keychain-sync">Keychain sync</h3>
+<p>iCloud Keychain Sync လုပ်လို့ရတဲ့အတွက် iPhone , iPad အြခင်းခြင်း sync လုပ်နိုင်ပါတယ်။</p>
+<h2 id="keychain-interaction">Keychain Interaction</h2>
+<p><img src="/issue-13/img/keychainwork.png" alt="keychainwork"></p>
+<p>Keychain သုံးဖို့အတွက် Application ထဲမှာ security.framework လိုအပ်ပါတယ်။ ပြီးတော့ SecItem API ကို သုံးပြီးတော့ keychain database ရဲ့ CURD တွေကို လုပ်ဖို့ လိုအပ်ပါတယ်။</p>
+<p>Application ကနေ Attributes နဲ့ query လုပ်လိုက်တဲ့ အခါမှာ Keychain ဆီကို ရောက်သွားမယ်။ Keychain ကနေ Secure enclave ကို ecnrypted data ပို့မယ်။ Secure enclave ကနေ decrypt လုပ်ပြီးတော့ keychain ဆီပြန်ပို့ပေးတယ်။ ရလာတဲ့ decyprted data က နေ user ရဲ့ secret key ကို keychain ကနေ Application ကို ပြန်ပို့ပေးပါတယ်။</p>
+<h2 id="sample-code">Sample Code</h2>
+<p>ကျွန်တော်တို့တွေ Sample Code ကို ကြည့်ရအောင်။</p>
+<h3 id="add">Add</h3>
+<pre><code class="lang-objc">NSDictionary *query = @{
+                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+                          (__bridge id)kSecAttrService: key,
+                          (__bridge id)kSecAttrAccount: name,
+                          (__bridge id)kSecValueData: secret,
+                          };
+
+  OSStatus status =  SecItemAdd((__bridge CFDictionaryRef)query, nil);
+if (status == noErr) {
+    //there is no Error. Successfully add
+}
+</code></pre>
+<p><code>secret</code> ကို <code>kSecValueData</code> ထဲမှာထည့်ပြီးတော့ Attribute Service နဲ့ Attribute Account ထည့်ပေးရပါတယ်။ Attribute Service နဲ့ Attribute Account ဟာ duplicate ဖြစ်လို့ မရပါဘူး။ <code>secret</code> က NSData ဖြစ်နိုင်သလို NSDictionary , NSArray, NSString စတာတွေလည်း ဖြစ်နိုင်ပါတယ်။ NSDictionary , NSArray စတာတွေကို သိမ်းတဲ့ အခါမှာ NSKeyedArchiver လုပ်နိုင်ဖို့ လိုအပ်ပါတယ်။ သို့မဟုတ်ရင်တော့ သိမ်းလို့ ရမှာ မဟုတ်ပါဘူး။</p>
+<p>ဒါကြောင့် အကောင်းဆုံးက NSData ကို သိမ်းတာ အသင့်လျော်ဆုံးပါပဲ။ </p>
+<p><code>SecItemAdd</code> နဲ့ ထည့်တဲ့ အခါမှာတော့ success ဖြစ်မဖြစ်ကို OSStatus နဲ့ ပြန်စစ်ဖို့ လိုအပ်ပါတယ်။</p>
+<h3 id="read">Read</h3>
+<p>အခု ကျွန်တော်တို့တွေ့ data ကို ပြန်ထုတ်ဖို့ အောက်က code ကို ကြည့်ကြည့်ပါ။</p>
+<pre><code class="lang-objc">NSDictionary *query = @{
+                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+                          (__bridge id)kSecAttrService: key,
+                          (__bridge id)kSecAttrAccount: name,
+                          (__bridge id)kSecReturnData: @YES
+                          };
+
+
+  CFTypeRef dataTypeRef = NULL;
+  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
+                                        &amp;dataTypeRef);
+
+  if(status != noErr) {
+    //error
+  }
+  else {
+      NSData *resultNSData = (__bridge NSData *)(CFDataRef)dataTypeRef;
+ }
+</code></pre>
+<p><code>SecItemCopyMatching</code> ကို အသုံးပြုပြီးတော့  query လုပ်တဲ့ အခါမှာ ထည့်ထားခဲ့တဲ့ <code>kSecAttrService</code> , <code>kSecAttrAccount</code> ၂ ခုနဲ့ data ကို ပြန်ဆွဲထုတ်လို့ရပါတယ်။ <code>kSecReturnData</code> က YES ဖြစ်ဖို့ လိုအပ်ပါတယ်။</p>
+<h3 id="update">Update</h3>
+<p>အခု ထပ်ပြီးတော့ data ကို update လုပ်ကြည့်ရအောင်။</p>
+<pre><code class="lang-objc"> NSDictionary *query = @{
+                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+                          (__bridge id)kSecAttrService: key,
+                          (__bridge id)kSecAttrAccount: name
+                          };
+
+  NSDictionary *changes = @{
+                            (__bridge id)kSecValueData: secret
+                            };
+
+  OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)(query), (__bridge CFDictionaryRef)(changes));
+</code></pre>
+<p>ထုံးစံအတိုင်း <code>kSecAttrService</code> နှင့် <code>kSecAttrAccount</code>  ကို အသုံးပြုပြီးတော့ query လုပ်ဖို့ လိုအပ်ပါတယ်။  ပြီးရင်တော့ kSecValueData ကို အြခား NSDictionary မှာ ထည့်ပြီးတော့ <code>SecItemUpdate</code> နဲ့ update ရပါတယ်။</p>
+<h3 id="delete">Delete</h3>
+<p>နောက်ဆုံး တစ်ခု အနေနဲ့ ပြန်ဖျက်ဖို့ပါ။</p>
+<pre><code class="lang-objc">NSDictionary *query = @{
+                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+                          (__bridge id)kSecAttrService: key,
+                          (__bridge id)kSecAttrAccount: name
+                          };
+  OSStatus status = SecItemDelete((__bridge CFDictionaryRef)(query));
+</code></pre>
+<p>ဖျက်ဖို့အတွက် query ကို  <code>kSecAttrService</code> နှင့် <code>kSecAttrAccount</code>  အသုံးပြုပါတယ်။ ပြီးရင်တော့ SecItemDelete ကို အသုံးပြုပြီးတော့ ဖျက်ပါတယ်။</p>
+<p>data ကို ပြင်ချင်တဲ့ အခါမှာ ဖျက်ပြီး အသစ်ပြန်ထည့်တာထက် update လုပ်တာ က ပိုသင့်လျော်တယ်ဆိုတာကို သတိပြုစေချင်ပါတယ်။</p>
+<h2 id="with-touch-id">With Touch ID</h2>
+<p>အထက်မှာ ပြောသွားတဲ့ Code တွေဟာ KeyChain မှာပဲ သိမ်းသွားတာပါ။ တကယ်လို့ TouchID ကို အသုံးပြုပြီးတော့ သိမ်းမယ်ဆိုရင်တော့ <code>kSecAttrAccessControl</code> ကို ထပ်ဖြည့်ပေးဖို့လိုပါတယ်။</p>
+<pre><code>SecAccessControlRef sacObject =
+SecAccessControlCreateWithFlags(kCFAllocatorDefault,
+    kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
+kSecAccessControlUserPresence, &amp;error); ! 
+
+NSData* secret = [@&quot;top secret&quot; dataWithEncoding:NSUTF8StringEncoding];
+NSDictionary *query = @{
+    (id)kSecClass: (id)kSecClassGenericPassword,
+    (id)kSecAttrService: @&quot;myservice&quot;,
+    (id)kSecAttrAccount: @&quot;account name here&quot;,
+    (id)kSecValueData: secret,
+    (id)kSecAttrAccessControl: (id)sacObject};
+! 
+OSStatus status =  SecItemAdd((CFDictionaryRef)query, nil);
+</code></pre><p>အထက်ပါ code မှာ</p>
+<pre><code class="lang-objc">SecAccessControlRef sacObject =
+SecAccessControlCreateWithFlags(kCFAllocatorDefault,
+    kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
+kSecAccessControlUserPresence, &amp;error); !
+</code></pre>
+<p>ကို ရေးထားတာ တွေ့နိုင်ပါတယ်။ </p>
+<p>ပြန်ဖတ်တဲ့ အခါမှာတော့</p>
+<pre><code class="lang-objc">NSDictionary *query = @{
+    (id)kSecClass: (id)kSecClassGenericPassword,
+    (id)kSecAttrService: @&quot;myservice&quot;,
+    (id)kSecAttrAccount: @&quot;account name here&quot;,
+    (id)kSecReturnData: @YES,
+    (id)kSecUseOperationPrompt: @&quot;Authenticate to login to server&quot;
+}; 
+! 
+CFTypeRef dataTypeRef = NULL;
+OSStatus status = SecItemCopyMatching((CFDictionaryRef)query,
+                                      &amp;dataTypeRef);
+</code></pre>
+<p><code>kSecUseOperationPrompt</code> မှာ TouchID မှာ ဖော်ပြချင်တဲ့ စာကို ရေးသားထားဖို့ လိုအပ်ပါတယ်။ </p>
+<p><code>SecItemCopyMatching</code> ကို ခေါ်လိုက်တဲ့ အခါမှာတော့ အောက်ကလို UI မြင်ရပါမယ်။</p>
+<p><img src="/issue-13/img/touchIDPasscode.png" alt="passcode"></p>
+<p>သတိပြုသင့်တာကတော့ <code>kSecAttrAccessControl</code> ကို အသုံးပြုတဲ့ အခါမှာ User က Device ရဲ့ Passcode ထည့်ပြီးတော့ Unlock လုပ်နိုင်ပါတယ်။ နောက်ပြီးတော့ Touch ID ကို disable လုပ်လိုက်တဲ့ အခါ သို့မဟုတ် Passcode ကို remove လုပ်လိုက်တဲ့ အခါမှာတော့ data ကို ပြန်ဖတ်လို့ ရမှာ မဟုတ်ပါဘူး။</p>
+<p>TouchID ကို တောင်းတဲ့ အခါမှာ Thread ပြောင်းသွားတဲ့ အတွက် ပြန်ဖတ်တဲ့ အခါမှာ အောက်ကလို ရေးထားသင့်ပါတယ်။</p>
+<pre><code class="lang-objc">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    CFTypeRef dataTypeRef = NULL;
+    OSStatus status = SecItemCopyMatching((CFDictionaryRef)query,
+                                      &amp;dataTypeRef);
+}
+</code></pre>
+<h3 id="when-should-i-use-ksecattraccesscontrol">When should I use kSecAttrAccessControl</h3>
+<p>ကျွန်တော်တို့ တွေ App မှာ TouchID ကို အသုံးပြုပြီးတော့ <code>kSecAttrAccessControl</code> ကို သုံးပြီးတော့ data သိမ်းမလား <code>LAContext</code>
+ကို အသုံးပြုရမလား ဆိုပြီး မေးစရာ ဖြစ်လာပါတယ်။</p>
+<p>တကယ်လို့ server side ပါတယ်။ login က server ဘက်က ဝင်ရမယ်ဆိုရင်တော့ <code>LAContext</code> နဲ့ ပုံမှန် keychain ကို တွဲသုံးတာ က ပိုသင့်လျော်ပါတယ်။ Server side မပါဘူး။ App ထဲမှာပဲ security အနေနဲ့ ထည့်ချင်တယ်ဆိုရင်တော့ <code>kSecAttrAccessControl</code> က သင့်လျော်ပါတယ်။</p>
+<p>Keychain အကြောင်းကို ပိုပြီးနားလည် စေချင်တယ်ဆိုရင်တော့ WWDC 2014 က <a href="https://developer.apple.com/videos/wwdc/2014/#711">Keychain and Authentication with Touch ID</a> ကို ကြည့်သင့်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
+    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <meta name="Description" content="Local Authentication framework">
+    <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+        _st('install','kayVVh9MsqUzrz-J_3Hv');
+        
+        
+    </script>
+    <title>iOS 8 Touch ID
+    </title>
+  </head>
+  <body>
+    <header class="siteheader content">
+      <div class="siteheader-menu">
+        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <ul class="site-header-menu-list">
+          <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
+          <li><a href="http://j.mp/18fooGH">Android</a></li>
+          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li>
+            <form>
+              <input id="search-input" type="text" class="st-search-input">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div id="detail" class="content">
+      <h1>iOS 8 Touch ID</h1>
+      <div class="description">Local Authentication framework</div>
+      <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
+    </div><img src="img/cover_touchID.png" class="headerImage">
+    <div class="content detailArticle"><p>iOS 8 SDK မှာ touch ID ကို အသုံးပြုပြီးတော့ authorize လုပ်လို့ ရပါပြီ။  အခုနောက်ပိုင်း App တော်တော်များများမှာ login အစား Touch ID ကို အသုံးပြုပြီး login ဝင်ခွင့်ပေးထားပါတယ်။ iOS မှာ Touch ID က အသုံးပြုသူတွေ password ခဏ ခဏ ရိုက်ထည့်ရမယ့် အစား မြန်မြန်ဆန်ဆန် login ဝင်လို့ ရအောင် ဖန်တီးလို့ ရလာပါတယ်။</p>
+<p>Touch ID အတွက် ကျွန်တော်တို့တွေ <strong>Local Authentication</strong> framework ကို အသုံးပြုဖို့ လိုပါတယ်။ Touch ID ကို အသုံးပြုဖို့ အတွက် iPhone 5s နဲ့ အထက် iPhone နဲ့ နောက်ပိုင်း ထွက်တဲ့ iPad mini , iPad Air 2 တို့ကို support လုပ်ပါတယ်။</p>
+<h2 id="lacontext">LAContext</h2>
+<p>Local Authentication framework ဟာ LAContext class ဖြစ်ပါတယ်။ ကျွန်တာ်တို့တွေ Touch ID ကို ကျွန်တော်တို့ App ထဲမှာ အသုံးပြုမယ်ဆိုရင် LAContext class ကို အသုံးပြုရပါမယ်။ </p>
+<h2 id="code">Code</h2>
+<p>အရင်ဆုံး ကျွန်တော်တို့တွေ LocalAuthentication framework ကို project မှာ ထည့်ဖို့ လိုပါတယ်။ ပြီးရင်တော့ ကျွန်တော်တို့ code မှာ အောက်ကလို ထည့်ပါမယ်။</p>
+<pre><code class="lang-objc">#import &lt;LocalAuthentication/LocalAuthentication.h&gt;
+</code></pre>
+<p>ပြီးရင်တော့ ကျွန်တော်တို့တွေ LAContext class ကို အသုံးပြုပြီးတော့ TouchID ကို support လုပ်မလုပ် စစ်ပါမယ်။</p>
+<pre><code class="lang-objc">LAContext *context = [[LAContext alloc] init];
+
+NSError *error = nil;
+
+if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error]) {
+        // Authenticate
+} else {     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&quot;Error&quot; message:@&quot;Cannot authenticate using TouchID.&quot; delegate:nil cancelButtonTitle:@&quot;Ok&quot; otherButtonTitles:nil];
+    [alert show];
+}
+</code></pre>
+<p>TouchID support လုပ်မလုပ် စစ်ပြီးသွားရင် နောက်တဆင့် အနေနဲ့ TouchID ကို အသုံးပြုပြီးတော့ device owner ဟုတ်မဟုတ် စစ်ပါမယ်။</p>
+<pre><code class="lang-objc">if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error]) {
+    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+            localizedReason:@&quot;Login with TouchID&quot;
+                      reply:^(BOOL success, NSError *error) {
+
+                        if(success) {
+                          //success
+                          NSLog(@&quot;Authentication Success&quot;);
+                        }
+                        else {
+                          NSString *failureReason;
+                          //depending on error show what exactly has failed
+                          switch (error.code) {
+                            case LAErrorAuthenticationFailed:
+                              failureReason = @&quot;Touch ID authentication failed&quot;;
+                              break;
+
+                            case LAErrorUserCancel:
+                              failureReason = @&quot;Touch ID authentication cancelled&quot;;
+                              break;
+
+                            case LAErrorUserFallback:
+                              failureReason =  @&quot;UTouch ID authentication choose password selected&quot;;
+                              break;
+
+                            default:
+                              failureReason = @&quot;Touch ID has not been setup or system has cancelled&quot;;
+                              break;
+                          }
+
+                          NSLog(@&quot;Authentication failed: %@&quot;, failureReason);
+                        }
+
+                      }];
+
+  } else {
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&quot;Error&quot;
+                                                    message:@&quot;Your device cannot authenticate using TouchID.&quot;
+                                                   delegate:nil
+                                          cancelButtonTitle:@&quot;Ok&quot;
+                                          otherButtonTitles:nil];
+    [alert show];
+
+  }
+</code></pre>
+<p>Error code တွေကတော့</p>
+<pre><code class="lang-objc">typedef NS_ENUM(NSInteger, LAError)
+{
+    /// Authentication was not successful, because user failed to provide valid credentials.
+    LAErrorAuthenticationFailed = kLAErrorAuthenticationFailed,
+
+    /// Authentication was canceled by user (e.g. tapped Cancel button).
+    LAErrorUserCancel           = kLAErrorUserCancel,
+
+    /// Authentication was canceled, because the user tapped the fallback button (Enter Password).
+    LAErrorUserFallback         = kLAErrorUserFallback,
+
+    /// Authentication was canceled by system (e.g. another application went to foreground).
+    LAErrorSystemCancel         = kLAErrorSystemCancel,
+
+    /// Authentication could not start, because passcode is not set on the device.
+    LAErrorPasscodeNotSet       = kLAErrorPasscodeNotSet,
+
+    /// Authentication could not start, because Touch ID is not available on the device.
+    LAErrorTouchIDNotAvailable  = kLAErrorTouchIDNotAvailable,
+
+    /// Authentication could not start, because Touch ID has no enrolled fingers.
+    LAErrorTouchIDNotEnrolled   = kLAErrorTouchIDNotEnrolled,
+} NS_ENUM_AVAILABLE(10_10, 8_0);
+</code></pre>
+<p>အခု TouchID က success ဖြစ်သွားရင် login ဝင်လို့ရပါပြီ။ login ဝင်ဖို့ information တွေကတော့ keychain ထဲမှာ သိမ်းထားဖို့ လိုအပ်ပါတယ်။ တခြားနေရာမှာ login information ကို သိမ်းသည်ထက် keychain မှာ store လုပ်ထားတာ ပိုပြီး save ဖြစ်ပါတယ်။</p>
+
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <div class="line"></div>
+    <div id="comquas-ads" class="content"></div>
+    <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
+  </body>
+</html>
