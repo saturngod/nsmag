@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="CRUD for keychain">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Keychain in iOS
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -76,16 +76,16 @@
 <h2 id="sample-code">Sample Code</h2>
 <p>ကျွန်တော်တို့တွေ Sample Code ကို ကြည့်ရအောင်။</p>
 <h3 id="add">Add</h3>
-<pre><code class="lang-objc">NSDictionary *query = @{
-                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
-                          (__bridge id)kSecAttrService: key,
-                          (__bridge id)kSecAttrAccount: name,
-                          (__bridge id)kSecValueData: secret,
+<pre><code class="lang-objc"><span class="built_in">NSDictionary</span> *query = @{
+                          (__bridge <span class="keyword">id</span>)kSecClass: (__bridge <span class="keyword">id</span>)kSecClassGenericPassword,
+                          (__bridge <span class="keyword">id</span>)kSecAttrService: key,
+                          (__bridge <span class="keyword">id</span>)kSecAttrAccount: name,
+                          (__bridge <span class="keyword">id</span>)kSecValueData: secret,
                           };
 
-  OSStatus status =  SecItemAdd((__bridge CFDictionaryRef)query, nil);
-if (status == noErr) {
-    //there is no Error. Successfully add
+  OSStatus status =  SecItemAdd((__bridge <span class="built_in">CFDictionaryRef</span>)query, <span class="literal">nil</span>);
+<span class="keyword">if</span> (status == noErr) {
+    <span class="comment">//there is no Error. Successfully add</span>
 }
 </code></pre>
 <p><code>secret</code> ကို <code>kSecValueData</code> ထဲမှာထည့်ပြီးတော့ Attribute Service နဲ့ Attribute Account ထည့်ပေးရပါတယ်။ Attribute Service နဲ့ Attribute Account ဟာ duplicate ဖြစ်လို့ မရပါဘူး။ <code>secret</code> က NSData ဖြစ်နိုင်သလို NSDictionary , NSArray, NSString စတာတွေလည်း ဖြစ်နိုင်ပါတယ်။ NSDictionary , NSArray စတာတွေကို သိမ်းတဲ့ အခါမှာ NSKeyedArchiver လုပ်နိုင်ဖို့ လိုအပ်ပါတယ်။ သို့မဟုတ်ရင်တော့ သိမ်းလို့ ရမှာ မဟုတ်ပါဘူး။</p>
@@ -93,49 +93,49 @@ if (status == noErr) {
 <p><code>SecItemAdd</code> နဲ့ ထည့်တဲ့ အခါမှာတော့ success ဖြစ်မဖြစ်ကို OSStatus နဲ့ ပြန်စစ်ဖို့ လိုအပ်ပါတယ်။</p>
 <h3 id="read">Read</h3>
 <p>အခု ကျွန်တော်တို့တွေ့ data ကို ပြန်ထုတ်ဖို့ အောက်က code ကို ကြည့်ကြည့်ပါ။</p>
-<pre><code class="lang-objc">NSDictionary *query = @{
-                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
-                          (__bridge id)kSecAttrService: key,
-                          (__bridge id)kSecAttrAccount: name,
-                          (__bridge id)kSecReturnData: @YES
+<pre><code class="lang-objc"><span class="built_in">NSDictionary</span> *query = @{
+                          (__bridge <span class="keyword">id</span>)kSecClass: (__bridge <span class="keyword">id</span>)kSecClassGenericPassword,
+                          (__bridge <span class="keyword">id</span>)kSecAttrService: key,
+                          (__bridge <span class="keyword">id</span>)kSecAttrAccount: name,
+                          (__bridge <span class="keyword">id</span>)kSecReturnData: @YES
                           };
 
 
-  CFTypeRef dataTypeRef = NULL;
-  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
+  <span class="built_in">CFTypeRef</span> dataTypeRef = <span class="literal">NULL</span>;
+  OSStatus status = SecItemCopyMatching((__bridge <span class="built_in">CFDictionaryRef</span>)query,
                                         &amp;dataTypeRef);
 
-  if(status != noErr) {
-    //error
+  <span class="keyword">if</span>(status != noErr) {
+    <span class="comment">//error</span>
   }
-  else {
-      NSData *resultNSData = (__bridge NSData *)(CFDataRef)dataTypeRef;
+  <span class="keyword">else</span> {
+      <span class="built_in">NSData</span> *resultNSData = (__bridge <span class="built_in">NSData</span> *)(<span class="built_in">CFDataRef</span>)dataTypeRef;
  }
 </code></pre>
 <p><code>SecItemCopyMatching</code> ကို အသုံးပြုပြီးတော့  query လုပ်တဲ့ အခါမှာ ထည့်ထားခဲ့တဲ့ <code>kSecAttrService</code> , <code>kSecAttrAccount</code> ၂ ခုနဲ့ data ကို ပြန်ဆွဲထုတ်လို့ရပါတယ်။ <code>kSecReturnData</code> က YES ဖြစ်ဖို့ လိုအပ်ပါတယ်။</p>
 <h3 id="update">Update</h3>
 <p>အခု ထပ်ပြီးတော့ data ကို update လုပ်ကြည့်ရအောင်။</p>
-<pre><code class="lang-objc"> NSDictionary *query = @{
-                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
-                          (__bridge id)kSecAttrService: key,
-                          (__bridge id)kSecAttrAccount: name
+<pre><code class="lang-objc"> <span class="built_in">NSDictionary</span> *query = @{
+                          (__bridge <span class="keyword">id</span>)kSecClass: (__bridge <span class="keyword">id</span>)kSecClassGenericPassword,
+                          (__bridge <span class="keyword">id</span>)kSecAttrService: key,
+                          (__bridge <span class="keyword">id</span>)kSecAttrAccount: name
                           };
 
-  NSDictionary *changes = @{
-                            (__bridge id)kSecValueData: secret
+  <span class="built_in">NSDictionary</span> *changes = @{
+                            (__bridge <span class="keyword">id</span>)kSecValueData: secret
                             };
 
-  OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)(query), (__bridge CFDictionaryRef)(changes));
+  OSStatus status = SecItemUpdate((__bridge <span class="built_in">CFDictionaryRef</span>)(query), (__bridge <span class="built_in">CFDictionaryRef</span>)(changes));
 </code></pre>
 <p>ထုံးစံအတိုင်း <code>kSecAttrService</code> နှင့် <code>kSecAttrAccount</code>  ကို အသုံးပြုပြီးတော့ query လုပ်ဖို့ လိုအပ်ပါတယ်။  ပြီးရင်တော့ kSecValueData ကို အြခား NSDictionary မှာ ထည့်ပြီးတော့ <code>SecItemUpdate</code> နဲ့ update ရပါတယ်။</p>
 <h3 id="delete">Delete</h3>
 <p>နောက်ဆုံး တစ်ခု အနေနဲ့ ပြန်ဖျက်ဖို့ပါ။</p>
-<pre><code class="lang-objc">NSDictionary *query = @{
-                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
-                          (__bridge id)kSecAttrService: key,
-                          (__bridge id)kSecAttrAccount: name
+<pre><code class="lang-objc"><span class="built_in">NSDictionary</span> *query = @{
+                          (__bridge <span class="keyword">id</span>)kSecClass: (__bridge <span class="keyword">id</span>)kSecClassGenericPassword,
+                          (__bridge <span class="keyword">id</span>)kSecAttrService: key,
+                          (__bridge <span class="keyword">id</span>)kSecAttrAccount: name
                           };
-  OSStatus status = SecItemDelete((__bridge CFDictionaryRef)(query));
+  OSStatus status = SecItemDelete((__bridge <span class="built_in">CFDictionaryRef</span>)(query));
 </code></pre>
 <p>ဖျက်ဖို့အတွက် query ကို  <code>kSecAttrService</code> နှင့် <code>kSecAttrAccount</code>  အသုံးပြုပါတယ်။ ပြီးရင်တော့ SecItemDelete ကို အသုံးပြုပြီးတော့ ဖျက်ပါတယ်။</p>
 <p>data ကို ပြင်ချင်တဲ့ အခါမှာ ဖျက်ပြီး အသစ်ပြန်ထည့်တာထက် update လုပ်တာ က ပိုသင့်လျော်တယ်ဆိုတာကို သတိပြုစေချင်ပါတယ်။</p>
@@ -163,16 +163,16 @@ kSecAccessControlUserPresence, &amp;error); !
 </code></pre>
 <p>ကို ရေးထားတာ တွေ့နိုင်ပါတယ်။ </p>
 <p>ပြန်ဖတ်တဲ့ အခါမှာတော့</p>
-<pre><code class="lang-objc">NSDictionary *query = @{
-    (id)kSecClass: (id)kSecClassGenericPassword,
-    (id)kSecAttrService: @&quot;myservice&quot;,
-    (id)kSecAttrAccount: @&quot;account name here&quot;,
-    (id)kSecReturnData: @YES,
-    (id)kSecUseOperationPrompt: @&quot;Authenticate to login to server&quot;
+<pre><code class="lang-objc"><span class="built_in">NSDictionary</span> *query = @{
+    (<span class="keyword">id</span>)kSecClass: (<span class="keyword">id</span>)kSecClassGenericPassword,
+    (<span class="keyword">id</span>)kSecAttrService: <span class="string">@"myservice"</span>,
+    (<span class="keyword">id</span>)kSecAttrAccount: <span class="string">@"account name here"</span>,
+    (<span class="keyword">id</span>)kSecReturnData: @YES,
+    (<span class="keyword">id</span>)kSecUseOperationPrompt: <span class="string">@"Authenticate to login to server"</span>
 }; 
 ! 
-CFTypeRef dataTypeRef = NULL;
-OSStatus status = SecItemCopyMatching((CFDictionaryRef)query,
+<span class="built_in">CFTypeRef</span> dataTypeRef = <span class="literal">NULL</span>;
+OSStatus status = SecItemCopyMatching((<span class="built_in">CFDictionaryRef</span>)query,
                                       &amp;dataTypeRef);
 </code></pre>
 <p><code>kSecUseOperationPrompt</code> မှာ TouchID မှာ ဖော်ပြချင်တဲ့ စာကို ရေးသားထားဖို့ လိုအပ်ပါတယ်။ </p>
@@ -180,9 +180,9 @@ OSStatus status = SecItemCopyMatching((CFDictionaryRef)query,
 <p><img src="/issue-13/img/touchIDPasscode.png" alt="passcode"></p>
 <p>သတိပြုသင့်တာကတော့ <code>kSecAttrAccessControl</code> ကို အသုံးပြုတဲ့ အခါမှာ User က Device ရဲ့ Passcode ထည့်ပြီးတော့ Unlock လုပ်နိုင်ပါတယ်။ နောက်ပြီးတော့ Touch ID ကို disable လုပ်လိုက်တဲ့ အခါ သို့မဟုတ် Passcode ကို remove လုပ်လိုက်တဲ့ အခါမှာတော့ data ကို ပြန်ဖတ်လို့ ရမှာ မဟုတ်ပါဘူး။</p>
 <p>TouchID ကို တောင်းတဲ့ အခါမှာ Thread ပြောင်းသွားတဲ့ အတွက် ပြန်ဖတ်တဲ့ အခါမှာ အောက်ကလို ရေးထားသင့်ပါတယ်။</p>
-<pre><code class="lang-objc">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-    CFTypeRef dataTypeRef = NULL;
-    OSStatus status = SecItemCopyMatching((CFDictionaryRef)query,
+<pre><code class="lang-objc"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, <span class="number">0</span>), ^{
+    <span class="built_in">CFTypeRef</span> dataTypeRef = <span class="literal">NULL</span>;
+    OSStatus status = SecItemCopyMatching((<span class="built_in">CFDictionaryRef</span>)query,
                                       &amp;dataTypeRef);
 }
 </code></pre>
@@ -194,7 +194,7 @@ OSStatus status = SecItemCopyMatching((CFDictionaryRef)query,
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

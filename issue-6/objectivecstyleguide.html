@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="New York Time ရဲ့ Objective-C Style Gudie">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Objective-C Style Guide
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -47,12 +47,12 @@
 <h2 id="dot-notation-syntax">Dot-Notation Syntax</h2>
 <p>Properties တွေအတွက် dot-notation ကို အမြဲ အသုံးပြုပါ။ Instances အတွက် bracket notation ကို အသုံးပြုပါ။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+<pre><code class="lang-objc">view.backgroundColor = [<span class="built_in">UIColor</span> orangeColor];
+[<span class="built_in">UIApplication</span> sharedApplication].delegate;
 </code></pre>
 <p>ဒီလို မသုံးပါနှင့်</p>
-<pre><code class="lang-objc">[view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.shareAppliaction.delegate;
+<pre><code class="lang-objc">[view setBackgroundColor:[<span class="built_in">UIColor</span> orangeColor]];
+<span class="built_in">UIApplication</span>.shareAppliaction.delegate;
 </code></pre>
 <h2 id="spacing">Spacing</h2>
 <ul>
@@ -60,11 +60,11 @@ UIApplication.shareAppliaction.delegate;
 <li>Method braces နှင့် အခြား brances (<code>if</code> / <code>else</code>/<code>switch</code>/<code>while</code>) စသည်တို့ကို open အတွက် same line တွင် အသုံးပြုမည်ဖြစ်ပြီး close ကို new line မှာ အသုံးပြုမည်။</li>
 </ul>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">if (user.isHappy) {
-//Do something
+<pre><code class="lang-objc"><span class="keyword">if</span> (user.isHappy) {
+<span class="comment">//Do something</span>
 }
-else {
-//Do something else
+<span class="keyword">else</span> {
+<span class="comment">//Do something else</span>
 }
 </code></pre>
 <ul>
@@ -74,16 +74,16 @@ else {
 <h2 id="conditionals">Conditionals</h2>
 <p>Conditional ရဲ့ body ဟာ အမြဲတန်း အဖွင့် နှင့် အပိတ်ကို အသုံးပြုမည်။ အဖွင့် အပိတ် မပါခြင်း (လိုင်းတစ်ကြောင်း တည်းရေးခြင်း) ကို အသုံးမပြု။ တစ်ကြောင်းတည်း အသုံးပြုခြင်းသည် <a href="http://programmers.stackexchange.com/questions/16528/single-statement-if-block-braces-or-no/16530#16530">အန္တရာယ်</a> ရှိသည်။ လက်ရှိ style guide တွင် လွယ်ကူစွာ ဖတ်ရှုနိုင်ရန် အဖွင့် နှင့် အပိတ်ကို မဖြစ်မနေ အသုံးပြုရမည်။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">if (!error) {
-return success;
+<pre><code class="lang-objc"><span class="keyword">if</span> (!error) {
+<span class="keyword">return</span> success;
 }
 </code></pre>
 <p>ဒီလို မရေးပါ</p>
-<pre><code class="lang-objc">if (!error)
-return success;
+<pre><code class="lang-objc"><span class="keyword">if</span> (!error)
+<span class="keyword">return</span> success;
 </code></pre>
 <p>ဒါမှမဟုတ်</p>
-<pre><code class="lang-objc">if (!error) return success;
+<pre><code class="lang-objc"><span class="keyword">if</span> (!error) <span class="keyword">return</span> success;
 </code></pre>
 <h3 id="ternary-operator">Ternary Operator</h3>
 <p>Ternary operator, ? , တို့ကို ရှင်းရှင်းလင်းလင်း ရေးသင့်သည်။ conditin တစ်ခု တည်း ကို သာ အသုံးပြုသင့်သည်။ multiple conditions များသည် နားလည်ရခက်ပြီး variable များ ရှုပ်ထွေးနိုင်သောကြောင့် ဖြစ်သည်။</p>
@@ -96,60 +96,60 @@ return success;
 <h2 id="error-handling">Error handling</h2>
 <p>error variable ကို အသုံးမပြုပါ။ error ကို by reference ဖြင့် အသုံးပြုသည်။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">NSError *error;
-if (![self trySomethingWithError:&amp;error]) {
-// Handle Error
+<pre><code class="lang-objc"><span class="built_in">NSError</span> *error;
+<span class="keyword">if</span> (![<span class="keyword">self</span> trySomethingWithError:&amp;error]) {
+<span class="comment">// Handle Error</span>
 }
 </code></pre>
 <p>ဒီလို မဟုတ်ပါ။</p>
-<pre><code class="lang-objc">NSError *error;
-[self trySomethingWithError:&amp;error];
-if (error) {
-// Handle Error
+<pre><code class="lang-objc"><span class="built_in">NSError</span> *error;
+[<span class="keyword">self</span> trySomethingWithError:&amp;error];
+<span class="keyword">if</span> (error) {
+<span class="comment">// Handle Error</span>
 }
 </code></pre>
 <h2 id="method">Method</h2>
 <p>Method မာျးကို (-/+ symbol) ပြီးလျှင် space ခြားသည်။ method segment ကြားတွင်လည်း space ခြားသည်။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">- (void)setExampleText:(NSString *)text image:(UIImage *)image;
+<pre><code class="lang-objc">- (<span class="keyword">void</span>)setExampleText:(<span class="built_in">NSString</span> *)text image:(<span class="built_in">UIImage</span> *)image;
 </code></pre>
 <h2 id="variable">Variable</h2>
 <p>Variable name တွေဟာ အတတ်နိုင်ဆုံး အဓိပ္ပာယ်ပြည့်ဝ အောင် ရေးသားဖို့လိုပါတယ်။ Single letter varialble name တွေကို <code>for()</code> loop မှ လွဲ ၍ အသုံးမပြုပါ။</p>
 <p>Asterisks ကို varialble ၏ ရှေ့တွင် ရေးသားပါသည်။ ဥပမာ <code>NSString *text</code> ဒီလို အသုံးမပြုပါ <code>NSString* text</code> ဒါမှမဟုတ် <code>NSString * text</code></p>
 <p>Property definitations တွေမှာ naked instance varialble ကို ဖြစ်နိုင်လျှင် အသုံးပြုပါ။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">@interface NYTSection: NSObject
+<pre><code class="lang-objc"><span class="class"><span class="keyword">@interface</span> <span class="title">NYTSection</span>: <span class="title">NSObject</span></span>
 
-@property (nonatomic) NSString *headline;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *headline;
 
-@end
+<span class="keyword">@end</span>
 </code></pre>
 <p>ဒီလို မဟုတ်ပါ။:</p>
-<pre><code class="lang-objc">@interface NYTSection : NSObject {
-NSString *headline;
+<pre><code class="lang-objc"><span class="class"><span class="keyword">@interface</span> <span class="title">NYTSection</span> : <span class="title">NSObject</span> </span>{
+<span class="built_in">NSString</span> *headline;
 }
 </code></pre>
 <h2 id="naming">Naming</h2>
 <p>Apple naming conventions ကို ဖြစ်နိုင်ရင် လေ့လာလိုက်နာသင့်သည်။ အထူးသဖြင့် <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html">memory management rules</a> (<a href="http://stackoverflow.com/a/2865194/340508">NARC</a>) နဲ့ ပတ်သက်တဲ့ အပိုင်းတွေကိုပေါ့။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">UIButton *settingsButton;
+<pre><code class="lang-objc"><span class="built_in">UIButton</span> *settingsButton;
 </code></pre>
 <p>ဒီလို မဟုတ်ပါ။</p>
-<pre><code class="lang-objc">UIButton *setBut;
+<pre><code class="lang-objc"><span class="built_in">UIButton</span> *setBut;
 </code></pre>
 <p>စာသုံးလို့ ကို ရှေ့မှာ ထားတဲ့ ပုံစံ ( ဥပမာ <code>NYT</code>) ကို class name ,constant တွေရဲ့ ရှေ့မှာ အသုံးပြုပါ။ Core Data entity names မှာ တော့ အသုံးမ​ပြုပါနဲ့။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDuration = 0.3;
+<pre><code class="lang-objc"><span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">NSTimeInterval</span> NYTArticleViewControllerNavigationFadeAnimationDuration = <span class="number">0.3</span>;
 </code></pre>
 <p>ဒီလိုမရေးပါ။</p>
-<pre><code class="lang-objc">static const NSTimeInterval fadetime = 1.7;
+<pre><code class="lang-objc"><span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">NSTimeInterval</span> fadetime = <span class="number">1.7</span>;
 </code></pre>
 <p>Properties တွေ အတွက် camel-case(စာလုံးကြီးအသေးအကြီး ပုံစံ) ကို အသုံးပြုပါမည်။ စတဲ့ စာလုံးကိုတော့ အသေးနဲ့ပဲစပါမယ်။ တကယ်လို့ Xcode က synthesize variable ကို အလိုအလျောက် generate လုပ်ပေးရင်တော့ ထားလိုက်ပါ။ မဟုတ်ခဲ့ရင်တော့ properties ကို camel-case အသုံးပြုပြီးတော့ synthesize အတွက် underscore စတာကို အသုံးပြုပါမယ်။</p>
 <p>ဥပမာ</p>
-<pre><code class="lang-objc">@synthesize descriptiveVariableName = _descriptiveVariableName;
+<pre><code class="lang-objc"><span class="keyword">@synthesize</span> descriptiveVariableName = _descriptiveVariableName;
 </code></pre>
 <p>ဒီလိုမရေးပါ။</p>
-<pre><code class="lang-objc">id varnm;
+<pre><code class="lang-objc"><span class="keyword">id</span> varnm;
 </code></pre>
 <h3 id="underscores">Underscores</h3>
 <p>Properties , instance variable ကို အသုံးပြုတဲ့ အခါမှာ <code>self</code> ကို အသုံးပြုပါ။ local variables တွေရဲ့ နာမည်မှာ underscores မပါသင့်ပါဘူး။</p>
@@ -157,7 +157,7 @@ NSString *headline;
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

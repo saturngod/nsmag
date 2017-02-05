@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="ios sdk version checking သိကောင်းစရာ">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Checking Code that you should know
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -53,51 +53,51 @@
 <h2 id="ios-system-version-checking">iOS System Version Checking</h2>
 <p><img src="/issue-11/images/ios7.png" alt=""></p>
 <p> iOS Version ကို စစ်ဖို့ဆိုတာ တကယ်လိုအပ်ပါတယ်။ဘာကြောင့်လဲဆိုတော့ တစ်ချို့ Code တွေက iOS Version အပေါ်မှာလိုက်ပြီးပြောင်းရသလို ၊ iOS Version အသစ်ရဲ့ Code ကို အဟောင်းမှာအသုံးပြုရင် App Crash ဖြစ်တတ်ပါတယ်။ဒါကြောင့် iOS System Version စစ်နည်း ကိုမဖြစ်မနေ သိထားသင့်ပါတယ်။ iOS Version မှန်သမျှကို ဒီ Code လေးနဲ့ပဲ လွယ်လွယ်ကူကူ စစ်ဆေးနိုင်ပါတယ်။</p>
-<pre><code class="lang-objc">#undef SYSTEM_VERSION_LESS_THAN
+<pre><code class="lang-objc"><span class="meta">#undef SYSTEM_VERSION_LESS_THAN</span>
 
 
-#define SYSTEM_VERSION_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+<span class="meta">#define SYSTEM_VERSION_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</span>
 
 
-#define SYSTEM_VERSION_GREATER_THAN(v)   ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+<span class="meta">#define SYSTEM_VERSION_GREATER_THAN(v)   ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</span>
 
 
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+<span class="meta">#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</span>
 
 
-#define SYSTEM_VERSION_LESS_THAN(v)   ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+<span class="meta">#define SYSTEM_VERSION_LESS_THAN(v)   ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</span>
 
 
-#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+<span class="meta">#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span>
 </code></pre>
 <p>အရင်ဆုံး အပေါ်က Code လေးတွေနဲ့ Define လုပ်လိုက်ပါ။အောက်က Code လေးကတော့ Checking လုပ်တဲ့ Code လေးပါ။ iOS 5 ကနေ 7 အထိပဲစစ်ပြထားပေမဲ့ ကိုယ်ကြိုက်သ​လိုစစ်ဆေးလို့ရပါတယ်။</p>
-<pre><code class="lang-objc">- (void)CheckiOSVersion
+<pre><code class="lang-objc">- (<span class="keyword">void</span>)CheckiOSVersion
 {
-    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@&quot;7.0&quot;))
+    <span class="keyword">if</span>(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(<span class="string">@"7.0"</span>))
     {
-        systemVersion = @&quot;7&quot;; // SystemVersion is a String Variable
+        systemVersion = <span class="string">@"7"</span>; <span class="comment">// SystemVersion is a String Variable</span>
     }
 
-    else if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@&quot;6.0&quot;))
+    <span class="keyword">else</span> <span class="keyword">if</span>(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(<span class="string">@"6.0"</span>))
     {
-        systemVersion = @&quot;6&quot;;
+        systemVersion = <span class="string">@"6"</span>;
     }
 
-    else if(SYSTEM_VERSION_LESS_THAN(@&quot;6.0&quot;))
+    <span class="keyword">else</span> <span class="keyword">if</span>(SYSTEM_VERSION_LESS_THAN(<span class="string">@"6.0"</span>))
     {
-        systemVersion = @&quot;5&quot;;
+        systemVersion = <span class="string">@"5"</span>;
     }
 }
 </code></pre>
 <p>If Condition နဲ့စစ်ချင်ရင်တော့ String ဖြစ်တဲ့အတွက်ကြောင့် isEqualToString:@“” နဲ့စစ်လို့ရပါတယ်။</p>
-<pre><code class="lang-objc">if([systemVersion isEqualToString:@&quot;7&quot;])
+<pre><code class="lang-objc"><span class="keyword">if</span>([systemVersion isEqualToString:<span class="string">@"7"</span>])
 {
-   // Code for iOS 7
+   <span class="comment">// Code for iOS 7</span>
 }
 
-else if([systemVersion isEqualToString:@“6”])
+<span class="keyword">else</span> <span class="keyword">if</span>([systemVersion isEqualToString:@“<span class="number">6</span>”])
 {
-   // Code for iOS 6
+   <span class="comment">// Code for iOS 6</span>
 }
 </code></pre>
 <p>အထက်ကပြထားတဲ့ အတိုင်း အသုံးပြုနိုင်ပါတယ်။အင်မတန် လွယ်ကူ ရိုးရှင်းပါတယ်။</p>
@@ -106,33 +106,33 @@ else if([systemVersion isEqualToString:@“6”])
 <p>iPhone Version တွေပြောင်းလဲလာတာနဲ့အမျှ Screen Size တွေဟာလည်း အရင်ထက်ပိုမိုကြီးမားလာပါတယ်။ iPhone 4 နဲ့ iPhone 4s မှာတုန်းက Screen Size က 3.5 inches ဖြစ်တဲ့အတွက်ကြောင့် Screen Size တူညီတဲ့အခါမှာ Layout တွေချရတာ အဆင်ပြေလွယ်ကူပါတယ်။သို့ပေမဲ့ iPhone 5 ထွက်ရှိလာပြီးတဲ့နောက်ပိုင်းမှာတော့ Screen Size က 4 inches ဖြစ်သွားတဲ့အခါမှာ iPhone Screen Size နှစ်ခုအတွက် Layout ချတဲ့အခါ အနည်းငယ် ပြသနာရှိလာခဲ့ပါတယ်။ အခုဒီစာရေးနေတုန်းအချိန်မှာတော့ iPhone 6 အတွက် ကောလဟာလ အရ ယခင် 4 inches ထက်ပိုမိုကြီးလာပြီး 4.7 inches ဖြစ်လာမယ်လို့သိရပါတယ်။ ဘယ်လိုပဲ Screen Size ​ပြောင်းလဲပြောင်းလဲ အခု ကျွန်တော်ပေးမဲ့ height နဲ့ Checking လုပ်တဲ့ Code လေးကိုသိထားရင် height ပေါ်မှာလိုက်ပြီး အလွယ်တကူစစ်ဆေးနိုင်ပါတယ်။
 အခုကတော့ Screen size 3.5 နဲ့ Screen Size 4 inches အတွက်ပဲ နမူနာ စစ်ဆေးပြပါ့မယ်။</p>
 <p>အရင်ဆုံး Boolean Variable တစ်ခုကြေညာလိုက်ပါ။</p>
-<pre><code class="lang-objc">static BOOL isIPhone5;
+<pre><code class="lang-objc"><span class="keyword">static</span> <span class="built_in">BOOL</span> isIPhone5;
 </code></pre>
 <p>ပြီးရင် အောက်က Code လေးနဲ့ စစ်ဆေးလို့ရပါပြီ။</p>
-<pre><code class="lang-objc">- (void)checkingiPhoneVersion
+<pre><code class="lang-objc">- (<span class="keyword">void</span>)checkingiPhoneVersion
 {
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    <span class="keyword">if</span>(<span class="built_in">UI_USER_INTERFACE_IDIOM</span>() == <span class="built_in">UIUserInterfaceIdiomPhone</span>)
     {
-        if ([[UIScreen mainScreen] respondsToSelector: @selector(scale)])
+        <span class="keyword">if</span> ([[<span class="built_in">UIScreen</span> mainScreen] respondsToSelector: <span class="keyword">@selector</span>(scale)])
         {
-            CGSize result = [[UIScreen mainScreen] bounds].size;
-            CGFloat scale = [UIScreen mainScreen].scale;
-            result = CGSizeMake(result.width * scale, result.height * scale);
+            <span class="built_in">CGSize</span> result = [[<span class="built_in">UIScreen</span> mainScreen] bounds].size;
+            <span class="built_in">CGFloat</span> scale = [<span class="built_in">UIScreen</span> mainScreen].scale;
+            result = <span class="built_in">CGSizeMake</span>(result.width * scale, result.height * scale);
 
-            if(result.height == 960)
+            <span class="keyword">if</span>(result.height == <span class="number">960</span>)
             {
-                isIPhone5 = NO;
+                isIPhone5 = <span class="literal">NO</span>;
             }
 
-            if(result.height == 1136)
+            <span class="keyword">if</span>(result.height == <span class="number">1136</span>)
             {
-                isIPhone5 = YES;
+                isIPhone5 = <span class="literal">YES</span>;
             }
         }
 
-        else
+        <span class="keyword">else</span>
         {
-            isIPhone5 = NO;
+            isIPhone5 = <span class="literal">NO</span>;
         }
     }
 }
@@ -140,40 +140,40 @@ else if([systemVersion isEqualToString:@“6”])
 <h2 id="ipad-orientation-checking">iPad Orientation Checking</h2>
 <p><img src="/issue-11/images/ipad1.png" alt=""></p>
 <p>ဒါလေးကတော့ လွယ်ပါတယ်ဆိုပေမဲ့ iPad Orientation မှာသတိထားရမဲ့အချက်က​ iPad Orientation က iPhone လိုမျိုး လေးခုထဲရှိတာမဟုတ်ပါဘူး။ iPad Orientation က စုစုပေါင်း 6 ခုရှိပါတယ်။</p>
-<pre><code class="lang-objc">UIDeviceOrientationLandscapeLeft
-UIDeviceOrientationLandscapeRight
-UIDeviceOrientationPortrait
-UIDeviceOrientationPortraitUpsideDown
-UIDeviceOrientationFaceUp
-UIDeviceOrientationFaceDown
+<pre><code class="lang-objc"><span class="built_in">UIDeviceOrientationLandscapeLeft</span>
+<span class="built_in">UIDeviceOrientationLandscapeRight</span>
+<span class="built_in">UIDeviceOrientationPortrait</span>
+<span class="built_in">UIDeviceOrientationPortraitUpsideDown</span>
+<span class="built_in">UIDeviceOrientationFaceUp</span>
+<span class="built_in">UIDeviceOrientationFaceDown</span>
 </code></pre>
 <p>iPad ကိုလက်ထဲမှာကိုင်ထားပြီး စာဖတ်နေတဲ့ ပုံစံနဲ့ Orientation က iPad က ကြမ်းပြင်ပေါ်မှာ ချ​ထားတဲ့ Orientation နဲ့မတူညီပါဘူး။ဒါကြောင့် iPad အတွက် အလွယ်ကူဆုံးသော စစ်နည်းကတော့ interfaceOrientation ကိုစစ်ဆေးတဲ့နည်းပါပဲ။ဒါကြောင့် အောက်က Code လေးနဲ့ပဲ အလွယ်တကူစစ်ဆေးလို့ရပါတယ်။</p>
-<pre><code class="lang-objc">if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation) ||(UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)))
+<pre><code class="lang-objc"><span class="keyword">if</span>(<span class="built_in">UIInterfaceOrientationIsLandscape</span>(<span class="keyword">self</span>.interfaceOrientation) ||(<span class="built_in">UIDeviceOrientationIsLandscape</span>([<span class="built_in">UIDevice</span> currentDevice].orientation)))
 {
-    // Code for Landscape
+    <span class="comment">// Code for Landscape</span>
 }
 
-else
+<span class="keyword">else</span>
 {
-    // Code for Portrait
+    <span class="comment">// Code for Portrait</span>
 }
 </code></pre>
 <p>ထို့အပြင် iPhone , iPad Checking လုပ်တဲ့ Apple ရဲ့ Code လေးကတော့</p>
-<pre><code class="lang-objc">if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+<pre><code class="lang-objc"><span class="keyword">if</span> ([[<span class="built_in">UIDevice</span> currentDevice] userInterfaceIdiom] == <span class="built_in">UIUserInterfaceIdiomPhone</span>)
 {
-   // iPhone
+   <span class="comment">// iPhone</span>
 }
 
-else
+<span class="keyword">else</span>
 {
-   // iPad
+   <span class="comment">// iPad</span>
 }
 </code></pre>
 <p>စသဖြင့် မိမိရဲ့ iOS App တွေကို iOS Version တွေပေါ်မှာမူတည်ပြီး Update လုပ်တဲ့အခါမှာ အလွယ်တကူအသုံးပြုနိုင်အောင် ကျွန်တော် လက်ရှိသုံးနေတဲ့ Code လေးတွေကို Sharing ပြန်လုပ်ပေးလိုက်ပါတယ်။</p>
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

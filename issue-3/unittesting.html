@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="ဘာကြောင့် Unit Testing ကို ထည့်သင့်သလဲ ?">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Unit Testing
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -48,14 +48,14 @@
 <h2 id="what-is-unit-testing">What is Unit Testing</h2>
 <p>Unit Testing ဆိုတာကတော့ မိမိရေးထားတဲ့ code ကို အလိုအလျောက် မြန်မမြန် စစ်ပေးတဲ့ စနစ်တစ်ခုပါ။ OOP တွေမှာ Unit Testing က သီးသန့် class အနေနဲ့ ရေးသားကြပါတယ်။ </p>
 <p>Unit Test code example ကို အောက်မှာ ရေးထားပါတယ်။</p>
-<pre><code class="lang-objc">- (void)testExample
+<pre><code class="lang-objc">- (<span class="keyword">void</span>)testExample
 {
    User* user = [Session getUser];
 
-   STAssertNil(user, @&quot;user shouldn&#39;t be nil&quot;);
-   STAssertNil(user.name, @&quot;User must have name&quot;);
-   NSString* password = user.password;
-   STAssertTrue(password.length &gt; 3,@&quot;Password must be more than 3 characters&quot;);
+   STAssertNil(user, <span class="string">@"user shouldn't be nil"</span>);
+   STAssertNil(user.name, <span class="string">@"User must have name"</span>);
+   <span class="built_in">NSString</span>* password = user.password;
+   STAssertTrue(password.length &gt; <span class="number">3</span>,<span class="string">@"Password must be more than 3 characters"</span>);
 }
 </code></pre>
 <p>အထက်ပါ ဥပမာလေးက User Object ထဲက data တွေ မှန်မမှန် ကို စစ်ဆေးထားတာပါ။ တနည်းပြောရင် Server Side API ပြောင်းလို့ပဲ ဖြစ်ဖြစ် User class က code တွေပြောင်းလို့ ပဲ ဖြစ်ဖြစ် login ဝင်ထားတဲ့ session ထဲက user က ဒီ rule တွေနဲ့ ကိုက်ရဲ့လားဆိုပြီး စစ်ထားတာပါ။ မကိုက်ဘူးဆိုရင် Test run လိုက်တဲ့အခါမှာ Error ပြပါလိမ့်မယ်။</p>
@@ -79,7 +79,7 @@
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

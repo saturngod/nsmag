@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="using javascript in iOS 7">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>JavaScriptCore Framework
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -50,30 +50,30 @@
 <p>နဲ့ ခေါ်ရပါတယ်။ JavaScriptCore framework ဟာ developer တွေကို တွေကို Objective-C ကနေ full javascript runtime access လုပ်ခွင့်ပေးထားပါတယ်။</p>
 <p>Javascript ဟာ <code>JSVirtualMachine</code> machine မှာ run ထားပါတယ်။ <code>JSVirtualMachine</code> ဟာ light weight ဖြစ်ပြီးတော့ multithreaded javascript တွေကို အလုပ်လုပ်ပေးနိုင်တယ်။ <code>JSVirtualMachine</code> ထဲမှာ <code>JSContext</code> တွေ ရှိပါတယ်။ <code>JSContexts</code> ဟာ Javascript runtime environment နဲ့ ချိတ်ဆက်ဆောင်ရွက်ပေးပြီးတော့ javascript က global object တွေကို access လုပ်နိုင်တယ်သလို script တွေကိုလည်း execute လုပ်ပေးပါတယ်။</p>
 <pre><code class="lang-objc">JSContext *context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
-context[@&quot;a&quot;] = @5;
+context[<span class="string">@"a"</span>] = @<span class="number">5</span>;
 </code></pre>
 <p>အထက်ပါ code မှာ ဆိုရင် javascript က global variable a က နံပတ် ၅ ဖြစ်တယ်လို့ ဆိုထားပါတယ်။ Javascript က variable ကို ပြန်လိုချင်ရင်တော့ JSValue နဲ့ လက်ခံရပါတယ်။</p>
-<pre><code class="lang-objc"> JSValue *aValue = context[@&quot;a&quot;];
-double a = [aValue toDouble];
-NSLog(@&quot;%.0f&quot;, a);
+<pre><code class="lang-objc"> JSValue *aValue = context[<span class="string">@"a"</span>];
+<span class="keyword">double</span> a = [aValue toDouble];
+<span class="built_in">NSLog</span>(<span class="string">@"%.0f"</span>, a);
 </code></pre>
 <p>javascript ကို <code>evaluateScript</code> နဲ့လည်း တိုက်ရိုက် run လို့ရပါတယ်။</p>
-<pre><code class="lang-objc">[context evaluateScript:@&quot;a = 10&quot;];
-JSValue *newAValue = context[@&quot;a&quot;];
-NSLog(@&quot;%.0f&quot;, [newAValue toDouble]);
+<pre><code class="lang-objc">[context evaluateScript:<span class="string">@"a = 10"</span>];
+JSValue *newAValue = context[<span class="string">@"a"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"%.0f"</span>, [newAValue toDouble]);
 </code></pre>
 <h2 id="functional-execution">Functional Execution</h2>
 <p>ကျွန်တော်တို့တွေ javascript function ကို objective c မှာလည်း ပြန်ပြီး အသုံးချလို့ရတယ်။</p>
-<pre><code class="lang-objc">[context evaluateScript:@&quot;var square = function(x) {return x*x;}&quot;];
+<pre><code class="lang-objc">[context evaluateScript:<span class="string">@"var square = function(x) {return x*x;}"</span>];
 
-JSValue *squareFunction = context[@&quot;square&quot;];
-NSLog(@&quot;%@&quot;, squareFunction);
+JSValue *squareFunction = context[<span class="string">@"square"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, squareFunction);
 
-JSValue *aSquared = [squareFunction callWithArguments:@[context[@&quot;a&quot;]]];
-NSLog(@&quot;a^2: %@&quot;, aSquared);
+JSValue *aSquared = [squareFunction callWithArguments:@[context[<span class="string">@"a"</span>]]];
+<span class="built_in">NSLog</span>(<span class="string">@"a^2: %@"</span>, aSquared);
 
-JSValue *nineSquared = [squareFunction callWithArguments:@[@9]];
-NSLog(@&quot;9^2: %@&quot;, nineSquared);
+JSValue *nineSquared = [squareFunction callWithArguments:@[@<span class="number">9</span>]];
+<span class="built_in">NSLog</span>(<span class="string">@"9^2: %@"</span>, nineSquared);
 </code></pre>
 <p>အဲဒီ အခါ အောက်ကလို မျိုး result ရလာပါလိမ့်မယ်။</p>
 <pre><code>JSThing[53327:a0b] function (x) {return x*x;}
@@ -81,16 +81,16 @@ JSThing[53282:a0b] a^2: 25
 JSThing[53282:a0b] 9^2: 81
 </code></pre><p><code>-callWithArguments</code> method နဲ့ JSValue ကို NSArray နဲ့ argument တွေ ပို့ပေးလို့ရပါတယ်။ အပေါ်က example မှာ argument က ၁ ခုပဲ ဖြစ်တဲ့အတွက် array အခန်းက ၁ ခုပဲ ဖြစ်နေတာပါ။ တကယ်လို့ ၂ ခု သာ ဆိုရင် အခန်း ၂ ခန်းဖြစ်နေပါလိမ့်မယ်။</p>
 <p>ဒါ့အပြင် <code>JSContext</code> ဟာ objective-c function ကို parse လုပ်ပေးနိုင်ပါတယ်။</p>
-<pre><code class="lang-objc">context[@&quot;factorial&quot;] = ^(int x) {
-        int factorial = 1;
-        for (; x &gt; 1; x--) {
+<pre><code class="lang-objc">context[<span class="string">@"factorial"</span>] = ^(<span class="keyword">int</span> x) {
+        <span class="keyword">int</span> factorial = <span class="number">1</span>;
+        <span class="keyword">for</span> (; x &gt; <span class="number">1</span>; x--) {
             factorial *= x;
         }
-        return factorial;
+        <span class="keyword">return</span> factorial;
     };
-[context evaluateScript:@&quot;var fiveFactorial = factorial(5);&quot;];
-JSValue *fiveFactorial = context[@&quot;fiveFactorial&quot;];
-NSLog(@&quot;5! = %@&quot;, fiveFactorial);
+[context evaluateScript:<span class="string">@"var fiveFactorial = factorial(5);"</span>];
+JSValue *fiveFactorial = context[<span class="string">@"fiveFactorial"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"5! = %@"</span>, fiveFactorial);
 </code></pre>
 <p>NSLog က အောက်ကလို ထွက်လာပါမယ်။</p>
 <pre><code>JSThing[53327:a0b] 5! = 120
@@ -164,32 +164,32 @@ NSLog(@&quot;5! = %@&quot;, fiveFactorial);
 @end
 </code></pre><p><code>ThingJSExports</code> ဟာ <code>JSExport</code> ကနေ inherits လုပ်ထားပါတယ်။</p>
 <pre><code class="lang-objc">Thing *thing = [[Thing alloc] init];
-thing.name = @&quot;Alfred&quot;;
-thing.number = 3;
-context[@&quot;thing&quot;] = thing;
-JSValue *thingValue = context[@&quot;thing&quot;];
+thing.name = <span class="string">@"Alfred"</span>;
+thing.number = <span class="number">3</span>;
+context[<span class="string">@"thing"</span>] = thing;
+JSValue *thingValue = context[<span class="string">@"thing"</span>];
 </code></pre>
 <p>Thing object ကို <code>JSContext</code> မှာ ထည့်လိုက်တာ တွေ့ပါလိမ့်မယ်။ <code>JSValue</code> result က ဘာတွေ ထွက်လာမလဲ ဆိုာတကို အောက်ကလို ကြည့်နိုင်ပါတယ်။</p>
-<pre><code class="lang-objc">NSLog(@&quot;Thing: %@&quot;, thing);
-NSLog(@&quot;Thing JSValue: %@&quot;, thingValue);
+<pre><code class="lang-objc"><span class="built_in">NSLog</span>(<span class="string">@"Thing: %@"</span>, thing);
+<span class="built_in">NSLog</span>(<span class="string">@"Thing JSValue: %@"</span>, thingValue);
 </code></pre>
 <p>Result ဟာ</p>
 <pre><code>JSThing[53344:a0b] Thing: Alfred: 3
 JSThing[53344:a0b] Thing JSValue: Alfred: 3
 </code></pre><p>ဖြစ်နေတာကို တွေ့ပါလိမ့်မယ်။ Value ပြောင်းပြီး ကြည့်ရအောင်။</p>
-<pre><code class="lang-objc">thing.name = @&quot;Betty&quot;;
-thing.number = 8;
+<pre><code class="lang-objc">thing.name = <span class="string">@"Betty"</span>;
+thing.number = <span class="number">8</span>;
 
-NSLog(@&quot;Thing: %@&quot;, thing);
-NSLog(@&quot;Thing JSValue: %@&quot;, thingValue);
+<span class="built_in">NSLog</span>(<span class="string">@"Thing: %@"</span>, thing);
+<span class="built_in">NSLog</span>(<span class="string">@"Thing JSValue: %@"</span>, thingValue);
 </code></pre>
 <pre><code>JSThing[53344:a0b] Thing: Betty: 8
 JSThing[53344:a0b] Thing JSValue: Betty: 8
 </code></pre><p>Javascript ကနေ thing object ကို variable ပြောင်းမယ်ဆိုရင်</p>
-<pre><code class="lang-objc"> [context evaluateScript:@&quot;thing.name = \&quot;Carlos\&quot;; thing.number = 5&quot;];
+<pre><code class="lang-objc"> [context evaluateScript:<span class="string">@"thing.name = \"Carlos\"; thing.number = 5"</span>];
 
-NSLog(@&quot;Thing: %@&quot;, thing);
-NSLog(@&quot;Thing JSValue: %@&quot;, thingValue);
+<span class="built_in">NSLog</span>(<span class="string">@"Thing: %@"</span>, thing);
+<span class="built_in">NSLog</span>(<span class="string">@"Thing JSValue: %@"</span>, thingValue);
 </code></pre>
 <p>NSLog မှာ အောက်ကလို ပေါ်ပါလိမ့်မယ်။</p>
 <pre><code>Thing: Carlos: 8
@@ -198,7 +198,7 @@ Thing JSValue: Carlos: 8
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

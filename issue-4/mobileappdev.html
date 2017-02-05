@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="Mobile Apps ဖန်တီးခြင်း">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Mobile Apps Development
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -126,40 +126,40 @@
 <h2 id="language">Language</h2>
 <h3 id="objective-c">Objective-C</h3>
 <p>Objective-C ကတော့ Mac App နဲ့ iOS App ရေးတဲ့ နေရာတွေမှာ အသုံးပြုပါတယ်။ Objective-C မှာ <strong>.h</strong> နဲ့ <strong>.m</strong> file ၂ ခု ရှိပါတယ်။ .h ဆိုတာကတော့ header file ဖြစ်ပြီး .m ဆိုတာကတော့ message file ပါ။ .h မှာ သုံးမယ့် public method တွေ variable တွေ ကြေငြာထားပြီး .m မှာ implemention တွေ ရေးပါတယ်။ ဥပမာ။</p>
-<pre><code class="lang-objc">//HelloWorldViewController.h
-@interface HelloWorldViewController : UIViewController
-@property (nonatomic,strong) NSString* titleName;
--(void)showHelloWorld;
-@end
+<pre><code class="lang-objc"><span class="comment">//HelloWorldViewController.h</span>
+<span class="class"><span class="keyword">@interface</span> <span class="title">HelloWorldViewController</span> : <span class="title">UIViewController</span></span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">NSString</span>* titleName;
+-(<span class="keyword">void</span>)showHelloWorld;
+<span class="keyword">@end</span>
 
-//HelloWorldViewController.m
-@interface HelloWorldViewController()
--(NSString*)updateValue;
-@end
-@implementation HelloWorldViewController
--(void)showHelloWorld {
-self.titleName = [self updateValue];
-console.log(&quot;Message : %@&quot;,self.titleName);
+<span class="comment">//HelloWorldViewController.m</span>
+<span class="class"><span class="keyword">@interface</span> <span class="title">HelloWorldViewController</span>()</span>
+-(<span class="built_in">NSString</span>*)updateValue;
+<span class="keyword">@end</span>
+<span class="class"><span class="keyword">@implementation</span> <span class="title">HelloWorldViewController</span></span>
+-(<span class="keyword">void</span>)showHelloWorld {
+<span class="keyword">self</span>.titleName = [<span class="keyword">self</span> updateValue];
+console.log(<span class="string">"Message : %@"</span>,<span class="keyword">self</span>.titleName);
 }
 
--(NSString*)updateValue {
-return @&quot;Hello World&quot;;
+-(<span class="built_in">NSString</span>*)updateValue {
+<span class="keyword">return</span> <span class="string">@"Hello World"</span>;
 }
-@end
+<span class="keyword">@end</span>
 </code></pre>
 <p>.h ထဲမှာ titleName ဆိုတဲ့ variable တစ်ခုနဲ့ showHelloWorld ဆိုတဲ့ function တစ်ခုပါပါတယ်။ UIViewController ကို inheritance လုပ်ထားပါတယ်။ .m ထဲမှာတော့ showHelloWorld ကို implement လုပ်ထားပြီးတော့ private function အနေနဲ့ updateValue ဆိုတာ ပါပါတယ်။ Objective-C မှာ string ကို @ နဲ့ စပြီးရေးရပါတယ်။ “value” နဲ့ ရေးလို့ မရပါဘူး။ @”value” လို့ ရေးရပါတယ်။ function ကို ခေါ်ချင်ရင် [ နဲ့ စပြီးတော့ object လာပါတယ်။ ပြီးရင် function name လာတယ်။ အဆုံးမှာ ]; နဲ့ ပြန်ပိတ်ပါတယ်။ Parameter ပို့ချင်ရင် အောက်ကလို ရေးပါတယ်။</p>
-<pre><code class="lang-objc">-(void)updateValue:(NSString*)str WithAppend:(BOOL)append {
-if(append)
+<pre><code class="lang-objc">-(<span class="keyword">void</span>)updateValue:(<span class="built_in">NSString</span>*)str WithAppend:(<span class="built_in">BOOL</span>)append {
+<span class="keyword">if</span>(append)
 {
-self.titleName = [self.titleName stringByAppendingString:str];
+<span class="keyword">self</span>.titleName = [<span class="keyword">self</span>.titleName stringByAppendingString:str];
 }
-else {
-self.titleName = str;
+<span class="keyword">else</span> {
+<span class="keyword">self</span>.titleName = str;
 }
 }
 </code></pre>
 <p>အဲဒီ function ကို paramter နဲ့ ခေါ်ချင်ရင်တော့</p>
-<pre><code class="lang-objc">[self updateValue:@&quot;Awesome&quot; WithAppend:YES];
+<pre><code class="lang-objc">[<span class="keyword">self</span> updateValue:<span class="string">@"Awesome"</span> WithAppend:<span class="literal">YES</span>];
 </code></pre>
 <p>Boolean value ကို Obj-C မှာ YES နဲ့ NO သုံးပါတယ်။ true နဲ့ false မသုံးပါ။</p>
 <h3 id="java">Java</h3>
@@ -220,7 +220,7 @@ self.titleName = str;
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

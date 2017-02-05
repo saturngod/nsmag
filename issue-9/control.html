@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="ကျွန်တော်သုံးဖူးသော iOS control API များ">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>iOS Custom Controls that I use
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -60,35 +60,35 @@ Control လေးတွေများနေလို့ အပိုင်း�
 <p><strong><em>Code in ViewDidLoad</em></strong></p>
 <pre><code class="lang-objc">
 _slimeView = [[SRRefreshView alloc] init];
-_slimeView.delegate = self;
-_slimeView.upInset = 44;
-_slimeView.slimeMissWhenGoingBack = YES;
-_slimeView.slime.bodyColor = [UIColor blackColor];
-_slimeView.slime.skinColor = [UIColor whiteColor];
-_slimeView.slime.lineWith = 1;
-_slimeView.slime.shadowBlur = 4;
-_slimeView.slime.shadowColor = [UIColor blackColor];
+_slimeView.delegate = <span class="keyword">self</span>;
+_slimeView.upInset = <span class="number">44</span>;
+_slimeView.slimeMissWhenGoingBack = <span class="literal">YES</span>;
+_slimeView.slime.bodyColor = [<span class="built_in">UIColor</span> blackColor];
+_slimeView.slime.skinColor = [<span class="built_in">UIColor</span> whiteColor];
+_slimeView.slime.lineWith = <span class="number">1</span>;
+_slimeView.slime.shadowBlur = <span class="number">4</span>;
+_slimeView.slime.shadowColor = [<span class="built_in">UIColor</span> blackColor];
 
 [_tableView addSubview:_slimeView];
 
-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+(<span class="keyword">void</span>)scrollViewDidEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView willDecelerate:(<span class="built_in">BOOL</span>)decelerate
 {
 [_slimeView scrollViewDidEndDraging];
 }
 
-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+(<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView
 {
 [_slimeView scrollViewDidScroll];
 }
 
-(void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+(<span class="keyword">void</span>)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
 {
 
-// Your Code to refresh
+<span class="comment">// Your Code to refresh</span>
 
-[self.slimeView performSelector:@selector(endRefresh)
-withObject:nil afterDelay:3
-inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+[<span class="keyword">self</span>.slimeView performSelector:<span class="keyword">@selector</span>(endRefresh)
+withObject:<span class="literal">nil</span> afterDelay:<span class="number">3</span>
+inModes:[<span class="built_in">NSArray</span> arrayWithObject:<span class="built_in">NSRunLoopCommonModes</span>]];
 }
 </code></pre>
 <p><img src="/issue-9/images/pull.png" alt=""></p>
@@ -99,10 +99,10 @@ inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 <li>set Delegate <code>&lt;MBProgressHUDDelegate&gt;</code></li>
 </ol>
 <p>For Show HUD ActivityIndicator Control</p>
-<pre><code class="lang-objc">[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+<pre><code class="lang-objc">[MBProgressHUD showHUDAddedTo:<span class="keyword">self</span>.view animated:<span class="literal">YES</span>];
 </code></pre>
 <p>Hide HUD ActivityIndicator Control</p>
-<pre><code class="lang-objc">[MBProgressHUD hideHUDForView:self.view animated:YES];
+<pre><code class="lang-objc">[MBProgressHUD hideHUDForView:<span class="keyword">self</span>.view animated:<span class="literal">YES</span>];
 </code></pre>
 <p><img src="/issue-9/images/mbprogress.png" alt=""></p>
 <h2 id="dalinedtextview">DALinedTextView</h2>
@@ -111,13 +111,13 @@ inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 <ol>
 <li>set <code>#import &quot;DALinedTextView.h&quot;</code></li>
 </ol>
-<pre><code class="lang-objc">@property (nonatomic, strong) DALinedTextView *textView;
+<pre><code class="lang-objc"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) DALinedTextView *textView;
 
- self.textView = [[DALinedTextView alloc] init];
-    self.textView.frame = self.view.bounds;
-    self.textView.font = [UIFont systemFontOfSize:18];
-    self.textView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
-    [self.view addSubview:self.textView];
+ <span class="keyword">self</span>.textView = [[DALinedTextView alloc] init];
+    <span class="keyword">self</span>.textView.frame = <span class="keyword">self</span>.view.bounds;
+    <span class="keyword">self</span>.textView.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">18</span>];
+    <span class="keyword">self</span>.textView.autoresizingMask = (<span class="built_in">UIViewAutoresizingFlexibleHeight</span> | <span class="built_in">UIViewAutoresizingFlexibleWidth</span>);
+    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.textView];
 </code></pre>
 <p><img src="/issue-9/images/linetextview.png" alt=""></p>
 <h3 id="jlactionsheet">JLActionSheet</h3>
@@ -126,20 +126,20 @@ inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 <li>set <code>#import &quot;JLActionSheet.h&quot;</code></li>
 <li>set Delegate <code>&lt;JLActionSheetDelegate&gt;</code></li>
 </ol>
-<pre><code class="lang-objc">NSMutableArray* buttonTitles = [self getFacebookTitles];
-            NSString* cancelTitle        = @&quot;Cancel&quot;;
-            NSString* sheetTitle         = @&quot;Choose method to Post!&quot;;
+<pre><code class="lang-objc"><span class="built_in">NSMutableArray</span>* buttonTitles = [<span class="keyword">self</span> getFacebookTitles];
+            <span class="built_in">NSString</span>* cancelTitle        = <span class="string">@"Cancel"</span>;
+            <span class="built_in">NSString</span>* sheetTitle         = <span class="string">@"Choose method to Post!"</span>;
 
-            JLActionSheet *actionSheet                 = [JLActionSheet sheetWithTitle:sheetTitle delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:buttonTitles];
+            JLActionSheet *actionSheet                 = [JLActionSheet sheetWithTitle:sheetTitle delegate:<span class="keyword">self</span> cancelButtonTitle:cancelTitle otherButtonTitles:buttonTitles];
 
-            actionSheet.tag = 2;
-            [actionSheet allowTapToDismiss:YES];
+            actionSheet.tag = <span class="number">2</span>;
+            [actionSheet allowTapToDismiss:<span class="literal">YES</span>];
             [actionSheet setStyle:JLSTYLE_STEEL];
-            [actionSheet showOnViewController:self];
+            [actionSheet showOnViewController:<span class="keyword">self</span>];
 
-- (void)actionSheet:(JLActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (<span class="keyword">void</span>)actionSheet:(JLActionSheet *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex
 {
-    // ClickedButtonAtIndex Code
+    <span class="comment">// ClickedButtonAtIndex Code</span>
 }
 </code></pre>
 <p><img src="/issue-9/images/JLActionSheet.png" alt=""></p>
@@ -152,50 +152,50 @@ inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 <li><code>-(void)reachabilityChanged:(NSNotification*)note;</code></li>
 </ol>
 <p>Code for check</p>
-<pre><code class="lang-objc">- (void)checkIsOnline
+<pre><code class="lang-objc">- (<span class="keyword">void</span>)checkIsOnline
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityChanged:)
+    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span>
+                                             selector:<span class="keyword">@selector</span>(reachabilityChanged:)
                                                  name:kReachabilityChangedNotification
-                                               object:nil];
+                                               object:<span class="literal">nil</span>];
 
-    self.reach = [Reachability reachabilityWithHostname:@&quot;www.google.com&quot;];
+    <span class="keyword">self</span>.reach = [Reachability reachabilityWithHostname:<span class="string">@"www.google.com"</span>];
 
-    self.reach.reachableBlock = ^(Reachability * reachability)
+    <span class="keyword">self</span>.reach.reachableBlock = ^(Reachability * reachability)
     {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@&quot;Reachable&quot;);
+        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^{
+            <span class="built_in">NSLog</span>(<span class="string">@"Reachable"</span>);
         });
     };
 
-    self.reach.unreachableBlock = ^(Reachability * reachability)
+    <span class="keyword">self</span>.reach.unreachableBlock = ^(Reachability * reachability)
     {
-        dispatch_async(dispatch_get_main_queue(), ^{            
-            NSLog(@&quot;UnReachable&quot;);
+        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^{            
+            <span class="built_in">NSLog</span>(<span class="string">@"UnReachable"</span>);
         });
     };
 
-    [self.reach startNotifier];
+    [<span class="keyword">self</span>.reach startNotifier];
 }
 
--(void)reachabilityChanged:(NSNotification*)note
+-(<span class="keyword">void</span>)reachabilityChanged:(<span class="built_in">NSNotification</span>*)note
 {
-    self.reach = [note object];
+    <span class="keyword">self</span>.reach = [note object];
 
-    if([self.reach isReachable])
+    <span class="keyword">if</span>([<span class="keyword">self</span>.reach isReachable])
     {
-        NSLog(@&quot;Reachable&quot;);
+        <span class="built_in">NSLog</span>(<span class="string">@"Reachable"</span>);
     }
-    else
+    <span class="keyword">else</span>
     {
-        NSLog(@&quot;UnReachable&quot;);
+        <span class="built_in">NSLog</span>(<span class="string">@"UnReachable"</span>);
     }
 }
 </code></pre>
 <p>အပေါ်က Code လေးတွေနဲ့ အလွယ်သုံးလို့ရပါတယ်။ If Condition နဲ့ စစ်ချင်ရင်လည်း</p>
-<pre><code class="lang-objc">if([self.reach isReachable])
+<pre><code class="lang-objc"><span class="keyword">if</span>([<span class="keyword">self</span>.reach isReachable])
     {
-        NSLog(@&quot;Reachable&quot;);
+        <span class="built_in">NSLog</span>(<span class="string">@"Reachable"</span>);
     }
 </code></pre>
 <p>နဲ့စစ်လို့ရပါတယ်။</p>
@@ -203,7 +203,7 @@ inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

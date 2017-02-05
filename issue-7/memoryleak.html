@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="memory leak နှင့် ပတ်သက်၍ သိကောင်းစရာ">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Memory Leaking
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -50,11 +50,11 @@
 <p>ဒါ့ကြောင့်မို့လို့ ကိုယ့်ရဲ့ iOS App လေးကို Development လုပ်နေတုန်းမှာ Memory Leak ရှိမရှိကို စစ်ဆေးလို့ရတဲ့ XCode မှာပါတဲ့ Instrument Tool လေးအသုံးပြုပုံလေးတွေကို ဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။</p>
 <p>အရင်ဆုံး XCode ကိုဖွင့်ပြီး Project တစ်ခုဆောက်လိုက်ပါ။</p>
 <p>Project ဆောက်တဲ့နေရာမှာ Use Automatic Reference Counting ကို UnCheck လုပ်ပေးလိုက်ပါ။ပြီးရင် ကိုယ်ကြိုက်တဲ့နာမည်ပေးပြီးတော့ အောက်က Code လေးတွေကို UIButton နဲ့ Action ချိတ်ပေးလိုက်ပါ။</p>
-<pre><code class="lang-objc">- (IBAction)checkMemory:(id)sender {
-while (true)
+<pre><code class="lang-objc">- (<span class="keyword">IBAction</span>)checkMemory:(<span class="keyword">id</span>)sender {
+<span class="keyword">while</span> (<span class="literal">true</span>)
 {
-NSNumber *i = [[NSNumber alloc] initWithLong:1000];
-NSLog(@&quot;Count is %d&quot;,[i retainCount]);
+<span class="built_in">NSNumber</span> *i = [[<span class="built_in">NSNumber</span> alloc] initWithLong:<span class="number">1000</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"Count is %d"</span>,[i retainCount]);
 }
 }
 </code></pre>
@@ -77,11 +77,11 @@ NSLog(@&quot;Count is %d&quot;,[i retainCount]);
 <p><img src="/issue-7/images/leakcodeDetail.png" alt=""></p>
 <p>ဒါဆိုရင် ကျွန်တော်တို့ရေးထားတဲ့ Code လေးမှာ Memory Leaking ဖြစ်နေတယ်ဆိုပြီး အနီရောင်လေး နဲ့လာပြနေမှာ ဖြစ်ပါတယ်။</p>
 <p>အဲ့ဒီ Memory Leaking ဖြစ်စေတဲ့ Code လေးကို အောက်ကလို ပြောင်းရေးပေးလိုက်ပါ။</p>
-<pre><code class="lang-objc">- (IBAction)checkMemory:(id)sender {
-while (true)
+<pre><code class="lang-objc">- (<span class="keyword">IBAction</span>)checkMemory:(<span class="keyword">id</span>)sender {
+<span class="keyword">while</span> (<span class="literal">true</span>)
 {
-NSNumber *i = [[NSNumber alloc] initWithLong:1000];
-NSLog(@&quot;Count is %d&quot;,[i retainCount]);
+<span class="built_in">NSNumber</span> *i = [[<span class="built_in">NSNumber</span> alloc] initWithLong:<span class="number">1000</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"Count is %d"</span>,[i retainCount]);
 [i release];
 }
 }
@@ -105,7 +105,7 @@ NSLog(@&quot;Count is %d&quot;,[i retainCount]);
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="Restful ကို လွယ်လွယ် ကူကူ အသုံးပြုနိုင် သည့် Network Library Framework">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>AFNetworking
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -47,11 +47,11 @@
 <h3 id="afnetworking-">AFNetworking ဆိုတာ ဘာလဲ</h3>
 <p>AFNetworking ဆိုတာ iOS နဲ့ OS X တို့အတွက် networking framework တစ်ခုပါ။ NSURLConnection, NSOperation တို့ကို အသုံးပြုပြီး ရေးထားတဲ့ framework ပါ။ AFNetworking framework ကို အသုံးပြုပြီးတော့ networking code တွေကို လွယ်လွယ်ကူကူ ရေးလို့ရလာပါတယ်။</p>
 <p>ဥပမာ။</p>
-<pre><code class="lang-objc">NSURL *url = [NSURL URLWithString:@&quot;https://alpha-api.app.net/stream/0/posts/stream/global&quot;];
-NSURLRequest *request = [NSURLRequest requestWithURL:url];
-AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-NSLog(@&quot;App.net Global Stream: %@&quot;, JSON);
-} failure:nil];
+<pre><code class="lang-objc"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"https://alpha-api.app.net/stream/0/posts/stream/global"</span>];
+<span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];
+AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(<span class="built_in">NSURLRequest</span> *request, <span class="built_in">NSHTTPURLResponse</span> *response, <span class="keyword">id</span> JSON) {
+<span class="built_in">NSLog</span>(<span class="string">@"App.net Global Stream: %@"</span>, JSON);
+} failure:<span class="literal">nil</span>];
 [operation start];
 </code></pre>
 <p>Block ကို အသုံးပြုထားတဲ့ အတွက် သုံးရတာ ပုံမှန် NSURLConnection ထက် အများကြီး လွယ်ကူပါတယ်။ ဒါ့အပြင် ရလာတဲ့ JSON string ကို NSDictionary သို့မဟုတ် NSArray အလိုအလျောက် ပြောင်းပေးပါတယ်။</p>
@@ -61,51 +61,51 @@ NSLog(@&quot;App.net Global Stream: %@&quot;, JSON);
 <p>AFNetworking ကို အသုံပြုဖို့ iOS 5.0 သို့မဟုတ် သူ့အထက် version လိုအပ်ပါတယ်။ Mac OS 10.7 နှင့်အထက် လည်း အသုံးပြုနိုင်ပါတယ်။ iOS 4.3 နဲ့ သုံးချင်တယ်ဆိုရင် version 0.10.x ကို အသုံးပြုမှ ရပါတယ်။ AFNetwork ဟာ ARC ကို အသုံးပြုထားပါတယ်။</p>
 <h3 id="example">Example</h3>
 <p><strong>XML Request</strong></p>
-<pre><code class="lang-objc">NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;http://api.flickr.com/services/rest/?method=flickr.groups.browse&amp;api_key=b6300e17ad3c506e706cb0072175d047&amp;cat_id=34427469792%40N01&amp;format=rest&quot;]];
+<pre><code class="lang-objc"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://api.flickr.com/services/rest/?method=flickr.groups.browse&amp;api_key=b6300e17ad3c506e706cb0072175d047&amp;cat_id=34427469792%40N01&amp;format=rest"</span>]];
 
-AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
-XMLParser.delegate = self;
+AFXMLRequestOperation *operation = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request success:^(<span class="built_in">NSURLRequest</span> *request, <span class="built_in">NSHTTPURLResponse</span> *response, <span class="built_in">NSXMLParser</span> *XMLParser) {
+XMLParser.delegate = <span class="keyword">self</span>;
 [XMLParser parse];
-} failure:nil];
+} failure:<span class="literal">nil</span>];
 [operation start];
 </code></pre>
 <p><strong>Image Request</strong></p>
-<pre><code class="lang-objc">UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 100.0f)];
-[imageView setImageWithURL:[NSURL URLWithString:@&quot;http://i.imgur.com/r4uwx.jpg&quot;] placeholderImage:[UIImage imageNamed:@&quot;placeholder-avatar&quot;]];
+<pre><code class="lang-objc"><span class="built_in">UIImageView</span> *imageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0.0</span>f, <span class="number">0.0</span>f, <span class="number">100.0</span>f, <span class="number">100.0</span>f)];
+[imageView setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://i.imgur.com/r4uwx.jpg"</span>] placeholderImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"placeholder-avatar"</span>]];
 </code></pre>
 <p><strong>API Client Request</strong></p>
-<pre><code class="lang-objc">// AFAppDotNetAPIClient is a subclass of AFHTTPClient, which defines the base URL and default HTTP headers for NSURLRequests it creates
-[[AFAppDotNetAPIClient sharedClient] getPath:@&quot;stream/0/posts/stream/global&quot; parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
-NSLog(@&quot;App.net Global Stream: %@&quot;, JSON);
-} failure:nil];
+<pre><code class="lang-objc"><span class="comment">// AFAppDotNetAPIClient is a subclass of AFHTTPClient, which defines the base URL and default HTTP headers for NSURLRequests it creates</span>
+[[AFAppDotNetAPIClient sharedClient] getPath:<span class="string">@"stream/0/posts/stream/global"</span> parameters:<span class="literal">nil</span> success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> JSON) {
+<span class="built_in">NSLog</span>(<span class="string">@"App.net Global Stream: %@"</span>, JSON);
+} failure:<span class="literal">nil</span>];
 </code></pre>
 <p><strong>File Upload with Progress Callback</strong></p>
-<pre><code class="lang-objc">NSURL *url = [NSURL URLWithString:@&quot;http://api-base-url.com&quot;];
+<pre><code class="lang-objc"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://api-base-url.com"</span>];
 AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@&quot;avatar.jpg&quot;], 0.5);
-NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@&quot;POST&quot; path:@&quot;/upload&quot; parameters:nil constructingBodyWithBlock: ^(id &lt;AFMultipartFormData&gt;formData) {
-[formData appendPartWithFileData:imageData name:@&quot;avatar&quot; fileName:@&quot;avatar.jpg&quot; mimeType:@&quot;image/jpeg&quot;];
+<span class="built_in">NSData</span> *imageData = <span class="built_in">UIImageJPEGRepresentation</span>([<span class="built_in">UIImage</span> imageNamed:<span class="string">@"avatar.jpg"</span>], <span class="number">0.5</span>);
+<span class="built_in">NSMutableURLRequest</span> *request = [httpClient multipartFormRequestWithMethod:<span class="string">@"POST"</span> path:<span class="string">@"/upload"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock: ^(<span class="keyword">id</span> &lt;AFMultipartFormData&gt;formData) {
+[formData appendPartWithFileData:imageData name:<span class="string">@"avatar"</span> fileName:<span class="string">@"avatar.jpg"</span> mimeType:<span class="string">@"image/jpeg"</span>];
 }];
 
 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-[operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-NSLog(@&quot;Sent %lld of %lld bytes&quot;, totalBytesWritten, totalBytesExpectedToWrite);
+[operation setUploadProgressBlock:^(<span class="built_in">NSUInteger</span> bytesWritten, <span class="keyword">long</span> <span class="keyword">long</span> totalBytesWritten, <span class="keyword">long</span> <span class="keyword">long</span> totalBytesExpectedToWrite) {
+<span class="built_in">NSLog</span>(<span class="string">@"Sent %lld of %lld bytes"</span>, totalBytesWritten, totalBytesExpectedToWrite);
 }];
 [httpClient enqueueHTTPRequestOperation:operation];
 </code></pre>
 <p><strong>Streaming Request</strong></p>
-<pre><code class="lang-objc">NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;http://localhost:8080/encode&quot;]];
+<pre><code class="lang-objc"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://localhost:8080/encode"</span>]];
 
 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-operation.inputStream = [NSInputStream inputStreamWithFileAtPath:[[NSBundle mainBundle] pathForResource:@&quot;large-image&quot; ofType:@&quot;tiff&quot;]];
-operation.outputStream = [NSOutputStream outputStreamToMemory];
+operation.inputStream = [<span class="built_in">NSInputStream</span> inputStreamWithFileAtPath:[[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"large-image"</span> ofType:<span class="string">@"tiff"</span>]];
+operation.outputStream = [<span class="built_in">NSOutputStream</span> outputStreamToMemory];
 [operation start];
 </code></pre>
 <p>လက်တွေ့ အသုံးချထားတဲ့ ဥပမာ ကိုတော့ သူ့ရဲ့ Example Project ကို ကြည့်နိုင်ပါတယ်။ သူက App.net API ကို အသုံးပြုထားပြီးတော့ ပြထားပါတယ်။ AFHTTPClient ကို အသုံးပြုပြီးတော့ Object ဆောက်ထားပါတယ်။ သူ့ရဲ့ Example Project က လေ့လာစရာတွေ အများကြီးပါပါတယ်။ MVC ကို ဘယ်လိုရေးသင့်လဲ။ Network Layer ဘယ်လို ခွဲပြီး ရေးသင့်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။</p>
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

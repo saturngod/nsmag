@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="Swift သုံးသင့်ပြီလား ?">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Swift ?
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -44,15 +44,15 @@
       <div class="author">ရေးသားသူ : <span class="authorname">saturngod</span></div>
     </div><img src="img/shouldswift.png" class="headerImage">
     <div class="content detailArticle"><p>Apple က Swift ကို ကြေငြာပြီးတဲ့ နောက်တနေ့မှာပဲ Swift စာအုပ်ကို iBooks store ကနေ ပထမ နေ့မှာ တင် ၃၇၀,၀၀၀ ရှိပါတယ်။ Swift ဟာ modern langauge ဖြစ်ပြီးတော့ ရေးရတဲ့ အခါမှာ Safe ဖြစ်တယ်။ နောက်ပြီး Unicode ကို variable အဖြစ်ပေးလို့ရတယ်။</p>
-<pre><code class="lang-swift">var 🙏: String? = &quot;မြန်မာ font ကို iOS မှာ ရပါစေ&quot;
+<pre><code class="lang-swift"><span class="keyword">var</span> 🙏: <span class="type">String</span>? = <span class="string">"မြန်မာ font ကို iOS မှာ ရပါစေ"</span>
 
-if let တောင်းဆု = 🙏 {
-    var ရလဒ် = &quot;&quot;
-    for ရက် in 0...6 {
-        //၁ ပတ်ပြည့်လျှင် ပြည့်စေ
-        if( ရက် == 6 )
+<span class="keyword">if</span> <span class="keyword">let</span> တောင်းဆု = 🙏 {
+    <span class="keyword">var</span> ရလဒ် = <span class="string">""</span>
+    <span class="keyword">for</span> ရက် <span class="keyword">in</span> <span class="number">0</span>...<span class="number">6</span> {
+        <span class="comment">//၁ ပတ်ပြည့်လျှင် ပြည့်စေ</span>
+        <span class="keyword">if</span>( ရက် == <span class="number">6</span> )
         {
-            ရလဒ် = &quot;သင့် တောင်းဆု ဖြစ်သော &#39;\(တောင်းဆု)&#39; သည် iOS 8 ထွက်လာလျှင် ပြည့်စေ&quot;
+            ရလဒ် = <span class="string">"သင့် တောင်းဆု ဖြစ်သော '<span class="subst">\(တောင်းဆု)</span>' သည် iOS 8 ထွက်လာလျှင် ပြည့်စေ"</span>
         }
     }
     ရလဒ်
@@ -67,22 +67,22 @@ if let တောင်းဆု = 🙏 {
 <p>Processor 2.2 GHz Intel Core i7</p>
 <p>Memory 8GB 1333 MHz DDR3</p>
 <p>ပါ။</p>
-<pre><code class="lang-swift">let start = NSDate()
-for var i = 0; i &lt;= 1000000; ++i {
+<pre><code class="lang-swift"><span class="keyword">let</span> start = <span class="type">NSDate</span>()
+<span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">1000000</span>; ++i {
 
 }
 
-var end = NSDate()        
-var timeTaken = end.timeIntervalSinceDate(start) * 1000        
-println(timeTaken)
+<span class="keyword">var</span> end = <span class="type">NSDate</span>()        
+<span class="keyword">var</span> timeTaken = end.timeIntervalSinceDate(start) * <span class="number">1000</span>        
+<span class="built_in">println</span>(timeTaken)
 </code></pre>
-<pre><code class="lang-objc">NSDate * start = [NSDate date];    
-for (int i=0; i&lt;=100000; i++) {
+<pre><code class="lang-objc"><span class="built_in">NSDate</span> * start = [<span class="built_in">NSDate</span> date];    
+<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">100000</span>; i++) {
 
 }
-NSDate * end = [NSDate date];
-double timeTaken = [end timeIntervalSinceDate:start] * 1000;
-NSLog(@&quot;%f&quot;,timeTaken);
+<span class="built_in">NSDate</span> * end = [<span class="built_in">NSDate</span> date];
+<span class="keyword">double</span> timeTaken = [end timeIntervalSinceDate:start] * <span class="number">1000</span>;
+<span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,timeTaken);
 </code></pre>
 <p>Swift အတွက် Compiler flag ၃ ခု နဲ့ စမ်းထားပါတယ်။ Release လုပ်တဲ့ အခါမှာ -O (Fastest) ကို Swift က အသုံးပြုပါတယ်။ Debug မှာတော့ None ပါ။ အချိန်တွေ အားလုံးက Millisecond  value တန်ဖိုးတွေပါ။</p>
 <pre><code>Swift [None -Onone] 18.4089541435242
@@ -106,7 +106,7 @@ Fastest,Aggressive Optimizations [-Ofast] 0.008047
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

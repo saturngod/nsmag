@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="Git အသုံးပြုပြီး branch တွေကို ဘယ်လို ခွဲသင့်လဲ">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Git Branching
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -86,60 +86,60 @@ Switched to a new branch <span class="string">"myfeature"</span>
 <pre><code class="lang-bash">$ git checkout develop
 Switched to branch <span class="string">'develop'</span>
 $ git merge --no-ff myfeature
-Updating ea1b82a..<span class="number">05</span>e9557
+Updating ea1b82a..05e9557
 (Summary of changes)
-$ git branch <span class="operator">-d</span> myfeature
-Deleted branch myfeature (was <span class="number">05</span>e9557).
+$ git branch <span class="_">-d</span> myfeature
+Deleted branch myfeature (was 05e9557).
 $ git push origin develop
 </code></pre>
-<p>—no-ff ကို သုံးရတာက merge လုပ်တဲ့ အခါမှာ commit အသစ်ဖြစ်သွားဖို့ပါ။ merge လုပ်ရတာကို ပိုမို မြန်ဆန်စေပါတယ်။ အောက်က ပုံလေးကို ကြည့်လိုက်ရင် ရှင်းသွားပါမယ်။</p>
+<p>–no-ff ကို သုံးရတာက merge လုပ်တဲ့ အခါမှာ commit အသစ်ဖြစ်သွားဖို့ပါ။ merge လုပ်ရတာကို ပိုမို မြန်ဆန်စေပါတယ်။ အောက်က ပုံလေးကို ကြည့်လိုက်ရင် ရှင်းသွားပါမယ်။</p>
 <p><img src="/issue-2/img/gitmerge.png" alt=""></p>
 <h3 id="release-branches">Release branches</h3>
 <p>Release branch ဟာ production မတိုင်ခင်မှာ အကုန် လုံး ready ဖြစ်မဖြစ် ပြန်စစ်တဲ့ အချိန်မှာ အသုံးပြုပါတယ်။ release လုပ်ဖို့ သေချာပြီ။ အကုန်လုံး အဆင်ပြေပြီလား ဆိုတာ ကို branch သီးသန့် ခွဲထုတ်ပြီးတော့ စစ်ပါတယ်။ release branch ကိုတော့ ကျွန်တော်တို့တွေ ပုံမှန်အားဖြင့် release name နဲ့ ပေးတတ်ကြပါတယ်။ ဥပမာ။ ။ release-v1.1 ဒါမှမဟုတ် ကျွန်တော်တို့တွေ နေ့စွဲနဲ့လည်း အသုံးပြုတတ်ကြပါတယ်။ ဥပမာ။ ။ release-13.06.13  ။ ပထမဆုံး ကျွန်တော်တို့ release branch တစ်ခုဖန်တီးမယ်။</p>
-<pre><code class="lang-bash">$ git checkout -b release-<span class="number">1.2</span> develop
+<pre><code class="lang-bash">$ git checkout -b release-1.2 develop
 Switched to a new branch <span class="string">"release-1.2"</span>
 </code></pre>
 <p>အကုန်လုံးကို testing လုပ်မယ်။ file စုံပြီလားစစ်မယ်။ release လုပ်ဖို့ သေချာပြီ ပြင်စရာမရှိတော့ဘူး ဆိုရင်တော့ master မှာ merge လုပ်မယ်။ ပြီးရင် tag name ပေးခဲ့မယ်။</p>
 <pre><code class="lang-bash">$ git checkout master
 Switched to branch <span class="string">'master'</span>
-$ git merge --no-ff release-<span class="number">1.2</span>
+$ git merge --no-ff release-1.2
 Merge made by recursive.
 (Summary of changes)
-$ git tag <span class="operator">-a</span> <span class="number">1.2</span>
+$ git tag <span class="_">-a</span> 1.2
 </code></pre>
 <p>Release အဆင့်မှာ master သာမက develop branch ကိုလည်း ပြန်ပေါင်းပေးဖို့လိုပါတယ်။</p>
 <pre><code class="lang-bash">$ git checkout develop
 Switched to branch <span class="string">'develop'</span>
-$ git merge --no-ff release-<span class="number">1.2</span>
+$ git merge --no-ff release-1.2
 Merge made by recursive.
 (Summary of changes)
 </code></pre>
 <p>အားလုံးပြီးသွားရင်တော့ ကျွန်တော်တို့တွေ release branch ကို ဖျက်လို့ရပါပြီ။</p>
-<pre><code class="lang-bash">$ git branch <span class="operator">-d</span> release-<span class="number">1.2</span>
+<pre><code class="lang-bash">$ git branch <span class="_">-d</span> release-1.2
 </code></pre>
 <h3 id="hotfix-branches">Hotfix branches</h3>
 <p>master branch က release လုပ်ပြီးသွားတာနဲ့ develop branch နဲ့ ပေါင်းပါတယ်။ သို့ပေမယ့် first release လုပ်ထားတဲ့ version မှာ major bugs သို့မဟုတ် တစ်ခုခု အပြောင်းအလဲ ကြောင့် လက်ရှိ ထုတ်ထားတဲ့ verison ကို update လုပ်ဖို့လိုပါပြီ။ ကျွန်တော်တို့တွေ git ကို branch တွေနဲ့ ခွဲပြီးရေးထားတဲ့ အကျိုးကြောင့် ထုတ်ထားတဲ့ version က master branch မှာ ရှိနေပါတယ်။ ဒါကြောင့် master branch ကနေ hotfix branch ကို ခွဲထုတ်ပြီး ပြင်ဆင်နိုင်ပါတယ်။ hotfix branch က ကျွန်တော်တို့ Release branch မှာလိုမျိုး version number နဲ့ branch name ကို ပေးထားသင့်ပါတယ်။</p>
-<pre><code class="lang-bash">$ git checkout -b hotfix-<span class="number">1.2</span>.<span class="number">1</span> develop
+<pre><code class="lang-bash">$ git checkout -b hotfix-1.2.1 develop
 Switched to a new branch <span class="string">"hotfix-1.2.12"</span>
 </code></pre>
 <p>Fixed လုပ်မယ်။ ပြီးရင် commit လုပ်မယ်။ ပြီးသွားရင် master မှာ ပြန်ပေါင်းမယ်။ ပြီးရင် version tag ပေးခဲ့မယ်။</p>
 <pre><code class="lang-bash">$ git checkout master
 Switched to branch <span class="string">'master'</span>
-$ git merge --no-ff hotfix-<span class="number">1.2</span>.<span class="number">1</span>
+$ git merge --no-ff hotfix-1.2.1
 Merge made by recursive.
 (Summary of changes)
-$ git tag <span class="operator">-a</span> <span class="number">1.2</span>.<span class="number">1</span>
+$ git tag <span class="_">-a</span> 1.2.1
 </code></pre>
 <p>အကုန်လုံးပြီးသွားရင် develop branch နဲ့လည်း ပြန်ပေါင်းပေးဖို့လိုပါတယ်။</p>
 <pre><code class="lang-bash">$ git checkout develop
 Switched to branch <span class="string">'develop'</span>
-$ git merge --no-ff hotfix-<span class="number">1.2</span>.<span class="number">1</span>
+$ git merge --no-ff hotfix-1.2.1
 Merge made by recursive.
 (Summary of changes)
 </code></pre>
 <p>အားလုံးပြီးပြီဆိုရင်တော့ ကျွန်တော်တို့ create လုပ်ထားတဲ့ hotfix branch ကို ပြန်ဖျက်ပါမယ်။</p>
-<pre><code class="lang-bash">$ git branch <span class="operator">-d</span> hotfix-<span class="number">1.2</span>.<span class="number">1</span>
-Deleted branch hotfix-<span class="number">1.2</span>.<span class="number">1</span> (was abbe5d6).
+<pre><code class="lang-bash">$ git branch <span class="_">-d</span> hotfix-1.2.1
+Deleted branch hotfix-1.2.1 (was abbe5d6).
 </code></pre>
 <p><img src="/issue-2/img/hotfix.png" alt=""></p>
 <h3 id="-">အနှစ်ချုပ်</h3>
@@ -147,7 +147,7 @@ Deleted branch hotfix-<span class="number">1.2</span>.<span class="number">1</sp
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>

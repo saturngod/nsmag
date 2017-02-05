@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="http://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
-    <link href="http://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
+    <link href="https://nsmag.comquas.com/style/style.css" rel="stylesheet" type="text/css">
+    <link href="https://mmwebfonts.comquas.com/fonts/?font=mon3" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet" type="text/css">
-    <link href="http://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
-    <script src="http://nsmag.comquas.com/js/highlight.pack.js"></script>
+    <link href="https://nsmag.comquas.com/style/tomorrow.css" rel="stylesheet" type="text/css">
+    <script src="https://nsmag.comquas.com/js/highlight.pack.js"></script>
     <meta name="Description" content="New York Time ရဲ့ Objective-C Style Gudie">
     <meta name="Keywords" content="nsmag,ios,android,magazine,myanmar">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
         })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
         _st('install','kayVVh9MsqUzrz-J_3Hv');
-        
-        
+      
+      
     </script>
     <title>Objective-C Style Guide (Part 2)
     </title>
@@ -25,11 +25,11 @@
   <body>
     <header class="siteheader content">
       <div class="siteheader-menu">
-        <div class="site-header-logo"><a href="http://nsmag.comquas.com" class="logo">NSMag</a></div>
+        <div class="site-header-logo"><a href="https://nsmag.comquas.com" class="logo">NSMag</a></div>
         <ul class="site-header-menu-list">
           <li><a href="http://j.mp/1EGM7ti">iOS</a></li>
           <li><a href="http://j.mp/18fooGH">Android</a></li>
-          <li><a href="http://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
+          <li><a href="https://nsmag.comquas.com/subscribe.html">Subscribe</a></li>
           <li>
             <form>
               <input id="search-input" type="text" class="st-search-input">
@@ -50,27 +50,27 @@
 <h2 id="init-and-dealloc">init and dealloc</h2>
 <p><code>dealloc</code> methods တွေဟာ ထိပ်မှာ implementation လုပ်ထားဖို့လိုပါသည်။ <code>@synthesize</code> နှင့် <code>@dynamic</code> အပြီးတွင် ရေးဖို့လိုသည်။ <code>init</code> ဟာ class ရဲ့ <code>dealloc</code> method အောက်တွင် ရေးဖို့လိုသည်။</p>
 <p><code>init</code> method သည် အောက်ပါ ပုံစံ ဖြစ်ရမည်။</p>
-<pre><code class="lang-objc">- (instancetype)init {
-self = [super init]; // or call the designated initalizer
-if (self) {
-// Custom initialization
+<pre><code class="lang-objc">- (<span class="keyword">instancetype</span>)init {
+<span class="keyword">self</span> = [<span class="keyword">super</span> init]; <span class="comment">// or call the designated initalizer</span>
+<span class="keyword">if</span> (<span class="keyword">self</span>) {
+<span class="comment">// Custom initialization</span>
 } 
-return self;
+<span class="keyword">return</span> <span class="keyword">self</span>;
 }
 </code></pre>
 <h2 id="literals">Literals</h2>
 <p><code>NSString</code>, <code>NSDictionary</code>, <code>NSArray</code>, နှင့် <code>NSNumber</code> တို့ကို imutable instance objects တွေ ဖန်တီးတဲ့ အခါမှာ အသုံးပြုပါ။ <code>nil</code> value ကို <code>NSArray</code> နှင့် <code>NSDictionary</code> တို့၏ literals တွင် ထည့်သွင်းလို့ မရပါ။ crash ဖြစ်နိုင်သည်။</p>
 <p><strong>ဥပမာ :</strong></p>
-<pre><code class="lang-objc">NSArray *names = @[@&quot;Brian&quot;, @&quot;Matt&quot;, @&quot;Chris&quot;, @&quot;Alex&quot;, @&quot;Steve&quot;, @&quot;Paul&quot;];
-NSDictionary *productManagers = @{@&quot;iPhone&quot; : @&quot;Kate&quot;, @&quot;iPad&quot; : @&quot;Kamal&quot;, @&quot;Mobile Web&quot; : @&quot;Bill&quot;};
-NSNumber *shouldUseLiterals = @YES;
-NSNumber *buildingZIPCode = @10018;
+<pre><code class="lang-objc"><span class="built_in">NSArray</span> *names = @[<span class="string">@"Brian"</span>, <span class="string">@"Matt"</span>, <span class="string">@"Chris"</span>, <span class="string">@"Alex"</span>, <span class="string">@"Steve"</span>, <span class="string">@"Paul"</span>];
+<span class="built_in">NSDictionary</span> *productManagers = @{<span class="string">@"iPhone"</span> : <span class="string">@"Kate"</span>, <span class="string">@"iPad"</span> : <span class="string">@"Kamal"</span>, <span class="string">@"Mobile Web"</span> : <span class="string">@"Bill"</span>};
+<span class="built_in">NSNumber</span> *shouldUseLiterals = @YES;
+<span class="built_in">NSNumber</span> *buildingZIPCode = @<span class="number">10018</span>;
 </code></pre>
 <p><strong>ဒီလို မသုံးပါနှင့်:</strong></p>
-<pre><code class="lang-objc">NSArray *names = [NSArray arrayWithObjects:@&quot;Brian&quot;, @&quot;Matt&quot;, @&quot;Chris&quot;, @&quot;Alex&quot;, @&quot;Steve&quot;, @&quot;Paul&quot;, nil];
-NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @&quot;Kate&quot;, @&quot;iPhone&quot;, @&quot;Kamal&quot;, @&quot;iPad&quot;, @&quot;Bill&quot;, @&quot;Mobile Web&quot;, nil];
-NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
-NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
+<pre><code class="lang-objc"><span class="built_in">NSArray</span> *names = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"Brian"</span>, <span class="string">@"Matt"</span>, <span class="string">@"Chris"</span>, <span class="string">@"Alex"</span>, <span class="string">@"Steve"</span>, <span class="string">@"Paul"</span>, <span class="literal">nil</span>];
+<span class="built_in">NSDictionary</span> *productManagers = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys: <span class="string">@"Kate"</span>, <span class="string">@"iPhone"</span>, <span class="string">@"Kamal"</span>, <span class="string">@"iPad"</span>, <span class="string">@"Bill"</span>, <span class="string">@"Mobile Web"</span>, <span class="literal">nil</span>];
+<span class="built_in">NSNumber</span> *shouldUseLiterals = [<span class="built_in">NSNumber</span> numberWithBool:<span class="literal">YES</span>];
+<span class="built_in">NSNumber</span> *buildingZIPCode = [<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">10018</span>];
 </code></pre>
 <h2 id="cgrect-functions">CGRect Functions</h2>
 <p><code>CGRect</code> ရဲ့ <code>x</code>, <code>y</code>, <code>width</code>, သို့မဟုတ် <code>height</code> တို့ကို access လုပ်တဲ့ အခါမှာ direct struct ခေါ်မည့်အစား <a href="http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html"><code>CGGeometry</code> functions</a> ကို အသုံးပြုပါ။</p>
@@ -79,37 +79,37 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 <p>All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.</p>
 </blockquote>
 <p><strong>ဥပမာ:</strong></p>
-<pre><code class="lang-objc">CGRect frame = self.view.frame;
+<pre><code class="lang-objc"><span class="built_in">CGRect</span> frame = <span class="keyword">self</span>.view.frame;
 
-CGFloat x = CGRectGetMinX(frame);
-CGFloat y = CGRectGetMinY(frame);
-CGFloat width = CGRectGetWidth(frame);
-CGFloat height = CGRectGetHeight(frame);
+<span class="built_in">CGFloat</span> x = <span class="built_in">CGRectGetMinX</span>(frame);
+<span class="built_in">CGFloat</span> y = <span class="built_in">CGRectGetMinY</span>(frame);
+<span class="built_in">CGFloat</span> width = <span class="built_in">CGRectGetWidth</span>(frame);
+<span class="built_in">CGFloat</span> height = <span class="built_in">CGRectGetHeight</span>(frame);
 </code></pre>
 <p><strong>ဒီလို မသုံးပါနှင့်:</strong></p>
-<pre><code class="lang-objc">CGRect frame = self.view.frame;
+<pre><code class="lang-objc"><span class="built_in">CGRect</span> frame = <span class="keyword">self</span>.view.frame;
 
-CGFloat x = frame.origin.x;
-CGFloat y = frame.origin.y;
-CGFloat width = frame.size.width;
-CGFloat height = frame.size.height;
+<span class="built_in">CGFloat</span> x = frame.origin.x;
+<span class="built_in">CGFloat</span> y = frame.origin.y;
+<span class="built_in">CGFloat</span> width = frame.size.width;
+<span class="built_in">CGFloat</span> height = frame.size.height;
 </code></pre>
 <h2 id="constants">Constants</h2>
 <p>Constans တွေကို in-line string literals သို့မဟုတ် numbers အနေဖြင့် အသုံးပြုသင့်သည်။ search and replace လုပ်စရာမလိုပဲ value ကို လွယ်လင့်တကူ ပြောင်းလဲနိုင်ရန် အတွက် ဖြစ်သည်။ Constanst တွေကို <code>static</code> ကြေငြာပါ။ macro မှ လွဲ၍ <code>define</code> ကို ဖြစ်နိုင်လျှင် အသုံးမပြုပါနှင့်။ </p>
 <p><strong>ဥပမာ :</strong></p>
-<pre><code class="lang-objc">static NSString * const NYTAboutViewControllerCompanyName = @&quot;The New York Times Company&quot;;
+<pre><code class="lang-objc"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> NYTAboutViewControllerCompanyName = <span class="string">@"The New York Times Company"</span>;
 
-static const CGFloat NYTImageThumbnailHeight = 50.0;
+<span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> NYTImageThumbnailHeight = <span class="number">50.0</span>;
 </code></pre>
 <p><strong>ဒီလို မသုံးပါနှင့် :</strong></p>
-<pre><code class="lang-objc">#define CompanyName @&quot;The New York Times Company&quot;
+<pre><code class="lang-objc"><span class="meta">#define CompanyName @<span class="meta-string">"The New York Times Company"</span></span>
 
-#define thumbnailHeight 2
+<span class="meta">#define thumbnailHeight 2</span>
 </code></pre>
 <h2 id="enumerated-types">Enumerated Types</h2>
 <p><code>enum</code> ကို အသုံးပြုတဲ့ အခါမှာ underlying type ကို သေသေချာချာကြေငြာခဲ့ဖို့ လိုပါတယ်။ code completion ကို အထောက်အကူပြုရန် အတွက်ဖြစ်ပါသည်။ SDK တွင် underlying ကို <code>NS_ENUM()</code> macro ကို အသုံးပြုပြီး ရေးနိုင်ပါသည်။</p>
 <p><strong>ဥပမာ:</strong></p>
-<pre><code class="lang-objc">typedef NS_ENUM(NSInteger, NYTAdRequestState) {
+<pre><code class="lang-objc"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, NYTAdRequestState) {
 NYTAdRequestStateInactive,
 NYTAdRequestStateLoading
 };
@@ -117,13 +117,13 @@ NYTAdRequestStateLoading
 <h2 id="private-properties">Private Properties</h2>
 <p>Priavte properties တွေဟာ class ရဲ့ implementation file မှာ class extension (anonymous categories) အနေနဲ့ ကြေငြာသင့်ပါတယ်။ </p>
 <p><strong>ဥပမာ:</strong></p>
-<pre><code class="lang-objc">@interface NYTAdvertisement ()
+<pre><code class="lang-objc"><span class="class"><span class="keyword">@interface</span> <span class="title">NYTAdvertisement</span> ()</span>
 
-@property (nonatomic, strong) GADBannerView *googleAdView;
-@property (nonatomic, strong) ADBannerView *iAdView;
-@property (nonatomic, strong) UIWebView *adXWebView;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) GADBannerView *googleAdView;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) ADBannerView *iAdView;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIWebView</span> *adXWebView;
 
-@end
+<span class="keyword">@end</span>
 </code></pre>
 <h2 id="image-naming">Image Naming</h2>
 <p>ပုံနာမည်ပေးတဲ့ အခါမှာ အသုံးပြုရမည့်ပေါ်မှာမူတည်ပြီးတော့ camel case ပုံ နာမည်ပေးသင့်ပါသည်။ အကယ်၍ တစ်ခုတည်းတွင် အသုံးပြုမည် ဆိုပါက နာမည်ရဲ့ ရှေ့မှာ အသုံးပြုမည့် class ဒါမှမဟုတ် protoerty ရဲ့ အမည်ကို ရှေ့တွင် ထည့်သွင်းရေးသားသင့်သည်။ </p>
@@ -140,24 +140,24 @@ ArticleNavigationBarWhite / ArticleNavigationBarWhite@2x
 <h2 id="booleans">Booleans</h2>
 <p><code>nil</code> သည် <code>NO</code> ဖြင့် အတူတူဖြစ်သည်။ ထို့ကြောင့် <code>nil</code> ကို ထည့်သွင်း စစ်ဆေးနေရန် မလိုပါ။ <code>YES</code> ကို တိုက်ရိုက် compare မလုပ်သင့်ပေ။ <code>YES</code> သည် 1 ဖြင့် အတူတူဖြစ်ပြီး <code>BOOL</code> ဟာ 8 bits ကို အသုံးပြုထားသည်။</p>
 <p><strong>ဥပမာ:</strong></p>
-<pre><code class="lang-objc">if (!someObject) {
+<pre><code class="lang-objc"><span class="keyword">if</span> (!someObject) {
 }
 </code></pre>
 <p><strong>ဒီလို မသုံးပါ:</strong></p>
-<pre><code class="lang-objc">if (someObject == nil) {
+<pre><code class="lang-objc"><span class="keyword">if</span> (someObject == <span class="literal">nil</span>) {
 }
 </code></pre>
 <p><strong><code>BOOL</code>, အတွက် နောက်ထပ် ဥပမာ:</strong></p>
-<pre><code class="lang-objc">if (isAwesome)
-if (![someObject boolValue])
+<pre><code class="lang-objc"><span class="keyword">if</span> (isAwesome)
+<span class="keyword">if</span> (![someObject boolValue])
 </code></pre>
 <p><strong>’ဒီလို မသုံးပါ:</strong></p>
-<pre><code class="lang-objc">if ([someObject boolValue] == NO)
-if (isAwesome == YES) // Never do this.
+<pre><code class="lang-objc"><span class="keyword">if</span> ([someObject boolValue] == <span class="literal">NO</span>)
+<span class="keyword">if</span> (isAwesome == <span class="literal">YES</span>) <span class="comment">// Never do this.</span>
 </code></pre>
 <p>အကယ်၍ <code>BOOL</code> protpery name ဟာ adjective ဖြစ်ခဲ့လျှင် is prefix ကို မသုံးလျှင်ရသည်။ သို့ပေမယ့် get accessor တွင် ထည့်သွင်းရေးပါ။</p>
 <p><strong>ဥပမာ :</strong></p>
-<pre><code class="lang-objc">@property (assign, getter=isEditable) BOOL editable;
+<pre><code class="lang-objc"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">getter</span>=isEditable) <span class="built_in">BOOL</span> editable;
 </code></pre>
 <p>စာ နှင့် ဥပမာ ကို <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE">Cocoa Naming Guidelines</a> မှ ကူးယူးဖော်ပြထားသည်။</p>
 <h2 id="singletons">Singletons</h2>
@@ -193,7 +193,7 @@ sharedInstance = [[self alloc] init];
 
     </div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://www.comquas.com/comquas_ads.js"></script>
+    <script src="https://www.comquas.com/comquas_ads.js"></script>
     <div class="line"></div>
     <div id="comquas-ads" class="content"></div>
     <footer class="endline content">© <a href="http://www.comquas.com">COMQUAS </a>2015</footer>
